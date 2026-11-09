@@ -10,15 +10,11 @@ module.exports = function () {
     },
     {
       q: "How much is all-you-can-eat?",
-      a: `At Alki Beach: AYCE Lunch ${a.alki.lunch}, Premium ${a.alki.premium} and Supreme ${a.alki.supreme} per person. In Kent: AYCE Lunch ${a.kent.lunch}, Premium ${a.kent.premium} and Supreme ${a.kent.supreme} per person. Kids 4–10 are half price.`,
+      a: `There are three tiers. At Alki Beach: Signature ${a.alki.signature}, Premium ${a.alki.premium} and Supreme ${a.alki.supreme} per person. In Kent: Signature ${a.kent.signature}, Premium ${a.kent.premium} and Supreme ${a.kent.supreme} per person. Kids 4–10 are half price.`,
     },
     {
-      q: "When is AYCE lunch?",
-      a: `At Alki Beach, ${a.alki.lunchDays}. In Kent, ${a.kent.lunchDays}. AYCE lunch is not offered on holidays.`,
-    },
-    {
-      q: "What’s the difference between Premium and Supreme?",
-      a: "Premium includes 28 meats, from thin-sliced brisket and pork belly to marinated galbi, plus appetizers, stews and banchan. Supreme includes everything in Premium plus four supreme cuts, including Angus ribeye (limit 1 per person) and Angus boneless short rib (limit 2 per person).",
+      q: "What’s the difference between Signature, Premium and Supreme?",
+      a: "Signature has 24 meats, from thin-sliced brisket and pork belly to bulgogi, chicken and shrimp, plus 13 appetizers and stews and unlimited banchan. Premium adds LA galbi, beef tongue, baby octopus and spicy marinated squid. Supreme adds pork jowl, beef intestine, Angus ribeye (limit 1 per person) and Angus boneless short rib (limit 2 per person), plus five Supreme-only appetizers: bulgogi quesadilla, sotteok sotteok, sweet potato fries, honey garlic soy wings and egg soufflé (1 per table).",
     },
     {
       q: "How does all-you-can-eat work?",

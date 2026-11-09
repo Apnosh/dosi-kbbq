@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /menu/
 title: "Menus: All-You-Can-Eat KBBQ & Drinks"
-description: Do Si Korean BBQ menus for Alki Beach (West Seattle) and Kent, WA. AYCE lunch and dinner, premium and supreme cuts, KBBQ combos, Korean appetizers, stews, soju and cocktails.
+description: Do Si Korean BBQ menus for Alki Beach (West Seattle) and Kent, WA. All-you-can-eat in Signature, Premium and Supreme tiers, KBBQ combos, Korean appetizers, stews, soju and cocktails.
 breadcrumbs: [{ name: "Menus", url: "/menu/" }]
 ---
 {%- set A = menus.ayce -%}
@@ -22,7 +22,7 @@ breadcrumbs: [{ name: "Menus", url: "/menu/" }]
       <div class="menu-hub__label">
         <p class="eyebrow">{{ loc.neighborhood }}</p>
         <h2>{{ loc.name }} menu</h2>
-        <div class="chips"><span class="chip chip--gold">AYCE dinner from {{ A[loc.key].premium }}</span><span class="chip">Lunch {{ A[loc.key].lunch }}</span>{% if loc.key == 'alki' %}<span class="chip">Happy hour</span>{% else %}<span class="chip">Bento &amp; lunch specials</span>{% endif %}</div>
+        <div class="chips"><span class="chip chip--gold">AYCE from {{ A[loc.key].signature }}</span>{% if loc.key == 'alki' %}<span class="chip">Happy hour</span>{% else %}<span class="chip">Bento &amp; lunch specials</span>{% endif %}</div>
       </div>
     </a>
     {% endfor %}

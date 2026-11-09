@@ -26,12 +26,14 @@ npm run build   # writes _site/
 
 Drop a photo in `src/assets/img/menu/`, named after the dish's English name in lowercase with dashes,
 as WebP: `thinly-sliced-beef-brisket.webp`, `egg-souffle.webp`, `hot-stone-bibimbap.webp`. One file
-covers the dish at both locations and on every menu it appears on (P1 at dinner and L1 at lunch).
+covers the dish at both locations and on every menu it appears on. To show a different photo on one menu, prefix the file: `ayce-` (all you can eat, e.g. raw bulgogi for the grill), `hh-` (happy hour) or `bento-` (bento boxes).
 Square, at least 400×400, dish centered; cut-outs on dark look best, like the printed menus.
 
-`menuPhotos` in `src/_data/site.json` decides what a dish without a photo shows:
-`placeholders` (an empty plate, for review), `only-real` (nothing until its photo exists) or
-`none` (no photos on the menus). Set it to `only-real` before launch if photos are still missing.
+The menu pages list dishes as text, like the printed menus, with two or three photos beside each
+section (above it on phones). `FEATURE` in `src/_data/menus.js` picks them by item number for the AYCE
+sections (L1, L9, L24 for Signature, and so on); other sections show their best sellers that have
+photos. Set `menuPhotos` in
+`src/_data/site.json` to `none` to hide menu photos entirely.
 
 To change a price, edit the item in `src/menus/…json`. The home page tiers, location pages and
 FAQ read AYCE prices from the menus, so they update together.

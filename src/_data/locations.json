@@ -9,12 +9,12 @@
     "phone": "(206) 806-8422",
     "address": { "street": "2516 Alki Ave SW", "city": "Seattle", "state": "WA", "zip": "98116" },
     "hours": {
-      "sun": [{ "open": "11:00", "close": "21:00" }],
-      "mon": [{ "open": "11:00", "close": "21:00" }],
-      "tue": [{ "open": "11:00", "close": "21:00" }],
-      "wed": [{ "open": "11:00", "close": "21:00" }],
-      "thu": [{ "open": "11:00", "close": "21:00" }],
-      "fri": [{ "open": "11:00", "close": "22:00" }],
+      "sun": [{ "open": "11:00", "close": "22:00" }],
+      "mon": [{ "open": "15:00", "close": "21:00" }],
+      "tue": [{ "open": "15:00", "close": "21:00" }],
+      "wed": [{ "open": "15:00", "close": "21:00" }],
+      "thu": [{ "open": "15:00", "close": "21:00" }],
+      "fri": [{ "open": "15:00", "close": "22:00" }],
       "sat": [{ "open": "11:00", "close": "22:00" }]
     },
     "reserveUrl": "https://tables.toasttab.com/restaurants/01f529ed-1da6-469a-a4d7-32bd101bf213/findTime",

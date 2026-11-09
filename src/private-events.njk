@@ -2,7 +2,7 @@
 layout: base.njk
 permalink: /private-events/
 title: "Private Events & Buyouts at Alki Beach"
-description: Rent Do Si Korean BBQ on the Alki Beach waterfront for birthdays, company parties, rehearsal dinners and celebrations. Request a full buyout or a large group booking.
+description: Book the private 2nd floor at Do Si Korean BBQ Alki Beach for company dinners, birthdays, holiday parties and large groups. Up to 40 guests, 7 days a week.
 schemaRestaurants: alki
 breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
 ---
@@ -13,12 +13,26 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Private events</span></nav>
     <p class="eyebrow">Alki Beach · West Seattle</p>
     <h1 class="display h1">Private Events <span class="serif">at Alki</span></h1>
-    <p class="lede">Birthdays, company parties and rehearsal dinners. Book a large group, or the whole restaurant.</p>
+    <p class="lede">Company dinners, birthdays and holiday parties. Book our private 2nd floor for up to 40 guests, any day of the week.</p>
     <div class="btn-row"><a class="btn btn--red" href="#request">Request a date</a><a class="btn btn--ghost" href="{{ alki.phone | telHref }}">Call {{ alki.phone }}</a></div>
   </div>
 </section>
 
-<section class="section section--tight">
+<section class="section section--tight floor" id="second-floor">
+  <div class="wrap">
+    <p class="kr-label" lang="ko">2층 단독 대관</p>
+    <h2 class="display h2 center" style="margin-bottom:14px"><span class="accent">The 2nd Floor</span> Is Yours</h2>
+    <p class="sub">Our Alki Beach second floor is a private space for company dinners, birthdays, celebrations, holiday parties and large groups.</p>
+    <dl class="floor__facts">
+      <div><dt>Capacity</dt><dd>Up to 40 guests</dd></div>
+      <div><dt>Space</dt><dd>Private 2nd floor</dd></div>
+      <div><dt>Availability</dt><dd>7 days a week</dd></div>
+    </dl>
+    <p class="center" style="margin-top:28px"><a class="btn btn--red" href="#request">Request the 2nd floor</a></p>
+  </div>
+</section>
+
+<section class="section section--tight" style="padding-top:0">
   <div class="wrap">
     <div class="how">
       <figure class="how__card reveal">{% img "meat-platter", "A platter of premium cuts for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
@@ -29,7 +43,7 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
       <p>“{{ reviews.party.quote }}”</p>
       <cite><span class="stars" aria-label="5 stars">★★★★★</span> {{ reviews.party.name }}, Google review</cite>
     </blockquote>
-    <div class="rules reveal" style="justify-content:center;margin-top:32px"><span>Full restaurant buyouts</span><span>Large group bookings</span><span>All-you-can-eat for the group</span><span>Steps from Alki Beach</span></div>
+    <div class="rules reveal" style="justify-content:center;margin-top:32px"><span>Private 2nd floor</span><span>Up to 40 guests</span><span>Full restaurant buyouts</span><span>All-you-can-eat for the group</span><span>Steps from Alki Beach</span></div>
   </div>
 </section>
 
@@ -47,8 +61,8 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
       <input type="hidden" name="location" value="Alki Beach">
       <div class="field"><label>What are you looking for?</label>
         <div class="choice">
-          <label><input type="radio" name="rental_type" value="Full restaurant buyout" checked><span>Full buyout</span></label>
-          <label><input type="radio" name="rental_type" value="Large group booking"><span>Large group</span></label>
+          <label><input type="radio" name="rental_type" value="Private 2nd floor" checked><span>2nd floor</span></label>
+          <label><input type="radio" name="rental_type" value="Full restaurant buyout"><span>Full buyout</span></label>
           <label><input type="radio" name="rental_type" value="Not sure yet"><span>Not sure</span></label>
         </div>
       </div>
