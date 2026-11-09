@@ -72,8 +72,25 @@ function ayce(menus) {
   return out;
 }
 
+/* the grill items the printed AYCE dinner menu marks BEST SELLER (same at both locations) */
+function grillBest(tabs) {
+  const dinner = tabs.find((t) => t.id === "ayce-dinner");
+  if (!dinner) return [];
+  const out = [];
+  for (const s of dinner.sections) {
+    if (!/premium|supreme/i.test(s.name || "")) continue;
+    for (const i of s.items) {
+      if (i.tagKeys.includes("best")) out.push({ number: (i.number || "").replace(".", ""), name: i.name.replace(/\*+$/, ""), korean: i.korean, tier: /supreme/i.test(s.name) ? "Supreme" : "Premium", spicy: i.tagKeys.some((k) => k.startsWith("spicy")) });
+    }
+  }
+  return out;
+}
+
 module.exports = function () {
   const menus = { alki: load("alki"), kent: load("kent") };
   menus.ayce = ayce(menus);
+  menus.grillBest = grillBest(menus.alki);
+  const hh = menus.alki.find((t) => t.id === "happy-hour");
+  menus.happyHour = hh ? { hours: hh.intro[0] || null, sections: hh.sections } : null;
   return menus;
 };

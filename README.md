@@ -25,6 +25,20 @@ npm run build   # writes _site/
 To change a price, edit the item in `src/menus/…json`. The home page tiers, location pages and
 FAQ read AYCE prices from the menus, so they update together.
 
+## Design
+
+The design follows Do Si's printed menus, so the site, the menus on the table and the signage feel
+like one brand. All of it is in `src/assets/css/site.css`, with the rules at the top:
+
+- Charcoal board (`--bg`), white Anton caps, menu gold (`--gold`) and the logo red (`--red`)
+- Headings between double rules (`.rule-head`), Korean in gold above (`.kr-label`); the drink and
+  happy hour menus use the red-to-violet rule (`.rule-head--drinks`)
+- One word gold, one white, as on the menus ("DINNER AYCE"): wrap the gold word in `.accent`
+- Light italic Poppins for descriptions and notes
+- Red BEST SELLER starburst (`.seal`) and 🌶 / 🌱 marks only where the printed menus have them
+- The lion mascot (`lion-tongs`, `lion-steak` in `src/assets/img/`, cut from the menu art)
+- Happy hour in the neon style of the Alki happy hour menu (`.neon`)
+
 ## Apnosh portal integration
 
 Set these in the Vercel project (Settings → Environment Variables):
