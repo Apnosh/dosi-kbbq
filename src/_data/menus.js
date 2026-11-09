@@ -25,17 +25,29 @@ const LEGEND = [/=\s*spicy/i, /=\s*vegetarian/i, /best seller/i, /icon\)/i];
 
 const TAGS = { "best seller": "best", spicy: "spicy", "spicy x2": "spicy2", vegetarian: "veg", new: "new" };
 
-function clean(data) {
+/* menu item photos: src/assets/img/menu/<dish-name>.webp (see the README there) */
+const PHOTO_DIR = path.join(__dirname, "..", "assets", "img", "menu");
+const slugOf = (name) => String(name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\*+/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const photoFor = (name) => { const f = `${slugOf(name)}.webp`; return fs.existsSync(path.join(PHOTO_DIR, f)) ? `/assets/img/menu/${f}` : null; };
+/* which sections get photo slots: food, not drinks or happy hour drink deals */
+const AYCE = new Set(["ayce-dinner", "ayce-lunch"]);
+const photoSlots = (tabId, i) => tabId !== "drinks" && !(tabId === "happy-hour" && i > 0);
+
+function clean(data, tabId) {
   data.intro = (data.intro || []).filter((l) => !NOT_FOR_GUESTS.some((r) => r.test(l)));
   data.fineprint = (data.fineprint || []).filter((l) => !LEGEND.some((r) => r.test(l)));
-  for (const s of data.sections || []) {
+  (data.sections || []).forEach((s, si) => {
+    s.photos = photoSlots(tabId, si);
+    s.cards = s.photos && AYCE.has(tabId);
     s.note = s.note ? s.note.replace(/^\s*per person\.?\s*/i, "").trim() || null : null;
     for (const i of s.items || []) {
       const t = new Set((i.tags || []).map((x) => TAGS[String(x).toLowerCase()]).filter(Boolean));
       if (t.has("spicy2")) t.delete("spicy");
       i.tagKeys = [...t];
+      i.slug = slugOf(i.name);
+      i.photo = s.photos ? photoFor(i.name) : null;
     }
-  }
+  });
   return data;
 }
 
@@ -43,7 +55,7 @@ function load(loc) {
   return TABS.map((t) => {
     const file = path.join(DIR, `${loc}-${t.id}.json`);
     if (!fs.existsSync(file)) return null;
-    const data = clean(JSON.parse(fs.readFileSync(file, "utf8")));
+    const data = clean(JSON.parse(fs.readFileSync(file, "utf8")), t.id);
     return { ...data, id: t.id, label: t.label };
   }).filter(Boolean);
 }

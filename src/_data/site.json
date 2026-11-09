@@ -10,5 +10,7 @@
     "facebook": "https://www.facebook.com/dosikbbq/",
     "tiktok": "https://www.tiktok.com/@dosikbbq"
   },
+  "menuPhotos": "placeholders",
+  "_menuPhotos": "placeholders: every dish shows a photo slot, empty ones as placeholders (for review). only-real: only dishes with a photo file show one. none: no photos on menus.",
   "stats": { "yearsOpen": 2, "meatSelections": 30, "locations": 2 }
 }

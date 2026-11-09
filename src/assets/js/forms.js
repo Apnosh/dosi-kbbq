@@ -50,7 +50,11 @@
       fetch(ENDPOINT + "?kind=" + encodeURIComponent(kind), { method: "POST", body: data })
         .then(function (res) { return res.json().catch(function () { return {}; }).then(function (b) { return { ok: res.ok, b: b }; }); })
         .then(function (r) {
-          if (r.ok) { form.reset(); say(form.getAttribute("data-success") || "Thanks! Your message is on its way. We’ll get back to you soon.", true); }
+          if (r.ok) {
+            /* a lead for Google Analytics (loaded by the Apnosh tag); mark generate_lead as a key event in GA */
+            if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { form_kind: kind, location: fields.location || "", page_path: window.location.pathname });
+            form.reset(); say(form.getAttribute("data-success") || "Thanks! Your message is on its way. We’ll get back to you soon.", true);
+          }
           else say(r.b.error || "Something went wrong. Please try again or call us.", false);
         })
         .catch(function () { say("We couldn’t send that. Check your connection, or call us.", false); })

@@ -45,12 +45,15 @@ bodyClass: page-menu
         {% if s.price %}<span class="menu-section__price">{{ s.price }}<small class="muted" style="font-family:var(--body);font-size:.8rem;letter-spacing:.1em;margin-left:6px">{% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}/ PERSON{% endif %}</small></span>{% endif %}
       </div>
       {% if s.note %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
-      <div class="items">
+      {%- set showSlot = s.photos and site.menuPhotos != "none" -%}
+      <div class="items{% if s.cards and showSlot %} items--cards{% elif showSlot %} items--thumbs{% endif %}">
         {% for i in s.items %}
-        <div class="item">
-          <span class="item__num">{{ (i.number or "") | replace(".", "") }}</span>
-          <div class="item__name">{% if i.korean %}<span class="item__kr" lang="ko">{{ i.korean }}</span>{% endif %}{{ i.name }}{% for k in i.tagKeys %}{% if k == 'spicy' %} <span class="chili" title="Spicy">🌶</span>{% elif k == 'spicy2' %} <span class="chili" title="Extra spicy">🌶🌶</span>{% elif k == 'veg' %} <span class="chili" title="Vegetarian">🌱</span>{% endif %}{% endfor %}{% if 'best' in i.tagKeys %} <span class="tag tag--best">Best seller</span>{% endif %}{% if 'new' in i.tagKeys %} <span class="tag tag--new">New</span>{% endif %}</div>
-          <span class="item__price">{{ i.price or "" }}</span>
+        {%- set hasPic = showSlot and (i.photo or site.menuPhotos == "placeholders") -%}
+        <div class="item{% if hasPic %} item--pic{% endif %}">
+          {% if hasPic %}<div class="item__pic">{% if i.photo %}<img src="{{ i.photo }}" alt="{{ i.name | lower }}" width="400" height="400" loading="lazy" decoding="async">{% else %}<span class="item__ph" aria-hidden="true"></span>{% endif %}{% if s.cards and i.number %}<span class="item__badge">{{ i.number | replace(".", "") }}</span>{% endif %}{% if s.cards and 'best' in i.tagKeys %}<span class="seal seal--sm">Best<br>seller</span>{% endif %}</div>{% endif %}
+          {% if not s.cards %}<span class="item__num">{{ (i.number or "") | replace(".", "") }}</span>{% endif %}
+          <div class="item__name">{% if i.korean %}<span class="item__kr" lang="ko">{{ i.korean }}</span>{% endif %}{{ i.name }}{% for k in i.tagKeys %}{% if k == 'spicy' %} <span class="chili" title="Spicy">🌶</span>{% elif k == 'spicy2' %} <span class="chili" title="Extra spicy">🌶🌶</span>{% elif k == 'veg' %} <span class="chili" title="Vegetarian">🌱</span>{% endif %}{% endfor %}{% if 'best' in i.tagKeys and not s.cards %} <span class="tag tag--best">Best seller</span>{% endif %}{% if 'new' in i.tagKeys %} <span class="tag tag--new">New</span>{% endif %}</div>
+          {% if i.price %}<span class="item__price">{{ i.price }}</span>{% endif %}
           {% if i.description %}<p class="item__desc">{{ i.description }}</p>{% endif %}
         </div>
         {% endfor %}

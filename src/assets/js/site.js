@@ -38,6 +38,8 @@
       e.preventDefault();
       if (burger && burger.getAttribute("aria-expanded") === "true") burger.click();
       dialog.showModal();
+      /* the start of a booking; the Apnosh tag logs tap_book when they pick a location */
+      if (typeof window.gtag === "function") window.gtag("event", "reserve_start", { page_path: window.location.pathname });
     });
     dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
   }
