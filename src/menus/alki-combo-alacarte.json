@@ -1,0 +1,236 @@
+{
+  "location": "alki",
+  "source": "Menu_Combo_Alacarte.png",
+  "title": "KBBQ COMBO / A LA CARTE",
+  "intro": [
+    "DO SI KOREAN BBQ (logo with red 도시 calligraphy at top of page)",
+    "[Transcriber note] The page has two printed headings, KBBQ COMBO and A LA CARTE; the combined title above is not printed as such. Combo prices are printed as two columns 'S - $xx.xx' and 'L - $xxx.xx' (Small : 2 people, Large : 4 people); they are joined with ' / ' in the price field. A la carte is printed in two columns; items are listed left column top-to-bottom, then right column. Item names are printed in all caps. Korean lines on combos list the component cuts, separated by periods exactly as printed. Photo captions ('MIXED COMBO', 'USDA CHOICE BEEF BRISKET') label pictures and are not separate items.",
+    "[Transcriber note] Tags reflect printed markers only: 'best seller' = red BEST SELLER starburst badge; 'spicy' = chili-pepper icon. No vegetarian items on this page, though the legend includes the sprout icon. No leftover/gratuity fine print is printed on this page."
+  ],
+  "sections": [
+    {
+      "name": "KBBQ COMBO",
+      "korean": null,
+      "price": null,
+      "note": "Small : 2 people | Large : 4 people || Served with rice, banchan, & salad",
+      "items": [
+        {
+          "number": null,
+          "name": "BEEF COMBO",
+          "korean": "차돌박이. 등심. 꽃살. LA 갈비",
+          "description": "USDA Choice Beef Brisket, Ribeye, Boneless Short Rib, LA Galbi Beef Short Rib",
+          "price": "S - $99.95 / L - $163.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK COMBO",
+          "korean": "삼겹살. 돼지목살. 항정살. 매운 삼겹살. 매운 돼지목살",
+          "description": "Pork belly, Marinated Pork Collar, Pork Jowl, Spicy Pork Belly, Spicy Marinated Pork",
+          "price": "S - $88.45 / L - $135.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "MIXED COMBO",
+          "korean": "차돌박이. 꽃살. LA 갈비. 삼겹살. 돼지목살",
+          "description": "USDA Choice Beef Brisket, Boneless Short Rib, LA Galbi Beef Short Rib, Pork Belly, Marinated Pork Collar",
+          "price": "S - $93.45 / L - $159.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "MARINATED COMBO",
+          "korean": "불고기. 닭불고기. 매운 삼겹살. LA 갈비",
+          "description": "Beef Bulgogi, Marinated Chicken Thigh, Spicy Pork Belly, LA Galbi Beef Short Rib",
+          "price": "S - $99.95 / L - $159.95",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "A LA CARTE",
+      "korean": null,
+      "price": null,
+      "note": "Served with rice, banchan, & salad. Must order at least 2 items.",
+      "items": [
+        {
+          "number": null,
+          "name": "CERTIFIED ANGUS BONELESS SHORT RIB",
+          "korean": "꽃살",
+          "description": null,
+          "price": "$50.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "CERTIFIED ANGUS RIBEYE",
+          "korean": "등심",
+          "description": null,
+          "price": "$53.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BEEF TONGUE",
+          "korean": "우설",
+          "description": null,
+          "price": "$21.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "USDA CHOICE BEEF BRISKET",
+          "korean": "차돌박이",
+          "description": null,
+          "price": "$40.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BEEF BULGOGI",
+          "korean": "불고기",
+          "description": null,
+          "price": "$41.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "LA GALBI BEEF SHORT RIB",
+          "korean": "LA 갈비",
+          "description": null,
+          "price": "$61.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BEEF INTESTINE",
+          "korean": "곱창구이",
+          "description": null,
+          "price": "$35.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK JOWL",
+          "korean": "항정살",
+          "description": null,
+          "price": "$38.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "SPICY PORK BELLY",
+          "korean": "매운 삼겹살",
+          "description": null,
+          "price": "$38.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK BELLY",
+          "korean": "삼겹살",
+          "description": null,
+          "price": "$36.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK BULGOGI",
+          "korean": "돼지불고기",
+          "description": null,
+          "price": "$33.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "MARINATED CHICKEN THIGH",
+          "korean": "닭불고기",
+          "description": null,
+          "price": "$33.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "HEAD ON PRAWN",
+          "korean": "새우구이",
+          "description": null,
+          "price": "$29.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "SPICY MARINATED SQUID",
+          "korean": "매운 오징어",
+          "description": null,
+          "price": "$33.45",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BABY OCTOPUS",
+          "korean": "쭈꾸미",
+          "description": null,
+          "price": "$33.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "SEAFOOD MEDLEY",
+          "korean": "해물",
+          "description": "Head-on Prawn, Spicy Squid, Baby Octopus",
+          "price": "$64.95",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": [
+    "🌶 = Spicy   🌱 = Vegetarian"
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "location": "alki",
+  "source": "happy-hour-menu-front-v1-2.png, happy-hour-menu-back-v2-2.png",
+  "title": "HAPPY HOUR GRILL & CHILL",
+  "intro": [
+    "2-5PM, 8PM-CLOSE"
+  ],
+  "sections": [
+    {
+      "name": "Happy Hour Bites",
+      "korean": null,
+      "price": null,
+      "note": "Front side food list; no section heading is printed. In WINGS, 'NEW' is printed in bold and applies to the Honey Garlic Soy flavor",
+      "items": [
+        {
+          "name": "SSAM PLATE",
+          "korean": null,
+          "description": null,
+          "price": "$13.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CALAMARI",
+          "korean": null,
+          "description": null,
+          "price": "$15.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "FRIES",
+          "korean": null,
+          "description": null,
+          "price": "$5.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SWEET POTATO FRIES",
+          "korean": null,
+          "description": null,
+          "price": "$6.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "WINGS",
+          "korean": null,
+          "description": "Butter Sweet Chili, Do Si Special, Yangnyeom, Original Crispy, NEW Honey Garlic Soy",
+          "price": "$7.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "QUESADILLA",
+          "korean": null,
+          "description": null,
+          "price": "$8.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SOTTEOK SOTTEOK",
+          "korean": null,
+          "description": "Sausage & Rice Cake Skewers",
+          "price": "$7.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "KOREAN FRIED DUMPLINGS",
+          "korean": null,
+          "description": null,
+          "price": "$7.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CORN CHEESE",
+          "korean": null,
+          "description": "Happy Hour Size",
+          "price": "$5.95",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "COCKTAILS",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "HIBISCUS SPRITZ",
+          "korean": null,
+          "description": "Toki Whiskey, Hibiscus Syrup, Honey, Lemon Juice, Soda",
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "OI (CUCUMBER) LEMONADE",
+          "korean": null,
+          "description": "Cucumber, Simple Syrup, Lemon Juice, Original Soju, Soda",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LYCHEE MARTINI",
+          "korean": null,
+          "description": "Aspen Vodka, St. Germain, Lychee Juice, Lychee Syrup, Lemon Juice",
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SONBI-NI",
+          "korean": null,
+          "description": "Sonbi Gin, Sweet Vermouth, Pink Radish",
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DEVO",
+          "korean": null,
+          "description": "Bacardi White Rum, Lychee Syrup, Lemon Juice, Mint, Original Milkis",
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CLASSIC COCKTAILS",
+          "korean": null,
+          "description": "Aperol Spritz, Cosmopolitan, Gimlet, Lemon Drop, Mai Tai, Manhattan, Margarita, Mojito, Moscow Mule, Negroni, Old Fashioned, Tequila Sunrise, Whiskey Sour",
+          "price": "$12",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "BEER & WINE",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "BOTTLE & DRAFT BEER",
+          "korean": null,
+          "description": null,
+          "price": "$1 OFF",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "WINE",
+          "korean": null,
+          "description": null,
+          "price": "$2 OFF",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LIQUOR (EXCLUDING WELLS)",
+          "korean": null,
+          "description": null,
+          "price": "$2 OFF",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": []
+}

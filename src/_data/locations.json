@@ -1,0 +1,54 @@
+[
+  {
+    "key": "alki",
+    "name": "Alki Beach",
+    "fullName": "Do Si Korean BBQ Alki",
+    "neighborhood": "Alki Beach, West Seattle",
+    "page": "/locations/alki-beach/",
+    "menuPage": "/alki-menu/",
+    "phone": "(206) 806-8422",
+    "address": { "street": "2516 Alki Ave SW", "city": "Seattle", "state": "WA", "zip": "98116" },
+    "hours": {
+      "sun": [{ "open": "11:00", "close": "21:00" }],
+      "mon": [{ "open": "11:00", "close": "21:00" }],
+      "tue": [{ "open": "11:00", "close": "21:00" }],
+      "wed": [{ "open": "11:00", "close": "21:00" }],
+      "thu": [{ "open": "11:00", "close": "21:00" }],
+      "fri": [{ "open": "11:00", "close": "22:00" }],
+      "sat": [{ "open": "11:00", "close": "22:00" }]
+    },
+    "reserveUrl": "https://tables.toasttab.com/restaurants/01f529ed-1da6-469a-a4d7-32bd101bf213/findTime",
+    "orderUrl": null,
+    "photo": "alki-storefront",
+    "headline": "Korean BBQ on the Alki Beach waterfront",
+    "blurb": "Our Alki Beach location brings the vibrant energy of West Seattle together with the warmth of Korean BBQ. Steps from the waterfront, Do Si KBBQ is the perfect spot after a walk along the beach, a night out with friends, or a family dinner where everyone gets to cook their own way. Come hungry, stay for the views, and leave with a new favorite restaurant in Seattle’s most iconic neighborhood.",
+    "areaServed": ["West Seattle", "Alki", "Admiral", "Seattle"],
+    "extras": ["Happy hour", "Waterfront views", "Walk-ins welcome"]
+  },
+  {
+    "key": "kent",
+    "name": "Kent",
+    "fullName": "Do Si Korean BBQ Kent",
+    "neighborhood": "Kent, WA",
+    "page": "/locations/kent/",
+    "menuPage": "/kent-menu/",
+    "phone": "(253) 981-4277",
+    "address": { "street": "12912 SE Kent-Kangley Rd", "city": "Kent", "state": "WA", "zip": "98030" },
+    "hours": {
+      "sun": [{ "open": "11:00", "close": "21:00" }],
+      "mon": [{ "open": "11:00", "close": "21:00" }],
+      "tue": [{ "open": "11:00", "close": "21:00" }],
+      "wed": [{ "open": "11:00", "close": "21:00" }],
+      "thu": [{ "open": "11:00", "close": "21:00" }],
+      "fri": [{ "open": "11:00", "close": "22:00" }],
+      "sat": [{ "open": "11:00", "close": "22:00" }]
+    },
+    "reserveUrl": "https://tables.toasttab.com/restaurants/e2ed57e2-1125-4180-8284-8e773c417efd/findTime",
+    "orderUrl": null,
+    "photo": "interior-wide",
+    "headline": "The first Korean BBQ in Kent, WA",
+    "blurb": "Our Kent location serves the South King County community with the same bold flavors and welcoming atmosphere that defines Do Si KBBQ. Conveniently located for families, groups, and date nights alike, we’re proud to be a go-to Korean BBQ destination for Kent, Renton, Auburn, and the surrounding area. Whether you’re celebrating a birthday, catching up with coworkers, or just craving a great meal, our Kent restaurant has the space, the food, and the experience to make it memorable.",
+    "areaServed": ["Kent", "Renton", "Auburn", "Covington", "South King County"],
+    "extras": ["Plenty of parking", "Groups & birthdays", "Walk-ins welcome"]
+  }
+]

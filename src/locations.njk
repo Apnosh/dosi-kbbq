@@ -1,0 +1,51 @@
+---
+layout: base.njk
+permalink: /locations/
+title: "Locations: Alki Beach & Kent, WA"
+description: Find Do Si Korean BBQ on the Alki Beach waterfront in West Seattle and in Kent, WA. Hours, phone numbers, directions and table reservations for both restaurants.
+schemaRestaurants: all
+breadcrumbs: [{ name: "Locations", url: "/locations/" }]
+---
+<section class="page-head">
+  <p class="kr-bg" aria-hidden="true">위치</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Locations</span></nav>
+    <p class="eyebrow">Two locations</p>
+    <h1 class="display h1">Find your <span class="ember-text">grill</span></h1>
+    <p class="lede">On the waterfront in West Seattle, or in the heart of Kent. Same bold flavors, same good vibes.</p>
+  </div>
+</section>
+<section class="section section--tight" id="reserve" style="padding-top:0">
+  <div class="wrap">
+    <div class="locs">
+      {% for loc in locations %}{% set l = loc | withPortal(apnosh) %}{% set special = l.specialHours | upcomingSpecial if l.specialHours else [] %}
+      <article class="loc">
+        <div class="loc__img">
+          {% set iw = 1200 if l.key == 'alki' else 1600 %}{% set ih = 1600 if l.key == 'alki' else 1067 %}{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}
+          <div class="loc__label"><small>{{ l.neighborhood }}</small><h2 class="display" style="font-size:clamp(2.6rem,5vw,3.8rem);line-height:.9">{{ l.name }}</h2></div>
+        </div>
+        <div class="loc__body">
+          <div class="loc__meta">
+            <div>
+              <h3 style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px">Visit</h3>
+              <a href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">{{ l.address.street }}<br>{{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}</a><br>
+              <a href="{{ l.phone | telHref }}">{{ l.phone }}</a>
+            </div>
+            <div>
+              <h3 style="font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px">Hours</h3>
+              <ul class="hours" data-hours='{{ l.hours | json }}'>{% for r in l.hours | hoursRows %}<li><span>{{ r.days }}</span><span>{{ r.time }}</span></li>{% endfor %}</ul>
+              {% for s in special %}<p class="hours-special"><b>{{ s.date }}</b>: {{ s.time }}{% if s.reason %} · {{ s.reason }}{% endif %}</p>{% endfor %}
+            </div>
+          </div>
+          <div class="map" style="aspect-ratio:16/9"><iframe title="Map to Do Si Korean BBQ {{ l.name }}" src="{{ l.address | mapsEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          <div class="btn-row">
+            <a class="btn btn--red" href="{{ l.reserveUrl }}" target="_blank" rel="noopener">Book a table</a>
+            <a class="btn btn--ghost" href="{{ l.menuPage }}">Menu</a>
+            <a class="btn btn--ghost" href="{{ l.page }}">More about {{ l.name }}</a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

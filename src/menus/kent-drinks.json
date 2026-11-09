@@ -1,0 +1,267 @@
+{
+  "location": "kent",
+  "source": "Menu_BeerSoju_NonAlcoholic_Updated.png",
+  "title": "Do Si Korean BBQ",
+  "intro": [],
+  "sections": [
+    {
+      "name": "Bottled Beer",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Terra",
+          "korean": null,
+          "description": null,
+          "price": "$7.00",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Cass",
+          "korean": null,
+          "description": null,
+          "price": "$7.00",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Kloud",
+          "korean": null,
+          "description": null,
+          "price": "$8.00",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Corona",
+          "korean": null,
+          "description": null,
+          "price": "$6.50",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Modelo",
+          "korean": null,
+          "description": null,
+          "price": "$6.50",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Stella",
+          "korean": null,
+          "description": null,
+          "price": "$6.50",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Heineken",
+          "korean": null,
+          "description": null,
+          "price": "$6.50",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Beer Tower",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Somaek Party Tower",
+          "korean": null,
+          "description": "Beer Cocktail made with 3 Jinro Chamisul Original & 6 Terra Beer, served in a 3-liter party tower",
+          "price": "$65",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Soju",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Soju",
+          "korean": null,
+          "description": "Jinro Chamisul Original / Jinro Chamisul Fresh",
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Flavored Soju",
+          "korean": null,
+          "description": "Soonhari Apple Mango, Grape, Green Apple, Lychee, Peach, Plum, Strawberry, Yogurt",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Liquor",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Remy Martin XO",
+          "korean": null,
+          "description": null,
+          "price": "$33",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Remy Martin VSOP",
+          "korean": null,
+          "description": null,
+          "price": "$11",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Remy Martin 1738",
+          "korean": null,
+          "description": null,
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Hennessy XO",
+          "korean": null,
+          "description": null,
+          "price": "$35",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Hennessy VSOP",
+          "korean": null,
+          "description": null,
+          "price": "$18",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Hennessy VS",
+          "korean": null,
+          "description": null,
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Yamazaki 12",
+          "korean": null,
+          "description": null,
+          "price": "$25",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Hibiki Harmony Unaged",
+          "korean": null,
+          "description": null,
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Toki",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Gran Centenario Reposado",
+          "korean": null,
+          "description": null,
+          "price": "$11",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Nikka Miyagikyo",
+          "korean": null,
+          "description": null,
+          "price": "$20",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Johnnie Walker Black Label",
+          "korean": null,
+          "description": null,
+          "price": "$11",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Johnnie Walker Red Label",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Bacardi White Rum",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Bacardi Dark Rum",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Casamigos",
+          "korean": null,
+          "description": null,
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Don Julio 1942",
+          "korean": null,
+          "description": null,
+          "price": "$33",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Espolon Blanco",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": [
+    "DISCLAIMERS: *There is no known safe amount of alcohol to drink during pregnancy. All types of alcoholic beverages are harmful to the baby, including wine & beer. Excessive consumption limits your capacity to drive and operate machinery. Must be 21+ with valid ID to purchase alcohol. Please drink responsibly."
+  ]
+}

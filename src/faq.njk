@@ -1,0 +1,29 @@
+---
+layout: base.njk
+permalink: /faq/
+title: "FAQ: AYCE Prices, Hours & Reservations"
+description: Answers about Do Si Korean BBQ. All-you-can-eat prices, lunch hours, reservations, the 90-minute limit, kids pricing, happy hour and group dinners at Alki Beach and Kent.
+breadcrumbs: [{ name: "FAQ", url: "/faq/" }]
+---
+<section class="page-head">
+  <p class="kr-bg" aria-hidden="true">질문</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>FAQ</span></nav>
+    <p class="eyebrow">Good to know</p>
+    <h1 class="display h1">Questions, <span class="ember-text">answered</span></h1>
+    <p class="lede">Everything you need before your first round on the grill.</p>
+  </div>
+</section>
+<section class="section section--tight" style="padding-top:0">
+  <div class="wrap" style="max-width:900px">
+    <div class="faq">
+      {% for f in faq %}
+      <details{% if loop.first %} open{% endif %}><summary>{{ f.q }}</summary><div class="answer"><p>{{ f.a | safe }}</p></div></details>
+      {% endfor %}
+    </div>
+    <p class="muted" style="margin-top:32px">Still have a question? <a href="/contact/">Send us a message</a> or call Alki at <a href="tel:+12068068422">(206) 806-8422</a> or Kent at <a href="tel:+12539814277">(253) 981-4277</a>.</p>
+  </div>
+</section>
+{%- set qa = [] -%}
+{%- for f in faq -%}{%- set _q = qa.push({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a | striptags } }) -%}{%- endfor -%}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": qa } | json | safe }}</script>

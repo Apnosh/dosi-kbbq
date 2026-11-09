@@ -1,0 +1,10 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in collections.all %}{% if not p.data.noindex and p.url and p.url != '/404.html' %}
+  <url><loc>{{ site.url }}{{ p.url }}</loc><lastmod>{{ page.date.toISOString().slice(0, 10) }}</lastmod><priority>{{ '1.0' if p.url == '/' else ('0.9' if 'menu' in p.url or '/locations/' in p.url else '0.6') }}</priority></url>
+{%- endif %}{% endfor %}
+</urlset>

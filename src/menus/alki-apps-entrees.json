@@ -1,0 +1,304 @@
+{
+  "location": "alki",
+  "source": "Menu_Appetizers_Entrees-2.png",
+  "title": null,
+  "intro": [
+    "DO SI KOREAN BBQ (logo, 도시)"
+  ],
+  "sections": [
+    {
+      "name": "APPETIZERS",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "DO SI CHICKEN",
+          "korean": "도시 시그니쳐 치킨",
+          "description": "Fried chicken wings with house sauce (5pcs)",
+          "price": "$10.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "CRISPY CHICKEN",
+          "korean": "후라이드 치킨",
+          "description": "Classic fried chicken wings (5pcs)",
+          "price": "$9.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "YANGNYEOM CHICKEN",
+          "korean": "양념치킨",
+          "description": "Sweet chili fried chicken wings (5pcs)",
+          "price": "$10.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "BUTTER SWEET CHILI CHICKEN",
+          "korean": "닭강정",
+          "description": "Butter sweet chili fried chicken wings (5pcs)",
+          "price": "$10.95",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "HONEY GARLIC SOY CHICKEN",
+          "korean": "간장치킨",
+          "description": "Honey garlic soy glazed fried chicken wings (5pcs)",
+          "price": "$10.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CORN CHEESE",
+          "korean": "콘치즈",
+          "description": "Sweet corn in creamy mayo topped with grilled savory cheese",
+          "price": "$11.95",
+          "tags": [
+            "best seller",
+            "vegetarian"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "GARLIC FRIES",
+          "korean": "감자튀김",
+          "description": "Fries tossed in fried garlic served with spicy mayo",
+          "price": "$9.45",
+          "tags": [
+            "vegetarian"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "SWEET POTATO FRIES",
+          "korean": "고구마튀김",
+          "description": "Sweet potato fries tossed in fried garlic",
+          "price": "$10.45",
+          "tags": [
+            "vegetarian"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "SOTTEOK SOTTEOK",
+          "korean": "소떡소떡",
+          "description": "Skewered sausage and rice cake with sweet & savory glaze",
+          "price": "$9.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "FRIED DUMPLINGS",
+          "korean": "군만두",
+          "description": "Deep fried Korean potstickers (8pcs)",
+          "price": "$9.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "QUESADILLA",
+          "korean": "케사디야",
+          "description": "Marinated Korean BBQ and melted cheese in a toasted tortilla",
+          "price": "$11.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "CALAMARI",
+          "korean": "오징어 튀김",
+          "description": "Lightly battered fried squid, served with a creamy & spicy sauce",
+          "price": "$18.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SEAFOOD PANCAKE",
+          "korean": "해물파전",
+          "description": "Korean pancake with shrimp, squid, and vegetables",
+          "price": "$18.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "TOKBOKKI",
+          "korean": "떡볶이",
+          "description": "Spicy rice cakes & fish cakes topped with cheese",
+          "price": "$18.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "RABOKKI",
+          "korean": "라볶이",
+          "description": "Spicy ramyeon with rice cakes, fish cakes, egg & cheese",
+          "price": "$21.45",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "EGG SOUFFLE",
+          "korean": "계란찜",
+          "description": "Korean savory steamed egg in a clay pot",
+          "price": "$10.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "ENTREES & STEWS",
+      "korean": null,
+      "price": null,
+      "note": "Comes with rice and banchan",
+      "items": [
+        {
+          "name": "BEEF BULGOGI",
+          "korean": "불고기",
+          "description": "Grilled thinly sliced beef marinated in house sauce",
+          "price": "$30.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "CHICKEN BULGOGI",
+          "korean": "닭불고기",
+          "description": "Grilled chicken marinated in spicy house sauce",
+          "price": "$27.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "PORK BULGOGI",
+          "korean": "돼지불고기",
+          "description": "Grilled thinly sliced pork marinated in spicy house sauce",
+          "price": "$30.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "LA GALBI",
+          "korean": "LA 갈비",
+          "description": "Grilled beef short ribs marinated in special sauce",
+          "price": "$34.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "STIR-FRIED SQUID",
+          "korean": "오징어볶음",
+          "description": "Stir-fried squid with vegetables in house spicy sauce",
+          "price": "$28.45",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "HOT STONE BIBIMBAP",
+          "korean": "돌판비빔밥",
+          "description": "Rice, vegetables, beef, and egg with spicy sauce in a stone pot",
+          "price": "$23.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "BIBIMBAP",
+          "korean": "비빔밥",
+          "description": "Rice, vegetables, beef, and egg with spicy sauce",
+          "price": "$21.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "KIMCHI FRIED RICE",
+          "korean": "김치볶음밥",
+          "description": "Fried rice with kimchi, assorted vegetables & spam",
+          "price": "$21.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "JAPCHAE",
+          "korean": "잡채",
+          "description": "Stir-fried glass noodles with beef and vegetables",
+          "price": "$20.45",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SOFT TOFU STEW",
+          "korean": "순두부 찌개",
+          "description": "Spicy soft tofu soup with vegetables, seafood, and egg",
+          "price": "$18.95",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "KIMCHI STEW",
+          "korean": "김치찌개",
+          "description": "Spicy kimchi stew with pork & tofu",
+          "price": "$18.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "SOYBEAN STEW",
+          "korean": "된장찌개",
+          "description": "Soybean stew with sliced beef & vegetables",
+          "price": "$21.45",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": [
+    "(chili pepper icon) = Spicy",
+    "(sprout icon) = Vegetarian",
+    "\"BEST SELLER\" red starburst badges mark best-selling items"
+  ]
+}

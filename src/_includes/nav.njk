@@ -1,0 +1,34 @@
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="/" aria-label="Do Si Korean BBQ home">
+      <picture><source type="image/webp" srcset="/assets/img/logo.webp"><img src="/assets/img/logo.png" alt="Do Si Korean BBQ" width="640" height="233"></picture>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__drop">
+        <a href="/menu/"{% if page.url == '/menu/' or page.url == '/alki-menu/' or page.url == '/kent-menu/' %} aria-current="page"{% endif %}>Menus</a>
+        <div class="nav__dropmenu">
+          <a href="/alki-menu/">Alki Beach menu</a>
+          <a href="/kent-menu/">Kent menu</a>
+        </div>
+      </div>
+      <a href="/locations/"{% if '/locations/' in page.url %} aria-current="page"{% endif %}>Locations</a>
+      <a href="/about/"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>
+      <a href="/faq/"{% if page.url == '/faq/' %} aria-current="page"{% endif %}>FAQ</a>
+      <a href="/contact/"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Contact</a>
+    </nav>
+    <a class="btn btn--red nav__cta" href="/locations/#reserve" data-reserve>Reserve</a>
+    <button class="nav__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+  </div>
+  <div class="drawer" id="drawer" hidden>
+    <a href="/alki-menu/">Alki Beach menu</a>
+    <a href="/kent-menu/">Kent menu</a>
+    <a href="/locations/">Locations</a>
+    <a href="/about/">About</a>
+    <a href="/faq/">FAQ</a>
+    <a href="/contact/">Contact</a>
+    <div class="drawer__calls">
+      {% for loc in locations %}<a class="btn btn--ghost" href="{{ loc.phone | telHref }}">Call {{ loc.name }}</a>{% endfor %}
+    </div>
+    <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
+  </div>
+</header>

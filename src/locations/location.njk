@@ -1,0 +1,76 @@
+---
+layout: base.njk
+pagination:
+  data: locations
+  size: 1
+  alias: loc
+permalink: "{{ loc.page }}"
+eleventyComputed:
+  title: "{{ 'Korean BBQ in West Seattle, Alki Beach' if loc.key == 'alki' else 'Korean BBQ in Kent, WA: Menu and Hours' }}"
+  description: "{{ 'All-you-can-eat Korean BBQ steps from the Alki Beach waterfront in West Seattle. ' if loc.key == 'alki' else 'The first Korean BBQ in Kent, WA, serving Kent, Renton, Auburn and South King County. ' }}Hours, menu, directions and reservations for Do Si Korean BBQ {{ loc.name }}."
+  schemaRestaurants: "{{ loc.key }}"
+---
+{%- set l = loc | withPortal(apnosh) -%}
+{%- set A = menus.ayce[loc.key] -%}
+{%- set special = l.specialHours | upcomingSpecial if l.specialHours else [] -%}
+<section class="hero hero--page">
+  <div class="hero__media" aria-hidden="true">
+    {% if loc.key == 'alki' %}{% img "meat-platter", "", { sizes: "100vw", eager: true } %}{% else %}{% img "interior-wide", "", { sizes: "100vw", eager: true } %}{% endif %}
+  </div>
+  <div class="wrap hero__inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/locations/">Locations</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
+    <p class="eyebrow">{{ loc.neighborhood }}</p>
+    <h1 class="display h1">{{ loc.headline }}</h1>
+    <div class="btn-row" style="margin-top:28px">
+      <a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve a table</a>
+      <a class="btn btn--ghost" href="{{ loc.menuPage }}">{{ loc.name }} menu</a>
+      <a class="btn btn--ghost" href="{{ l.phone | telHref }}">Call {{ l.phone }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap loc-page">
+    <div class="prose">
+      <h2>Welcome to Do Si {{ loc.name }}</h2>
+      <p class="lede">{{ loc.blurb }}</p>
+      <div class="photo-strip">
+        <div>{% img "grilling-galbi", "Galbi on the tabletop grill at Do Si Korean BBQ " + loc.name, { sizes: "33vw" } %}</div>
+        <div>{% img "premium-cuts", "Premium cuts of beef and pork for all-you-can-eat Korean BBQ", { sizes: "33vw" } %}</div>
+        <div>{% img "yangnyeom-wings", "Yangnyeom chicken wings", { sizes: "33vw" } %}</div>
+      </div>
+      <h2>All-you-can-eat at {{ loc.name }}</h2>
+      <ul>
+        <li><strong>AYCE Lunch, {{ A.lunch }} per person</strong>: {{ A.lunchDays }} (excludes holidays).</li>
+        <li><strong>AYCE Premium, {{ A.premium }} per person</strong>: 28 meats plus appetizers, stews and banchan.</li>
+        <li><strong>AYCE Supreme, {{ A.supreme }} per person</strong>: everything in Premium plus our supreme cuts.</li>
+      </ul>
+      <p>AYCE is 90 minutes, with a 2-guest minimum; kids 4–10 are half price. Prefer to order à la carte? Try a KBBQ combo, appetizers, stews and {% if loc.key == 'alki' %}happy hour, 2–5pm and 8pm to close{% else %}weekday lunch specials{% endif %}. <a href="{{ loc.menuPage }}">See the full {{ loc.name }} menu</a>.</p>
+      <h2>Getting here</h2>
+      <p>Find us at {{ loc.address.street }}, {{ loc.address.city }}, {{ loc.address.state }} {{ loc.address.zip }}{% if loc.key == 'alki' %}{% endif %}. Walk-ins are welcome; for groups and weekend nights we recommend <a href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">reserving a table</a>.</p>
+      <p class="muted">Proudly serving {{ loc.areaServed | join(", ") }}.</p>
+    </div>
+    <aside class="info-card" aria-label="{{ loc.name }} details">
+      <div>
+        <h2>Address</h2>
+        <a class="big" href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">{{ l.address.street }}<br>{{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}</a>
+      </div>
+      <div>
+        <h2>Phone</h2>
+        <a class="big" href="{{ l.phone | telHref }}">{{ l.phone }}</a>
+      </div>
+      <div>
+        <h2>Hours</h2>
+        <ul class="hours" data-hours='{{ l.hours | json }}'>{% for r in l.hours | hoursRows %}<li><span>{{ r.days }}</span><span>{{ r.time }}</span></li>{% endfor %}</ul>
+        {% for s in special %}<p class="hours-special"><b>{{ s.date }}</b>: {{ s.time }}{% if s.reason %} · {{ s.reason }}{% endif %}</p>{% endfor %}
+      </div>
+      <div class="btn-row">
+        <a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve</a>
+        <a class="btn btn--ghost" href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">Directions</a>
+      </div>
+    </aside>
+  </div>
+  <div class="wrap" style="margin-top:clamp(40px,6vw,72px)">
+    <div class="map"><iframe title="Map to Do Si Korean BBQ {{ loc.name }}" src="{{ l.address | mapsEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </div>
+</section>

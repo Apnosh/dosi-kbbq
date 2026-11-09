@@ -1,0 +1,31 @@
+---
+layout: base.njk
+permalink: /menu/
+title: "Menus: All-You-Can-Eat KBBQ & Drinks"
+description: Do Si Korean BBQ menus for Alki Beach (West Seattle) and Kent, WA. AYCE lunch and dinner, premium and supreme cuts, KBBQ combos, Korean appetizers, stews, soju and cocktails.
+breadcrumbs: [{ name: "Menus", url: "/menu/" }]
+---
+{%- set A = menus.ayce -%}
+<section class="page-head">
+  <p class="kr-bg" aria-hidden="true">메뉴</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Menus</span></nav>
+    <p class="eyebrow">Choose your location</p>
+    <h1 class="display h1">The <span class="ember-text">menus</span></h1>
+    <p class="lede">Each Do Si has its own menu and prices. Pick yours for all-you-can-eat, combos, Korean classics and drinks.</p>
+  </div>
+</section>
+<section class="section section--tight" style="padding-top:0">
+  <div class="wrap menu-hub">
+    {% for loc in locations %}
+    <a href="{{ loc.menuPage }}" class="reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
+      {% set hubImg = "meat-platter" if loc.key == 'alki' else "sizzling-galbi" %}{% img hubImg, "", { sizes: "(max-width: 760px) 100vw, 50vw" } %}
+      <div class="menu-hub__label">
+        <p class="eyebrow">{{ loc.neighborhood }}</p>
+        <h2>{{ loc.name }} menu</h2>
+        <div class="chips"><span class="chip chip--gold">AYCE dinner from {{ A[loc.key].premium }}</span><span class="chip">Lunch {{ A[loc.key].lunch }}</span>{% if loc.key == 'alki' %}<span class="chip">Happy hour</span>{% else %}<span class="chip">Bento &amp; lunch specials</span>{% endif %}</div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>

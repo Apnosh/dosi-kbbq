@@ -1,0 +1,206 @@
+{
+  "location": "alki",
+  "source": "Menu_Bento_Lunch.png",
+  "title": "BENTO BOXES / LUNCH SPECIALS",
+  "intro": [
+    "DO SI KOREAN BBQ (logo with red 도시 calligraphy at top of page)",
+    "[Transcriber note] The page has two printed headings, BENTO BOXES and LUNCH SPECIALS; the combined title above is not printed as such. Lunch Specials are printed as a photo grid (6 across, then 5); items are listed row by row, left to right. Item names are printed in all caps. In the grid the chili icon sits under each photo rather than after the name.",
+    "[Transcriber note] Tags reflect printed markers only: 'best seller' = red BEST SELLER starburst badge; 'spicy' = chili-pepper icon. No vegetarian items on this page, though the legend includes the sprout icon. No other fine print is printed on this page."
+  ],
+  "sections": [
+    {
+      "name": "BENTO BOXES",
+      "korean": null,
+      "price": null,
+      "note": "Comes with rice, banchan, chicken wings & dumplings",
+      "items": [
+        {
+          "number": null,
+          "name": "LA GALBI",
+          "korean": "LA 갈비",
+          "description": "Grilled beef short ribs marinated in special sauce",
+          "price": "$24.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BEEF BULGOGI",
+          "korean": "불고기",
+          "description": "Grilled thinly sliced beef marinated in house sauce",
+          "price": "$22.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK BULGOGI",
+          "korean": "돼지불고기",
+          "description": "Grilled thinly sliced pork marinated in spicy house sauce",
+          "price": "$19.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "CHICKEN BULGOGI",
+          "korean": "닭불고기",
+          "description": "Grilled chicken marinated in spicy house sauce",
+          "price": "$19.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "STIR-FRIED SQUID",
+          "korean": "오징어볶음",
+          "description": "Stir-fried squid with vegetables in house spicy sauce",
+          "price": "$22.45",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "LUNCH SPECIALS",
+      "korean": null,
+      "price": null,
+      "note": "Monday - Friday : 11am ~ 4pm || Served with rice & banchan",
+      "items": [
+        {
+          "number": null,
+          "name": "BEEF BULGOGI",
+          "korean": "불고기",
+          "description": "Grilled thinly sliced beef marinated in house sauce",
+          "price": "$19.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "CHICKEN BULGOGI",
+          "korean": "닭불고기",
+          "description": "Grilled chicken marinated in spicy house sauce",
+          "price": "$18.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "PORK BULGOGI",
+          "korean": "돼지불고기",
+          "description": "Grilled thinly sliced pork marinated in spicy house sauce",
+          "price": "$19.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "LA GALBI",
+          "korean": "LA 갈비",
+          "description": "Grilled beef short ribs marinated in special sauce",
+          "price": "$21.45",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "STIR-FRIED SQUID",
+          "korean": "오징어볶음",
+          "description": "Stir-fried squid with vegetables in house spicy sauce",
+          "price": "$21.45",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "BIBIMBAP",
+          "korean": "비빔밥",
+          "description": "Steamed rice mixed with sautéed vegetables, beef topped with egg & spicy bibimbap sauce",
+          "price": "$17.45",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "KIMCHI FRIED RICE",
+          "korean": "김치볶음밥",
+          "description": "Fried rice with kimchi, assorted vegetables & spam",
+          "price": "$18.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "JAPCHAE",
+          "korean": "잡채",
+          "description": "Stir-fried glass noodles with beef and vegetables",
+          "price": "$18.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "SOFT TOFU STEW",
+          "korean": "순두부 찌개",
+          "description": "Spicy soft tofu soup with vegetables, seafood, and egg",
+          "price": "$18.95",
+          "tags": [
+            "best seller",
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "KIMCHI STEW",
+          "korean": "김치찌개",
+          "description": "Spicy kimchi stew with pork & tofu",
+          "price": "$18.95",
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": null,
+          "name": "SOYBEAN STEW",
+          "korean": "된장찌개",
+          "description": "Soybean stew with sliced beef & vegetables",
+          "price": "$20.95",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": [
+    "🌶 = Spicy   🌱 = Vegetarian"
+  ]
+}

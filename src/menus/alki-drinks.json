@@ -1,0 +1,661 @@
+{
+  "location": "alki",
+  "source": "drink-menu-back-1-2.png, drink-menu-back-3.png",
+  "title": null,
+  "intro": [
+    "DO SI KOREAN BBQ (logo, 도시)"
+  ],
+  "sections": [
+    {
+      "name": "BEER",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "TERRA",
+          "korean": null,
+          "description": null,
+          "price": "$7.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CASS",
+          "korean": null,
+          "description": null,
+          "price": "$7.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "KLOUD",
+          "korean": null,
+          "description": null,
+          "price": "$8.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "KRUSH",
+          "korean": null,
+          "description": null,
+          "price": "$8.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CORONA",
+          "korean": null,
+          "description": null,
+          "price": "$7",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "DRAFT",
+      "korean": null,
+      "price": null,
+      "note": "Printed as a sub-heading under BEER",
+      "items": [
+        {
+          "name": "16 OZ",
+          "korean": null,
+          "description": null,
+          "price": "$7.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "20 OZ",
+          "korean": null,
+          "description": null,
+          "price": "$8.5",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "SELTZERS",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "HIGH NOON",
+          "korean": null,
+          "description": "Watermelon, Pineapple, Peach",
+          "price": "$7",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "WHITE CLAW",
+          "korean": null,
+          "description": null,
+          "price": "$7",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "SOJU",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "JINRO CHAMISUL ORIGINAL",
+          "korean": null,
+          "description": null,
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "JINRO CHAMISUL FRESH",
+          "korean": null,
+          "description": null,
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SAERO (ZERO SUGAR) SOJU",
+          "korean": null,
+          "description": null,
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SOONHARI FLAVORED",
+          "korean": null,
+          "description": "Peach, Strawberry, Green Apple, Grape, Yogurt, Lychee, Plum, Apple Mango, Citron",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "SOMAEK TOWER",
+      "korean": null,
+      "price": "$75",
+      "note": "Build Your Own Somaek Tower",
+      "items": [
+        {
+          "name": "BEER",
+          "korean": null,
+          "description": "Terra, Cass",
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SOJU",
+          "korean": null,
+          "description": "Jinro Chamisul Original, Fresh Soon Hari Apple, Apple Mango, Citron, Grape, Lychee, Peach, Strawberry, Yogurt",
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "MAKGEOLLI",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "ORIGINAL",
+          "korean": null,
+          "description": null,
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "MATCHA",
+          "korean": null,
+          "description": null,
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "NON-ALCOHOLIC",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "CORONA",
+          "korean": null,
+          "description": null,
+          "price": "$8",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "ATHLETIC GOLDEN ALE",
+          "korean": null,
+          "description": null,
+          "price": "$6",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DESCHUTES IPA",
+          "korean": null,
+          "description": null,
+          "price": "$6",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "FOUNTAIN DRINKS",
+      "korean": null,
+      "price": null,
+      "note": "A single price ($3.5) is printed on the PEPSI line only; no other fountain drink has a price printed",
+      "items": [
+        {
+          "name": "PEPSI",
+          "korean": null,
+          "description": null,
+          "price": "$3.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "PEPSI ZERO",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "STARRY LIME",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "ROOT BEER",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "ORANGE CRUSH",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DR. PEPPER",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DIET DR. PEPPER",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LEMONADE",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SPARKLING WATER",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LEMONADE SODA",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "PINEAPPLE JUICE",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CRANBERRY JUICE",
+          "korean": null,
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "DRINKS",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "ORANGE JUICE",
+          "korean": null,
+          "description": null,
+          "price": "$4",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "GINGER ALE",
+          "korean": null,
+          "description": null,
+          "price": "$4",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "GINGER BEER",
+          "korean": null,
+          "description": null,
+          "price": "$5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "RED BULL ENERGY DRINK",
+          "korean": null,
+          "description": null,
+          "price": "$5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "RED BULL SUGARFREE",
+          "korean": null,
+          "description": null,
+          "price": "$5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "RED BULL PEACH EDITION",
+          "korean": null,
+          "description": null,
+          "price": "$5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "MILKIS ORIGINAL",
+          "korean": null,
+          "description": null,
+          "price": "$3.5",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "MILKIS FLAVORED",
+          "korean": null,
+          "description": "Melon, Peach, Banana, Strawberry Banana, Grape",
+          "price": "$3.5",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "DO SI COCKTAILS",
+      "korean": null,
+      "price": null,
+      "note": "Heading is printed twice (top of left column and top of right column); CHEONAN and CLASSIC COCKTAILS are in the right column",
+      "items": [
+        {
+          "name": "GEOM-EUNSAENG (BLACK) HENNESSY",
+          "korean": null,
+          "description": "Hennessy, Black Sesame Syrup, Chocolate Bitters, Maraschino Cherry",
+          "price": "$18",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "HIBISCUS SPRITZ",
+          "korean": null,
+          "description": "Toki Whiskey, Hibiscus Syrup, Honey, Lemon Juice, Soda",
+          "price": "$18",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DO SI SPECIAL",
+          "korean": null,
+          "description": "Vida Mezcal, Basil, Simple Syrup, Lime",
+          "price": "$18",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "OI (CUCUMBER) LEMONADE",
+          "korean": null,
+          "description": "Original Jinro Soju, Cucumber, Simple Syrup, Lemon Juice, Soda",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CIGAR ON THE BEACH",
+          "korean": null,
+          "description": "Vida Mezcal, Orange Juice, Lemon Juice, Orange Bitters, Grenadine",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LYCHEE MARTINI",
+          "korean": null,
+          "description": "Aspen Vodka, St. Germain, Lychee Juice, Lychee Syrup, Lemon Juice",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "GOCHU-YADA (CHAMOYADA)",
+          "korean": null,
+          "description": "Espolon Tequila Blanco, Gochujang Simple Syrup, Mango Syrup, Lime",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "MELONA SOUR",
+          "korean": null,
+          "description": "Original Jinro Soju, Melon Melona Bar, Midori, Lime, Milkis",
+          "price": "$20",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "RED BULL ON 58TH",
+          "korean": null,
+          "description": "Tokki Black, Red Bull Peach Edition, Orange Juice, Lime Juice",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "THE PO",
+          "korean": null,
+          "description": "Tokki Gold, Orange Bitters, Passionfruit Syrup, Maraschino Cherry",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SONBI-NI",
+          "korean": null,
+          "description": "Sonbi Gin, Sweet Vermouth, Pink Radish",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DEVO",
+          "korean": null,
+          "description": "Bacardi White Rum, Lychee Syrup, Lemon Juice, Mint, Original Milkis",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "THE AVE",
+          "korean": null,
+          "description": "Gray Whale Vodka, Kimchi Juice, Honey, Lemon Juice",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "TEA AFTER HOUR",
+          "korean": null,
+          "description": "Jameson Whiskey, Boba After Hours Liquor, Strawberry Syrup, Honey",
+          "price": "$17",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CHEONAN",
+          "korean": null,
+          "description": "Elderflower Rose Gin, Boba After Hours, Assam Tea, Cherry Blossom, Strawberry, Citrus",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "CLASSIC COCKTAILS",
+          "korean": null,
+          "description": "Aperol Spritz, Cosmopolitan, Gimlet, Lemon Drop, Mai Tai, Manhattan, Margarita, Mojito, Moscow Mule, Negroni, Old Fashioned, Tequila Sunrise, Whiskey Sour",
+          "price": "$12",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "WHITE",
+      "korean": null,
+      "price": null,
+      "note": "Printed as a sub-heading under WINE; two-price entries are printed without labels (likely glass / bottle)",
+      "items": [
+        {
+          "name": "DARK HARVEST CHARDONNAY",
+          "korean": null,
+          "description": "Washington",
+          "price": "$9 / $32",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "OYSTER BAY SAUVIGNON BLANC",
+          "korean": null,
+          "description": null,
+          "price": "$11 / $38",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LA CREMA CHARDONNAY",
+          "korean": null,
+          "description": "California",
+          "price": "$13 / $40",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "A TO Z PINOT GRIS",
+          "korean": null,
+          "description": "Oregon",
+          "price": "$14 / $48",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "MATANZAS CREEK CHENIN BLANC",
+          "korean": null,
+          "description": "California",
+          "price": "$14 / $48",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "TERLATO PINOT GRIGIO COLLI ORIENTALI",
+          "korean": null,
+          "description": null,
+          "price": "$14 / $48",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LA MARCA PROSECCO",
+          "korean": null,
+          "description": null,
+          "price": "$10",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "LUC BELAIRE SPARKLING WINE",
+          "korean": null,
+          "description": null,
+          "price": "$85",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "RED",
+      "korean": null,
+      "price": null,
+      "note": "Printed as a sub-heading under WINE",
+      "items": [
+        {
+          "name": "MARK WEST PINOT NOIR",
+          "korean": null,
+          "description": "California",
+          "price": "$10",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "COPPOLA DIAMOND CLARET",
+          "korean": null,
+          "description": null,
+          "price": "$10 / $30",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "DARK HARVEST CABERNET SAUVIGNON",
+          "korean": null,
+          "description": "Washington",
+          "price": "$10 / $32",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "QUEST CABERNET FRANC PASO ROBLES",
+          "korean": null,
+          "description": null,
+          "price": "$15 / $52",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "SIDURI PINOT NOIR WILLAMETTE VALLEY",
+          "korean": null,
+          "description": null,
+          "price": "$17 / $52",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    }
+  ],
+  "fineprint": [
+    "DISCLAIMERS: *There is no known safe amount of alcohol to drink during pregnancy. All types of alcoholic beverages are harmful to the baby, including wine & beer. Excessive consumption limits your capacity to drive and operate machinery. Must be 21+ with valid ID to purchase alcohol. Please drink responsibly."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Do Si Korean BBQ",
+  "shortName": "Do Si KBBQ",
+  "url": "https://dosikbbq.com",
+  "email": "dosikbbq@outlook.com",
+  "tagline": "All-you-can-eat Korean BBQ on Alki Beach and in Kent, WA",
+  "description": "All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your table, endless banchan, soju and cocktails, at our Alki Beach waterfront and Kent, WA restaurants.",
+  "social": {
+    "instagram": "https://www.instagram.com/dosikbbq/",
+    "facebook": "https://www.facebook.com/dosikbbq/",
+    "tiktok": "https://www.tiktok.com/@dosikbbq"
+  },
+  "stats": { "yearsOpen": 2, "meatSelections": 30, "locations": 2 }
+}

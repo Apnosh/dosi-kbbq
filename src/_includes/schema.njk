@@ -1,0 +1,47 @@
+{#- Structured data for Google: the brand on every page, each restaurant on the pages about it,
+    breadcrumbs where the page sets them. Hours come through withPortal, so they match the page. -#}
+{%- set graph = [] -%}
+{%- set org = {
+  "@type": "Organization",
+  "@id": site.url + "/#org",
+  "name": site.name,
+  "url": site.url + "/",
+  "logo": site.url + "/assets/img/logo.png",
+  "email": site.email,
+  "sameAs": [site.social.instagram, site.social.facebook, site.social.tiktok]
+} -%}
+{%- set _g = graph.push(org) -%}
+{%- set _g = graph.push({ "@type": "WebSite", "@id": site.url + "/#website", "url": site.url + "/", "name": site.name, "publisher": { "@id": site.url + "/#org" } }) -%}
+{%- for loc in locations -%}
+  {%- if schemaRestaurants == "all" or schemaRestaurants == loc.key -%}
+  {%- set l = loc | withPortal(apnosh) -%}
+  {%- set r = {
+    "@type": "Restaurant",
+    "@id": site.url + l.page + "#restaurant",
+    "name": l.fullName,
+    "url": site.url + l.page,
+    "image": [site.url + "/assets/img/" + l.photo + "-1600.jpg", site.url + "/assets/img/meat-platter-1600.jpg", site.url + "/assets/img/interior-neon-1600.jpg"],
+    "telephone": "+1-" + (l.phone | replace("(", "") | replace(") ", "-")),
+    "email": site.email,
+    "priceRange": "$$",
+    "servesCuisine": ["Korean", "Korean BBQ", "All-You-Can-Eat"],
+    "address": { "@type": "PostalAddress", "streetAddress": l.address.street, "addressLocality": l.address.city, "addressRegion": l.address.state, "postalCode": l.address.zip, "addressCountry": "US" },
+    "areaServed": l.areaServed,
+    "openingHoursSpecification": l.hours | openingHoursSpec,
+    "hasMenu": site.url + l.menuPage,
+    "acceptsReservations": l.reserveUrl,
+    "hasMap": l.address | mapsUrl,
+    "parentOrganization": { "@id": site.url + "/#org" },
+    "sameAs": [site.social.instagram, site.social.facebook, site.social.tiktok]
+  } -%}
+  {%- set _g = graph.push(r) -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if breadcrumbs -%}
+  {%- set items = [{ "@type": "ListItem", "position": 1, "name": "Home", "item": site.url + "/" }] -%}
+  {%- for b in breadcrumbs -%}
+    {%- set _i = items.push({ "@type": "ListItem", "position": loop.index + 1, "name": b.name, "item": site.url + b.url }) -%}
+  {%- endfor -%}
+  {%- set _g = graph.push({ "@type": "BreadcrumbList", "itemListElement": items }) -%}
+{%- endif -%}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@graph": graph } | json | safe }}</script>

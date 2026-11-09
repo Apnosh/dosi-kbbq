@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "_doc": "Apnosh content schema: which copy on this site is editable from portal.apnosh.com. Length limits keep the layout from breaking.",
+  "vertical": "restaurant",
+  "displayName": "Do Si Korean BBQ",
+  "features": ["hours", "special_hours", "copy"],
+  "fields": [
+    {
+      "key": "hero.headline",
+      "page": "Home",
+      "label": "Home headline",
+      "description": "The big headline over the grill video on the home page.",
+      "default": "Fire up the grill. It’s all you can eat.",
+      "constraints": { "minChars": 12, "maxChars": 48, "multiline": false }
+    },
+    {
+      "key": "hero.lede",
+      "page": "Home",
+      "label": "Home subhead",
+      "description": "The sentence under the home headline.",
+      "default": "Premium cuts grilled at your table, endless banchan and an ice-cold soju. Seattle’s Korean BBQ on the Alki Beach waterfront, and the first in Kent.",
+      "constraints": { "minChars": 60, "maxChars": 180, "multiline": false }
+    }
+  ]
+}

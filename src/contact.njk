@@ -1,0 +1,60 @@
+---
+layout: base.njk
+permalink: /contact/
+title: "Contact Us & Group Dinners"
+description: Contact Do Si Korean BBQ. Call our Alki Beach or Kent restaurant, email us, or send a message about group dinners, birthdays, feedback and more.
+breadcrumbs: [{ name: "Contact", url: "/contact/" }]
+---
+<section class="page-head">
+  <p class="kr-bg" aria-hidden="true">연락</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Contact</span></nav>
+    <p class="eyebrow">Contact us</p>
+    <h1 class="display h1">Let’s <span class="ember-text">talk</span></h1>
+    <p class="lede">Questions, comments or concerns? Planning a birthday or team dinner? Feel free to reach out.</p>
+  </div>
+</section>
+<section class="section section--tight" style="padding-top:0" id="groups">
+  <div class="wrap split" style="align-items:start">
+    <form class="form" data-dosi-form novalidate>
+      <div class="form__row">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="f-loc">Location</label>
+          <select id="f-loc" name="location"><option>Alki Beach</option><option>Kent</option><option>Either / not sure</option></select></div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label for="f-topic">What’s this about?</label>
+          <select id="f-topic" name="subject" data-kind-select>
+            <option value="General question" data-kind="contact">General question</option>
+            <option value="Group dinner or birthday" data-kind="reservation">Group dinner or birthday</option>
+            <option value="Feedback" data-kind="feedback">Feedback</option>
+            <option value="Jobs" data-kind="job_inquiry">Jobs</option>
+          </select></div>
+        <div class="field"><label for="f-party">Party size &amp; date (for groups)</label><input id="f-party" name="party_details" placeholder="e.g. 12 people, Sat Dec 13"></div>
+      </div>
+      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <div class="btn-row" style="align-items:center"><button class="btn btn--red" type="submit">Send message</button><p class="form__status" role="status" aria-live="polite"></p></div>
+    </form>
+    <div class="contact-cards">
+      {% for loc in locations %}{% set l = loc | withPortal(apnosh) %}
+      <div class="contact-card">
+        <h3>{{ l.name }}</h3>
+        <p style="margin:0"><a href="{{ l.phone | telHref }}">{{ l.phone }}</a><br><a href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">{{ l.address.street }}, {{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}</a></p>
+      </div>
+      {% endfor %}
+      <div class="contact-card">
+        <h3>Email</h3>
+        <p style="margin:0"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Reservations</h3>
+        <p style="margin:0 0 14px" class="muted">The fastest way to book is online.</p>
+        <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
+      </div>
+    </div>
+  </div>
+</section>

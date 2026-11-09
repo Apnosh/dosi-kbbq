@@ -1,0 +1,85 @@
+---
+layout: base.njk
+bodyClass: page-menu
+---
+{%- set loc = locations | byKey(locKey) -%}
+{%- set l = loc | withPortal(apnosh) -%}
+{%- set tabs = menus[locKey] -%}
+<section class="page-head">
+  <p class="kr-bg" aria-hidden="true">메뉴</p>
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/menu/">Menus</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
+    <p class="eyebrow">{{ loc.neighborhood }}</p>
+    <h1 class="display h1">{{ loc.name }} <span class="ember-text">menu</span></h1>
+    <p class="lede">{{ intro }}</p>
+    <div class="menu-switch" role="navigation" aria-label="Choose a location">
+      {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<nav class="menu-tabs" aria-label="Menu sections">
+  <div class="menu-tabs__inner">
+    {% for t in tabs %}<a href="#{{ t.id }}">{{ t.label }}</a>{% endfor %}
+  </div>
+</nav>
+
+<div class="wrap">
+  {% for t in tabs %}
+  <section class="menu-block" id="{{ t.id }}" aria-labelledby="{{ t.id }}-h">
+    <div class="menu-block__head">
+      <div>
+        <h2 class="display h2" id="{{ t.id }}-h">{{ t.label }}</h2>
+        {% if t.intro.length %}<div class="chips">{% for c in t.intro %}<span class="chip{% if loop.first %} chip--gold{% endif %}">{{ c | replace("All You Can Eat | ", "") }}</span>{% endfor %}</div>{% endif %}
+      </div>
+      {% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
+    </div>
+
+    {% for s in t.sections %}
+    <div class="menu-section">
+      <div class="menu-section__head">
+        <h3>{{ s.name }}</h3>
+        {% if s.korean %}<span class="kr">{{ s.korean }}</span>{% endif %}
+        {% if s.price %}<span class="menu-section__price">{{ s.price }}<small class="muted" style="font-family:var(--body);font-size:.8rem;letter-spacing:.1em;margin-left:6px">{% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}/ PERSON{% endif %}</small></span>{% endif %}
+      </div>
+      {% if s.note %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
+      <div class="items">
+        {% for i in s.items %}
+        <div class="item">
+          <span class="item__num">{{ (i.number or "") | replace(".", "") }}</span>
+          <div class="item__name">{{ i.name }}{% for k in i.tagKeys %}{% if k == 'best' %}<span class="tag tag--best">Best seller</span>{% elif k == 'spicy' %}<span class="tag tag--spicy" title="Spicy">🌶 Spicy</span>{% elif k == 'spicy2' %}<span class="tag tag--spicy" title="Extra spicy">🌶🌶 Extra spicy</span>{% elif k == 'veg' %}<span class="tag tag--veg" title="Vegetarian">🌱 Veg</span>{% elif k == 'new' %}<span class="tag tag--new">New</span>{% endif %}{% endfor %}{% if i.korean %}<span class="item__kr" lang="ko">{{ i.korean }}</span>{% endif %}</div>
+          <span class="item__price">{{ i.price or "" }}</span>
+          {% if i.description %}<p class="item__desc">{{ i.description }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if t.fineprint.length %}<div class="fineprint">{% for f in t.fineprint %}<p>{{ f }}</p>{% endfor %}</div>{% endif %}
+  </section>
+  {% endfor %}
+
+  <div class="fineprint" style="margin-top:56px">
+    <p>Prices and items can change. For today’s menu, call {{ loc.name }} at <a href="{{ l.phone | telHref }}">{{ l.phone }}</a>. Looking for our other location? See the <a href="{{ (locations | byKey('kent' if locKey == 'alki' else 'alki')).menuPage }}">{{ (locations | byKey('kent' if locKey == 'alki' else 'alki')).name }} menu</a>.</p>
+  </div>
+</div>
+<div style="height:clamp(64px,9vw,120px)"></div>
+
+{# Menu structured data: sections and priced items, so Google can read the menu #}
+{%- set mSections = [] -%}
+{%- for t in tabs -%}{%- for s in t.sections -%}
+  {%- set mItems = [] -%}
+  {%- for i in s.items -%}
+    {%- set mi = { "@type": "MenuItem", "name": i.name } -%}
+    {%- if i.description -%}{%- set mi = { "@type": "MenuItem", "name": i.name, "description": i.description } -%}{%- endif -%}
+    {%- set pm = (i.price or "") | replace("$", "") -%}
+    {%- if r/^\d+(\.\d+)?$/.test(pm | trim) -%}
+      {%- set _x = mItems.push({ "@type": "MenuItem", "name": mi.name, "description": mi.description, "offers": { "@type": "Offer", "price": pm | trim, "priceCurrency": "USD" } }) -%}
+    {%- else -%}
+      {%- set _x = mItems.push(mi) -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- set _y = mSections.push({ "@type": "MenuSection", "name": t.label + " – " + (s.name or ""), "hasMenuItem": mItems }) -%}
+{%- endfor -%}{%- endfor -%}
+<script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "Menu", "name": "Do Si Korean BBQ " + loc.name + " menu", "url": site.url + page.url, "inLanguage": "en", "hasMenuSection": mSections } | json | safe }}</script>
