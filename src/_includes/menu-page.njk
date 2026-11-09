@@ -34,7 +34,7 @@ bodyClass: page-menu
         <h2 class="display h2" id="{{ t.id }}-h">{{ t.label }}</h2>
         {% if t.intro.length %}<div class="chips">{% for c in t.intro %}<span class="chip{% if loop.first %} chip--gold{% endif %}">{{ c | replace("All You Can Eat | ", "") }}</span>{% endfor %}</div>{% endif %}
       </div>
-      {% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
+      {% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
     </div>
 
     {% for s in t.sections %}

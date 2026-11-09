@@ -4,7 +4,7 @@
   <h2 class="display" id="reserve-title">Which Do Si?</h2>
   <div class="reserve__grid">
     {% for loc in locations %}
-    <a class="reserve__opt" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">
+    <a class="reserve__opt" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">
       <span class="reserve__name">{{ loc.name }}</span>
       <span class="reserve__addr">{{ loc.address.street }}, {{ loc.address.city }}</span>
       <span class="reserve__go">Book a table →</span>

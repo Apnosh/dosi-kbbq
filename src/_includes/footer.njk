@@ -4,7 +4,7 @@
     <h2 class="display">Book your table today.</h2>
     <p>Walk-ins are always welcome. For groups and weekends, reserve ahead.</p>
     <div class="btn-row">
-      {% for loc in locations %}<a class="btn {% if loop.first %}btn--red{% else %}btn--light{% endif %}" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endfor %}
+      {% for loc in locations %}<a class="btn {% if loop.first %}btn--red{% else %}btn--light{% endif %}" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endfor %}
     </div>
   </div>
   <div class="footer__grid">

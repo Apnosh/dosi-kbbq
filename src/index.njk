@@ -187,7 +187,7 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
           <h3>{{ l.name }}</h3>
           <a class="status-chip" href="{{ l.page }}" data-hours='{{ l.hours | json }}'><span class="dot"></span><span data-status>{{ l.address.street }}</span></a>
           <div class="btn-row">
-            <a class="btn btn--red" href="{{ l.reserveUrl }}" target="_blank" rel="noopener">Reserve</a>
+            <a class="btn btn--red" href="{{ l.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve</a>
             <a class="btn btn--ghost" href="{{ l.menuPage }}">Menu</a>
             <a class="btn btn--ghost" href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">Directions</a>
           </div>

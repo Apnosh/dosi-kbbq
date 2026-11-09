@@ -22,7 +22,7 @@ eleventyComputed:
     <p class="eyebrow">{{ loc.neighborhood }}</p>
     <h1 class="display h1">{{ loc.headline }}</h1>
     <div class="btn-row" style="margin-top:28px">
-      <a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve a table</a>
+      <a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve a table</a>
       <a class="btn btn--ghost" href="{{ loc.menuPage }}">{{ loc.name }} menu</a>
       <a class="btn btn--ghost" href="{{ l.phone | telHref }}">Call {{ l.phone }}</a>
     </div>
@@ -64,7 +64,7 @@ eleventyComputed:
         {% for s in special %}<p class="hours-special"><b>{{ s.date }}</b>: {{ s.time }}{% if s.reason %} · {{ s.reason }}{% endif %}</p>{% endfor %}
       </div>
       <div class="btn-row">
-        <a class="btn btn--red" href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">Reserve</a>
+        <a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve</a>
         <a class="btn btn--ghost" href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">Directions</a>
       </div>
     </aside>
