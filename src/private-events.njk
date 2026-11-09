@@ -1,0 +1,77 @@
+---
+layout: base.njk
+permalink: /private-events/
+title: "Private Events & Buyouts at Alki Beach"
+description: Rent Do Si Korean BBQ on the Alki Beach waterfront for birthdays, company parties, rehearsal dinners and celebrations. Request a full buyout or a large group booking.
+schemaRestaurants: alki
+breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
+---
+{%- set alki = locations | byKey('alki') | withPortal(apnosh) -%}
+<section class="hero hero--page">
+  <div class="hero__media" aria-hidden="true">{% img "table-spread", "", { sizes: "100vw", eager: true } %}</div>
+  <div class="wrap hero__inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Private events</span></nav>
+    <p class="eyebrow">Alki Beach · West Seattle</p>
+    <h1 class="display h1">Make Alki <span class="ember-text">yours</span></h1>
+    <p class="lede">Birthdays, company parties, rehearsal dinners. Korean BBQ on the waterfront, just for your group.</p>
+    <div class="btn-row"><a class="btn btn--red" href="#request">Request a date</a><a class="btn btn--ghost" href="{{ alki.phone | telHref }}">Call {{ alki.phone }}</a></div>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="how">
+      <figure class="how__card reveal">{% img "meat-platter", "A platter of premium cuts for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}<figcaption><b>01</b><span>Tell us the date</span></figcaption></figure>
+      <figure class="how__card reveal reveal-d1">{% img "grill-table", "A group grilling together at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}<figcaption><b>02</b><span>We plan it with you</span></figcaption></figure>
+      <figure class="how__card reveal reveal-d2">{% img "alki-storefront", "Do Si Korean BBQ on Alki Avenue", { sizes: "(max-width: 760px) 100vw, 33vw", w: 1200, h: 1600 } %}<figcaption><b>03</b><span>Fire up the grills</span></figcaption></figure>
+    </div>
+    <div class="rules reveal"><span>Full restaurant buyouts</span><span>Large group bookings</span><span>All-you-can-eat for the group</span><span>Steps from Alki Beach</span></div>
+  </div>
+</section>
+
+<section class="section section--tight" id="request" style="padding-top:0">
+  <div class="wrap split" style="align-items:start">
+    <div class="reveal">
+      <h2 class="display h2">Request<br>your event</h2>
+      <p class="lede" style="margin-top:18px">Send the details and we’ll get back to you with availability and pricing. Nothing is booked until we confirm.</p>
+      <div class="contact-cards" style="margin-top:28px">
+        <div class="contact-card"><h3>Prefer to talk?</h3><p style="margin:0"><a href="{{ alki.phone | telHref }}">{{ alki.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
+        <div class="contact-card"><h3>Where</h3><p style="margin:0"><a href="{{ alki.address | mapsUrl }}" target="_blank" rel="noopener">{{ alki.address.street }}, {{ alki.address.city }}, {{ alki.address.state }} {{ alki.address.zip }}</a></p></div>
+      </div>
+    </div>
+    <form class="form form--card reveal reveal-d1" data-dosi-form data-kind="private_event" data-success="Thanks! Your request is in. We’ll reach out to confirm availability and pricing." novalidate>
+      <input type="hidden" name="location" value="Alki Beach">
+      <div class="field"><label>What are you looking for?</label>
+        <div class="choice">
+          <label><input type="radio" name="rental_type" value="Full restaurant buyout" checked><span>Full buyout</span></label>
+          <label><input type="radio" name="rental_type" value="Large group booking"><span>Large group</span></label>
+          <label><input type="radio" name="rental_type" value="Not sure yet"><span>Not sure</span></label>
+        </div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label for="pe-type">Occasion</label>
+          <select id="pe-type" name="event_type">
+            <option>Birthday</option><option>Company or team event</option><option>Rehearsal dinner or wedding</option><option>Graduation</option><option>Holiday party</option><option>Other</option>
+          </select></div>
+        <div class="field"><label for="pe-guests">Guests</label><input id="pe-guests" name="guest_count" type="number" inputmode="numeric" min="1" max="500" placeholder="e.g. 40" required></div>
+      </div>
+      <div class="form__row">
+        <div class="field"><label for="pe-date">Date</label><input id="pe-date" name="event_date" type="date" required></div>
+        <div class="field"><label for="pe-time">Start time</label>
+          <select id="pe-time" name="event_time">
+            <option value="">Flexible</option>
+            <option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option><option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option><option>5:00 PM</option><option>6:00 PM</option><option>7:00 PM</option><option>8:00 PM</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="pe-alt">Backup date (optional)</label><input id="pe-alt" name="backup_date" type="date"></div>
+      <div class="form__row">
+        <div class="field"><label for="pe-name">Name</label><input id="pe-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="pe-phone">Phone</label><input id="pe-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="field"><label for="pe-email">Email</label><input id="pe-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="pe-msg">Anything else? (optional)</label><textarea id="pe-msg" name="details" placeholder="Budget, food and drink plans, decorations, timing…" style="min-height:110px"></textarea></div>
+      <div class="btn-row" style="align-items:center"><button class="btn btn--red" type="submit">Send request</button></div>
+      <p class="form__status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>

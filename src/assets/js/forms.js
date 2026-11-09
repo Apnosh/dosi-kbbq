@@ -17,17 +17,21 @@
     trap.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;opacity:0;";
     form.appendChild(trap);
 
+    /* no booking requests for a day that has passed */
+    var today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    form.querySelectorAll('input[type="date"]').forEach(function (d) { d.min = today; });
+
     var status = form.querySelector(".form__status");
     var button = form.querySelector('button[type="submit"]');
     function say(text, ok) { if (!status) return; status.textContent = text; status.className = "form__status " + (ok ? "is-ok" : "is-err"); }
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      if (!form.checkValidity()) { say("Please add your name, a valid email and a message.", false); form.reportValidity(); return; }
+      if (!form.checkValidity()) { say("Please fill in the highlighted fields.", false); form.reportValidity(); return; }
       var fields = {};
       new FormData(form).forEach(function (v, k) { if (k !== "_gotcha" && String(v).trim()) fields[k] = String(v).trim(); });
       var sel = form.querySelector("[data-kind-select]");
-      var kind = sel && sel.selectedOptions[0] ? sel.selectedOptions[0].getAttribute("data-kind") || "contact" : "contact";
+      var kind = form.getAttribute("data-kind") || (sel && sel.selectedOptions[0] ? sel.selectedOptions[0].getAttribute("data-kind") || "contact" : "contact");
 
       if (!ENDPOINT) {
         var body = Object.keys(fields).map(function (k) { return k.replace(/_/g, " ") + ": " + fields[k]; }).join("\n");
@@ -46,7 +50,7 @@
       fetch(ENDPOINT + "?kind=" + encodeURIComponent(kind), { method: "POST", body: data })
         .then(function (res) { return res.json().catch(function () { return {}; }).then(function (b) { return { ok: res.ok, b: b }; }); })
         .then(function (r) {
-          if (r.ok) { form.reset(); say("Thanks! Your message is on its way. We’ll get back to you soon.", true); }
+          if (r.ok) { form.reset(); say(form.getAttribute("data-success") || "Thanks! Your message is on its way. We’ll get back to you soon.", true); }
           else say(r.b.error || "Something went wrong. Please try again or call us.", false);
         })
         .catch(function () { say("We couldn’t send that. Check your connection, or call us.", false); })

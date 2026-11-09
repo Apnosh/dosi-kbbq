@@ -545,3 +545,24 @@ a.tier { text-decoration: none; color: inherit; min-height: 360px; }
   .dishes { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .rail { overflow-x: auto; } }
+.form--card { padding: clamp(22px, 3vw, 34px); border-radius: 24px; background: var(--char); border: 1px solid var(--line); }
+.form--card .field input, .form--card .field select, .form--card .field textarea { background: var(--char-2); }
+.field input, .field select, .field textarea { font-size: 16px; }
+.field input[type="date"] { color-scheme: dark; min-height: 52px; }
+.choice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.choice label { margin: 0; letter-spacing: 0; text-transform: none; font-size: .92rem; color: var(--text); font-weight: 600; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice span { display: grid; place-items: center; text-align: center; min-height: 52px; padding: 8px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--char-2); cursor: pointer; transition: .25s; }
+.choice input:checked + span { background: var(--red); border-color: var(--red); color: #fff; }
+.choice input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+.callout { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 22px; padding: 20px 22px; border-radius: 18px; text-decoration: none; background: linear-gradient(120deg, rgba(226,20,12,.22), rgba(255,106,43,.08)); border: 1px solid rgba(226,20,12,.45); }
+.callout b { display: block; font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 1.5rem; line-height: 1.1; }
+.callout span { color: #e3d9cd; }
+.callout__go { color: var(--gold) !important; font-weight: 600; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
+@media (max-width: 1100px) { .nav__links { gap: 22px; } }
+/* form controls never push the page wider than the phone (date inputs have a built-in min width) */
+.split > *, .form__row > *, .field { min-width: 0; }
+.field input, .field select, .field textarea { min-width: 0; max-width: 100%; display: block; }
+.field input[type="date"] { -webkit-appearance: none; appearance: none; text-align: left; }
+.choice label { position: relative; }
+.field .choice input { position: absolute; inset: 0; width: 1px; height: 1px; padding: 0; border: 0; opacity: 0; }

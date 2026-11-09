@@ -48,5 +48,9 @@ module.exports = function () {
       q: "Can you host birthdays and group dinners?",
       a: `Absolutely. Do Si is built for celebrations. Reserve ahead, or <a href="/contact/#groups">tell us about your group</a> and we’ll help plan it.`,
     },
+    {
+      q: "Can I rent out the Alki Beach restaurant?",
+      a: `Yes. Our Alki Beach location takes full buyouts and large group bookings for birthdays, company parties, rehearsal dinners and more. <a href="/private-events/">Request a date</a> and we’ll follow up with availability and pricing.`,
+    },
   ];
 };
