@@ -31,24 +31,22 @@ eleventyComputed:
 
 <section class="section section--tight">
   <div class="wrap loc-page">
-    <div class="prose">
-      <h2>Welcome to Do Si {{ loc.name }}</h2>
-      <p class="lede">{{ loc.blurb }}</p>
+    <div>
+      <p class="lede" style="margin-bottom:28px">{{ loc.blurb }}</p>
+      <div class="price-tiles">
+        <a href="{{ loc.menuPage }}#ayce-lunch"><small>AYCE Lunch</small><b>{{ A.lunch }}</b><span>{{ A.lunchDays }}</span></a>
+        <a href="{{ loc.menuPage }}#ayce-dinner"><small>Premium</small><b>{{ A.premium }}</b><span>28 meats</span></a>
+        <a href="{{ loc.menuPage }}#ayce-dinner" class="is-hot"><small>Supreme</small><b>{{ A.supreme }}</b><span>+ Angus cuts</span></a>
+      </div>
       <div class="photo-strip">
         <div>{% img "grilling-galbi", "Galbi on the tabletop grill at Do Si Korean BBQ " + loc.name, { sizes: "33vw" } %}</div>
         <div>{% img "premium-cuts", "Premium cuts of beef and pork for all-you-can-eat Korean BBQ", { sizes: "33vw" } %}</div>
         <div>{% img "yangnyeom-wings", "Yangnyeom chicken wings", { sizes: "33vw" } %}</div>
       </div>
-      <h2>All-you-can-eat at {{ loc.name }}</h2>
-      <ul>
-        <li><strong>AYCE Lunch, {{ A.lunch }} per person</strong>: {{ A.lunchDays }} (excludes holidays).</li>
-        <li><strong>AYCE Premium, {{ A.premium }} per person</strong>: 28 meats plus appetizers, stews and banchan.</li>
-        <li><strong>AYCE Supreme, {{ A.supreme }} per person</strong>: everything in Premium plus our supreme cuts.</li>
-      </ul>
-      <p>AYCE is 90 minutes, with a 2-guest minimum; kids 4–10 are half price. Prefer to order à la carte? Try a KBBQ combo, appetizers, stews and {% if loc.key == 'alki' %}happy hour, 2–5pm and 8pm to close{% else %}weekday lunch specials{% endif %}. <a href="{{ loc.menuPage }}">See the full {{ loc.name }} menu</a>.</p>
-      <h2>Getting here</h2>
-      <p>Find us at {{ loc.address.street }}, {{ loc.address.city }}, {{ loc.address.state }} {{ loc.address.zip }}{% if loc.key == 'alki' %}{% endif %}. Walk-ins are welcome; for groups and weekend nights we recommend <a href="{{ loc.reserveUrl }}" target="_blank" rel="noopener">reserving a table</a>.</p>
-      <p class="muted">Proudly serving {{ loc.areaServed | join(", ") }}.</p>
+      <div class="rules">
+        {% for x in loc.extras %}<span>{{ x }}</span>{% endfor %}<span>90-minute AYCE</span><span>Kids 4–10 half price</span>
+      </div>
+      <p class="muted" style="margin-top:28px;font-size:.92rem">Serving {{ loc.areaServed | join(", ") }}.</p>
     </div>
     <aside class="info-card" aria-label="{{ loc.name }} details">
       <div>

@@ -471,3 +471,77 @@ button { font: inherit; color: inherit; }
 /* hero video fades in over the poster once it can play */
 .hero__media video { opacity: 0; transition: opacity 1.2s var(--ease); }
 .hero__media video.is-playing { opacity: 1; }
+
+/* ==========================================================================
+   Photo-first blocks (2nd pass: fewer words, bigger pictures)
+   ========================================================================== */
+.how { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 760px) { .how { grid-template-columns: 1fr; } }
+.how__card { position: relative; margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 3/4; isolation: isolate; }
+@media (max-width: 760px) { .how__card { aspect-ratio: 4/3; } }
+.how__card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s var(--ease); }
+.how__card:hover img { transform: scale(1.05); }
+.how__card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 45%, rgba(13,11,10,.9)); }
+.how__card figcaption { position: absolute; left: 24px; right: 24px; bottom: 22px; display: flex; align-items: baseline; gap: 14px; }
+.how__card b { font-family: var(--display); font-weight: 400; font-size: 3rem; line-height: 1; color: var(--red); }
+.how__card span { font-family: var(--display); text-transform: uppercase; font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1; }
+
+a.tier { text-decoration: none; color: inherit; min-height: 360px; }
+.tier__line { margin: 0; color: #d6ccc0; font-size: .95rem; }
+
+.rail { overflow: hidden; padding: 12px 0; }
+.rail__track { display: flex; gap: 12px; width: max-content; animation: marquee 70s linear infinite; }
+.rail:hover .rail__track { animation-play-state: paused; }
+.rail__item { height: clamp(220px, 30vw, 380px); aspect-ratio: 3/2; border-radius: 18px; overflow: hidden; flex: none; }
+.rail__item--tall { aspect-ratio: 2/3; }
+.rail__item img { width: 100%; height: 100%; object-fit: cover; }
+
+.bleed { position: relative; min-height: clamp(520px, 80vh, 820px); display: flex; align-items: flex-end; isolation: isolate; overflow: hidden; }
+.bleed--short { min-height: clamp(420px, 64vh, 640px); }
+.bleed__img { position: absolute; inset: 0; z-index: -2; }
+.bleed__img img { width: 100%; height: 100%; object-fit: cover; }
+.bleed::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(13,11,10,.2) 0%, rgba(13,11,10,.15) 40%, rgba(13,11,10,.92) 100%); }
+.bleed__inner { padding-bottom: clamp(40px, 7vw, 88px); }
+.bleed h2 { margin-bottom: 26px; text-shadow: 0 4px 30px rgba(0,0,0,.5); }
+.icon-row { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.icon-row li { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 999px; background: rgba(22,19,17,.6); border: 1px solid var(--line-2); backdrop-filter: blur(10px); font-weight: 600; font-size: .9rem; }
+.icon-row svg { width: 20px; height: 20px; fill: none; stroke: var(--gold); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.loc--photo { position: relative; min-height: clamp(460px, 48vw, 620px); justify-content: flex-end; isolation: isolate; border: 0; }
+.loc__bg { position: absolute; inset: 0; z-index: -2; }
+.loc__bg img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.loc--photo:hover .loc__bg img { transform: scale(1.04); }
+.loc--photo::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 30%, rgba(13,11,10,.94) 88%); }
+.loc__over { padding: 28px; display: grid; gap: 14px; justify-items: start; }
+.loc__over small { color: var(--gold); letter-spacing: .2em; text-transform: uppercase; font-size: .74rem; font-weight: 600; }
+.loc__over h3 { font-family: var(--display); text-transform: uppercase; font-size: clamp(3rem, 6vw, 4.6rem); line-height: .85; }
+.price-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+@media (max-width: 560px) { .price-tiles { grid-template-columns: 1fr; } }
+.price-tiles a { display: grid; gap: 4px; padding: 20px; border-radius: 18px; background: var(--char); border: 1px solid var(--line); text-decoration: none; transition: border-color .3s, transform .4s var(--ease); }
+.price-tiles a:hover { transform: translateY(-3px); border-color: var(--line-2); }
+.price-tiles a.is-hot { border-color: rgba(226,20,12,.5); }
+.price-tiles small { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.price-tiles b { font-family: var(--display); font-weight: 400; font-size: 2.6rem; line-height: 1; }
+.price-tiles span { color: var(--muted); font-size: .86rem; }
+.about-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: repeat(2, clamp(200px, 22vw, 300px)); gap: 12px; }
+.about-grid > div { border-radius: 18px; overflow: hidden; }
+.about-grid > div:first-child { grid-row: span 2; }
+.about-grid > div:nth-child(2) { grid-row: span 2; }
+.about-grid img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) { .about-grid { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-auto-rows: 200px; } .about-grid > div:first-child { grid-column: span 2; grid-row: auto; } .about-grid > div:nth-child(2) { grid-row: span 2; } }
+.menu-banner { border-radius: 22px; overflow: hidden; aspect-ratio: 21/7; margin-bottom: 28px; }
+.menu-banner img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 600px) { .menu-banner { aspect-ratio: 16/8; } }
+@media (max-width: 960px) {
+  a.tier { min-height: 0; }
+  .tier__price { flex-wrap: nowrap; gap: 26px; margin: 18px 0 12px; }
+  .tier__price b { font-size: 2.5rem; }
+}
+@media (max-width: 560px) {
+  .dish { grid-column: span 6; }
+  .dish--wide { grid-column: span 12; }
+  .dish__body { padding: 12px 14px 14px; flex-direction: column; gap: 2px; }
+  .dish h3 { font-size: 1.15rem; }
+  .dishes { gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .rail { overflow-x: auto; } }

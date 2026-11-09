@@ -10,7 +10,7 @@
       "page": "Home",
       "label": "Home headline",
       "description": "The big headline over the grill video on the home page.",
-      "default": "Fire up the grill. It’s all you can eat.",
+      "default": "All you can eat. Grilled at your table.",
       "constraints": { "minChars": 12, "maxChars": 48, "multiline": false }
     },
     {
@@ -18,8 +18,8 @@
       "page": "Home",
       "label": "Home subhead",
       "description": "The sentence under the home headline.",
-      "default": "Premium cuts grilled at your table, endless banchan and an ice-cold soju. Seattle’s Korean BBQ on the Alki Beach waterfront, and the first in Kent.",
-      "constraints": { "minChars": 60, "maxChars": 180, "multiline": false }
+      "default": "Seattle’s Korean BBQ, on the beach and in Kent.",
+      "constraints": { "minChars": 20, "maxChars": 90, "multiline": false }
     }
   ]
 }

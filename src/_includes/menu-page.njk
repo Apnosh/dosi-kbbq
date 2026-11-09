@@ -27,6 +27,8 @@ bodyClass: page-menu
 <div class="wrap">
   {% for t in tabs %}
   <section class="menu-block" id="{{ t.id }}" aria-labelledby="{{ t.id }}-h">
+    {%- set banner = { "ayce-dinner": "premium-cuts", "ayce-lunch": "table-spread", "combo-alacarte": "meat-platter", "apps-entrees": "yangnyeom-wings", "bento-lunch": "bibimbap", "drinks": "interior-neon", "happy-hour": "grill-table" }[t.id] -%}
+    {% if banner %}<div class="menu-banner">{% img banner, "", { sizes: "(max-width: 1240px) 100vw, 1200px" } %}</div>{% endif %}
     <div class="menu-block__head">
       <div>
         <h2 class="display h2" id="{{ t.id }}-h">{{ t.label }}</h2>

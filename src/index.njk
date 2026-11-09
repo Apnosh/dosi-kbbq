@@ -17,14 +17,13 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
     </picture>
     <video class="hero__video" muted loop playsinline preload="none" poster="/assets/img/hero-poster-1600.webp" data-src="/assets/video/hero-720.mp4"></video>
   </div>
-  <p class="hero__kr" aria-hidden="true">도시</p>
   <div class="wrap hero__inner">
     <p class="eyebrow">Alki Beach · Kent, WA</p>
-    <h1 class="display h1">{{ apnosh.content['hero.headline'] or "Fire up the grill. It’s all you can eat." }}</h1>
-    <p class="lede">{{ apnosh.content['hero.lede'] or "Premium cuts grilled at your table, endless banchan and an ice-cold soju. Seattle’s Korean BBQ on the Alki Beach waterfront, and the first in Kent." }}</p>
+    <h1 class="display h1">{{ apnosh.content['hero.headline'] or "All you can eat. Grilled at your table." }}</h1>
+    <p class="lede">{{ apnosh.content['hero.lede'] or "Seattle’s Korean BBQ, on the beach and in Kent." }}</p>
     <div class="btn-row">
       <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
-      <a class="btn btn--ghost" href="/menu/">See the menus</a>
+      <a class="btn btn--ghost" href="/menu/">Menus</a>
     </div>
     <div class="hero__status">
       {% for l in [alki, kent] %}
@@ -45,22 +44,28 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
   </div>
 </div>
 
-{# ---------- how it works ---------- #}
+{# ---------- how it works: three photos, three words each ---------- #}
 <section class="section">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow">How AYCE works</p>
-      <h2 class="display h2">Order by the round. Grill. <span class="red">Repeat.</span></h2>
-      <ol class="steps">
-        <li><div><h3>Pick your table’s menu</h3><p>Lunch, Premium or Supreme. The whole table orders from the same one, so everyone shares the grill.</p></div></li>
-        <li><div><h3>Order in rounds</h3><p>Up to 4 meats and 2 appetizers per round, from brisket and pork belly to marinated galbi. Banchan keeps coming.</p></div></li>
-        <li><div><h3>Grill it your way</h3><p>Your server keeps the grill hot and helps first-timers along. You have 90 minutes, so order what you’ll finish.</p></div></li>
-      </ol>
+  <div class="wrap">
+    <div class="tiers-head reveal">
+      <h2 class="display h2">How <span class="red">AYCE</span> works</h2>
     </div>
-    <div class="collage reveal reveal-d2">
-      <div class="collage__a">{% img "grilling-galbi", "Grilling marinated galbi short rib at a Do Si tabletop grill", { sizes: "(max-width: 880px) 90vw, 45vw" } %}</div>
-      <div class="collage__b">{% img "meat-rolls", "Rolled slices of thin beef brisket and pork belly ready for the grill", { sizes: "(max-width: 880px) 60vw, 28vw" } %}</div>
-      <div class="collage__tag"><div><b>30+</b><span>meats</span></div></div>
+    <div class="how">
+      <figure class="how__card reveal">
+        {% img "premium-cuts", "Premium cuts of beef and pork for Korean BBQ", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>01</b><span>Pick your tier</span></figcaption>
+      </figure>
+      <figure class="how__card reveal reveal-d1">
+        {% img "meat-rolls", "Rolled thin-sliced brisket and pork belly", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>02</b><span>Order by the round</span></figcaption>
+      </figure>
+      <figure class="how__card reveal reveal-d2">
+        {% img "grilling-galbi", "Grilling marinated galbi at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>03</b><span>Grill &amp; repeat</span></figcaption>
+      </figure>
+    </div>
+    <div class="rules reveal">
+      <span>90 minutes</span><span>4 meats + 2 apps per round</span><span>2 guest minimum</span><span>Kids 4–10 half price</span>
     </div>
   </div>
 </section>
@@ -69,25 +74,21 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
 <section class="section section--tight" id="ayce">
   <div class="wrap">
     <div class="tiers-head reveal">
-      <div>
-        <p class="eyebrow">All you can eat</p>
-        <h2 class="display h2">Three ways to <span class="ember-text">feast</span></h2>
-      </div>
-      <a class="arrow-link" href="/menu/">Full menus by location</a>
+      <h2 class="display h2">Three ways to <span class="ember-text">feast</span></h2>
+      <a class="arrow-link" href="/menu/">Full menus</a>
     </div>
     <div class="tiers">
-      <article class="tier reveal">
+      <a class="tier reveal" href="/kent-menu/#ayce-lunch">
         <div class="tier__bg">{% img "table-spread", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
-        <p class="tier__when">Weekday lunch · 11am – 3pm</p>
-        <h3>AYCE Lunch</h3>
+        <p class="tier__when">Weekday lunch</p>
+        <h3>Lunch</h3>
         <div class="tier__price">
-          <div><b>{{ A.alki.lunch }}</b><small>Alki · Mon – Thu</small></div>
-          <div><b>{{ A.kent.lunch }}</b><small>Kent · Mon – Fri</small></div>
+          <div><b>{{ A.alki.lunch }}</b><small>Alki</small></div>
+          <div><b>{{ A.kent.lunch }}</b><small>Kent</small></div>
         </div>
-        <ul><li>24 lunch meats</li><li>13 appetizers &amp; stews</li><li>Banchan included</li></ul>
-        <a class="arrow-link" href="/kent-menu/#ayce-lunch">See lunch menu</a>
-      </article>
-      <article class="tier reveal reveal-d1">
+        <p class="tier__line">24 meats · stews · banchan</p>
+      </a>
+      <a class="tier reveal reveal-d1" href="/alki-menu/#ayce-dinner">
         <div class="tier__bg">{% img "premium-cuts", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
         <p class="tier__when">Dinner</p>
         <h3>Premium</h3>
@@ -95,10 +96,9 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
           <div><b>{{ A.alki.premium }}</b><small>Alki</small></div>
           <div><b>{{ A.kent.premium }}</b><small>Kent</small></div>
         </div>
-        <ul><li>28 meats: brisket, pork belly, galbi &amp; more</li><li>13 appetizers &amp; stews</li><li>Banchan included</li></ul>
-        <a class="arrow-link" href="/alki-menu/#ayce-dinner">See dinner menu</a>
-      </article>
-      <article class="tier tier--hot reveal reveal-d2">
+        <p class="tier__line">28 meats · stews · banchan</p>
+      </a>
+      <a class="tier tier--hot reveal reveal-d2" href="/alki-menu/#ayce-dinner">
         <div class="tier__bg">{% img "grill-pork-belly", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
         <span class="tier__badge">Top tier</span>
         <p class="tier__when">Dinner</p>
@@ -107,13 +107,20 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
           <div><b>{{ A.alki.supreme }}</b><small>Alki</small></div>
           <div><b>{{ A.kent.supreme }}</b><small>Kent</small></div>
         </div>
-        <ul><li>Everything in Premium</li><li>Plus 4 supreme cuts, incl. Angus ribeye &amp; boneless short rib</li><li>32 meats in all</li></ul>
-        <a class="arrow-link" href="/alki-menu/#ayce-dinner">See supreme cuts</a>
-      </article>
+        <p class="tier__line">Premium + Angus ribeye &amp; short rib</p>
+      </a>
     </div>
-    <div class="rules reveal">
-      <span>90-minute dining</span><span>2 guest minimum</span><span>Kids 4–10 half price</span><span>4 meats + 2 apps per round</span><span>18% gratuity for 5+</span>
-    </div>
+  </div>
+</section>
+
+{# ---------- photo rail ---------- #}
+<section class="rail" aria-label="Photos from Do Si">
+  <div class="rail__track">
+    {% for n in [1, 2] %}
+    {% for p in ["sizzling-galbi", "grill-table", "steamed-egg", "meat-platter", "interior-neon", "yangnyeom-wings", "spread-tall", "grill-pork-belly", "bibimbap", "table-spread"] %}
+    <div class="rail__item{% if p == 'spread-tall' %} rail__item--tall{% endif %}"{% if n == 2 %} aria-hidden="true"{% endif %}>{% img p, ("" if n == 2 else "Food and dining room at Do Si Korean BBQ"), { sizes: "40vw" } %}</div>
+    {% endfor %}
+    {% endfor %}
   </div>
 </section>
 
@@ -121,12 +128,8 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
 <section class="section cream">
   <div class="wrap">
     <div class="tiers-head reveal">
-      <div>
-        <p class="eyebrow">Beyond the grill</p>
-        <h2 class="display h2">Korean classics, made to share</h2>
-        <p class="lede" style="margin-top:16px">Wings in house sauce, bubbling cheese tteokbokki, hot stone bibimbap. Order them on their own, or as part of AYCE.</p>
-      </div>
-      <a class="arrow-link" href="/alki-menu/#apps-entrees">Appetizers &amp; entrées</a>
+      <h2 class="display h2">Beyond the grill</h2>
+      <a class="arrow-link" href="/alki-menu/#apps-entrees">Apps &amp; entrées</a>
     </div>
     <div class="dishes">
       <article class="dish dish--wide reveal">
@@ -134,7 +137,7 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
         <div class="dish__body"><h3>Yangnyeom chicken</h3><span class="kr" lang="ko">양념치킨</span></div>
       </article>
       <article class="dish reveal reveal-d1">
-        <div class="dish__img">{% img "steamed-egg", "Fluffy Korean steamed egg in a hot stone pot topped with green onion", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "steamed-egg", "Fluffy Korean steamed egg in a hot stone pot", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Steamed egg</h3><span class="kr" lang="ko">계란찜</span></div>
       </article>
       <article class="dish reveal">
@@ -142,74 +145,51 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
         <div class="dish__body"><h3>Tteokbokki</h3><span class="kr" lang="ko">떡볶이</span></div>
       </article>
       <article class="dish reveal reveal-d1">
-        <div class="dish__img">{% img "bibimbap", "Hot stone bibimbap with vegetables, marinated beef and a fried egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "bibimbap", "Hot stone bibimbap with vegetables, beef and a fried egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Bibimbap</h3><span class="kr" lang="ko">비빔밥</span></div>
       </article>
       <article class="dish reveal reveal-d2">
-        <div class="dish__img">{% img "kimchi-fried-rice", "Kimchi fried rice topped with a fried egg and seaweed", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "kimchi-fried-rice", "Kimchi fried rice topped with a fried egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Kimchi fried rice</h3><span class="kr" lang="ko">김치볶음밥</span></div>
       </article>
     </div>
   </div>
 </section>
 
-{# ---------- atmosphere ---------- #}
-<section class="section atmos">
-  <div class="wrap split split--rev">
-    <div class="reveal">
-      <p class="eyebrow">The room</p>
-      <h2 class="display h2">A dining atmosphere unlike any other</h2>
-      <p class="lede" style="margin-top:20px">At Do Si KBBQ, every visit is more than a meal. It’s an experience. Every detail has been thoughtfully curated, from the tabletop grills and ventilation to the décor, lighting, and atmosphere.</p>
-      <p class="muted">We believe Korean BBQ is meant to be shared. Whether you’re a longtime KBBQ lover or trying it for the first time, our staff will guide you through it and keep your grill going strong.</p>
-      <div class="feature-list">
-        <div class="feature"><b>Premium cuts</b><span>Marinated and unmarinated, grilled at your table</span></div>
-        <div class="feature"><b>Full bar</b><span>Soju, beer towers, cocktails &amp; mocktails</span></div>
-        <div class="feature"><b>Plenty of parking</b><span>Easy for groups and families</span></div>
-        <div class="feature"><b>Walk-ins welcome</b><span>Or reserve ahead for groups</span></div>
-      </div>
-    </div>
-    <div class="atmos__photos reveal reveal-d2">
-      <div>{% img "interior-wide", "Do Si Korean BBQ dining room with neon Korean signage and retro posters", { sizes: "(max-width: 880px) 100vw, 30vw" } %}</div>
-      <div>{% img "grill-table", "A table of friends grilling meat with banchan and side dishes", { sizes: "(max-width: 880px) 50vw, 20vw" } %}</div>
-      <div>{% img "interior-neon", "Do Si Korean BBQ restaurant interior with tabletop grills", { sizes: "(max-width: 880px) 50vw, 20vw" } %}</div>
-    </div>
+{# ---------- the room: full-bleed photo, one line ---------- #}
+<section class="bleed">
+  <div class="bleed__img">{% img "interior-wide", "Do Si Korean BBQ dining room with neon Korean signs and retro posters", { sizes: "100vw" } %}</div>
+  <div class="wrap bleed__inner reveal">
+    <h2 class="display h2">A dining atmosphere<br>unlike any other</h2>
+    <ul class="icon-row">
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg>Tabletop grills</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3zM12 13v6m-4 2h8"/></svg>Full bar</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17V9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8M3 17h18M7 20v-3m10 3v-3"/></svg>Groups welcome</li>
+      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Walk-ins welcome</li>
+    </ul>
   </div>
 </section>
 
-{# ---------- locations ---------- #}
+{# ---------- locations: photo, name, today, buttons ---------- #}
 <section class="section section--tight" id="locations">
   <div class="wrap">
     <div class="tiers-head reveal">
-      <div>
-        <p class="eyebrow">Two locations</p>
-        <h2 class="display h2">Beach views or <span class="red">Kent’s first</span> KBBQ</h2>
-      </div>
-      <a class="arrow-link" href="/locations/">All location details</a>
+      <h2 class="display h2">Beach views or <span class="red">Kent’s first</span> KBBQ</h2>
+      <a class="arrow-link" href="/locations/">Hours &amp; directions</a>
     </div>
     <div class="locs">
       {% for l in [alki, kent] %}
-      <article class="loc reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
-        <div class="loc__img">
-          {% set iw = 1200 if l.key == 'alki' else 1600 %}{% set ih = 1600 if l.key == 'alki' else 1067 %}{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}
-          <div class="loc__label"><small>{{ l.neighborhood }}</small><h3>{{ l.name }}</h3></div>
-        </div>
-        <div class="loc__body">
-          <p class="muted" style="margin:0">{{ l.headline }}.</p>
-          <div class="loc__meta">
-            <div>
-              <h4>Visit</h4>
-              <a href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">{{ l.address.street }}<br>{{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}</a><br>
-              <a href="{{ l.phone | telHref }}">{{ l.phone }}</a>
-            </div>
-            <div>
-              <h4>Hours</h4>
-              <ul class="hours">{% for r in l.hours | hoursRows %}<li><span>{{ r.days }}</span><span>{{ r.time }}</span></li>{% endfor %}</ul>
-            </div>
-          </div>
+      <article class="loc loc--photo reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
+        {% set iw = 1200 if l.key == 'alki' else 1600 %}{% set ih = 1600 if l.key == 'alki' else 1067 %}
+        <div class="loc__bg">{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}</div>
+        <div class="loc__over">
+          <small>{{ l.neighborhood }}</small>
+          <h3>{{ l.name }}</h3>
+          <a class="status-chip" href="{{ l.page }}" data-hours='{{ l.hours | json }}'><span class="dot"></span><span data-status>{{ l.address.street }}</span></a>
           <div class="btn-row">
             <a class="btn btn--red" href="{{ l.reserveUrl }}" target="_blank" rel="noopener">Reserve</a>
             <a class="btn btn--ghost" href="{{ l.menuPage }}">Menu</a>
-            <a class="btn btn--ghost" href="{{ l.page }}">Details</a>
+            <a class="btn btn--ghost" href="{{ l.address | mapsUrl }}" target="_blank" rel="noopener">Directions</a>
           </div>
         </div>
       </article>
@@ -218,19 +198,11 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
   </div>
 </section>
 
-{# ---------- occasions ---------- #}
-<section class="section">
-  <div class="wrap">
-    <div class="big-photo reveal">{% img "table-spread", "A full Korean BBQ table spread with meats, banchan and stews at Do Si", { sizes: "100vw" } %}</div>
-    <div class="split" style="margin-top:clamp(36px,5vw,64px)">
-      <div class="reveal">
-        <p class="eyebrow">Perfect for any occasion</p>
-        <h2 class="display h2">Birthdays, team dinners, first dates</h2>
-      </div>
-      <div class="reveal reveal-d1">
-        <p class="lede">From casual get-togethers to memorable celebrations, our comfortable atmosphere and diverse offerings make every visit a great one. Bringing a big group? Reserve ahead and we’ll have the grills ready.</p>
-        <div class="btn-row"><a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a><a class="btn btn--ghost" href="/contact/#groups">Plan a group visit</a></div>
-      </div>
-    </div>
+{# ---------- occasions: one photo, one line ---------- #}
+<section class="bleed bleed--short">
+  <div class="bleed__img">{% img "table-spread", "A full Korean BBQ table spread at Do Si", { sizes: "100vw" } %}</div>
+  <div class="wrap bleed__inner reveal">
+    <h2 class="display h2">Birthdays. Team dinners.<br>First dates.</h2>
+    <div class="btn-row"><a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a><a class="btn btn--ghost" href="/contact/#groups">Plan a group visit</a></div>
   </div>
 </section>
