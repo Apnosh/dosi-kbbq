@@ -5,16 +5,20 @@ bodyClass: page-menu
 {%- set loc = locations | byKey(locKey) -%}
 {%- set l = loc | withPortal(apnosh) -%}
 {%- set tabs = menus[locKey] -%}
-<section class="page-head">
+<section class="page-head page-head--menu">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/menu/">Menus</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
-    <p class="eyebrow">{{ loc.neighborhood }}</p>
-    <h1 class="display h1">{{ loc.name }} <span class="serif">menu</span></h1>
+    <div class="menu-head">
+      <div>
+        <p class="eyebrow">{{ loc.neighborhood }}</p>
+        <h1 class="display h1">{{ loc.name }} <span class="serif">menu</span></h1>
+      </div>
+      <div class="menu-switch" role="navigation" aria-label="Choose a location">
+        {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
+      </div>
+    </div>
     <p class="lede">{{ intro }}</p>
     <p class="chips"><span class="chip">🌶 Spicy</span><span class="chip">🌱 Vegetarian</span><span class="chip"><span class="tag tag--best">Best seller</span></span></p>
-    <div class="menu-switch" role="navigation" aria-label="Choose a location">
-      {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
-    </div>
   </div>
 </section>
 
@@ -27,14 +31,14 @@ bodyClass: page-menu
 <div class="wrap">
   {% for t in tabs %}
   <section class="menu-block" id="{{ t.id }}" aria-labelledby="{{ t.id }}-h">
-    {%- set banner = { "ayce-dinner": "premium-cuts", "ayce-lunch": "table-spread", "combo-alacarte": "meat-platter", "apps-entrees": "yangnyeom-wings", "bento-lunch": "bibimbap", "drinks": "interior-neon", "happy-hour": "grill-table" }[t.id] -%}
+    {%- set banner = { "ayce": "premium-cuts", "combo-alacarte": "meat-platter", "apps-entrees": "yangnyeom-wings", "bento-lunch": "bibimbap", "drinks": "interior-neon", "happy-hour": "grill-table" }[t.id] -%}
     {% if banner %}<div class="menu-banner">{% img banner, "", { sizes: "(max-width: 1240px) 100vw, 1200px" } %}</div>{% endif %}
     <div class="menu-block__head">
       <div>
         <h2 class="rule-head rule-head--left{% if t.id == 'drinks' or t.id == 'happy-hour' %} rule-head--drinks{% endif %}" id="{{ t.id }}-h">{{ t.label }}</h2>
         {% if t.intro.length %}<div class="chips">{% for c in t.intro %}<span class="chip{% if loop.first %} chip--gold{% endif %}">{{ c | replace("All You Can Eat | ", "") }}</span>{% endfor %}</div>{% endif %}
       </div>
-      {% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
+      {% if t.id == 'ayce' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
     </div>
 
     {% for s in t.sections %}
@@ -42,21 +46,32 @@ bodyClass: page-menu
       <div class="menu-section__head">
         <h3>{{ s.name }}</h3>
         {% if s.korean %}<span class="kr">{{ s.korean }}</span>{% endif %}
-        {% if s.price %}<span class="menu-section__price">{{ s.price }}<small class="muted" style="font-family:var(--body);font-size:.8rem;letter-spacing:.1em;margin-left:6px">{% if t.id == 'ayce-dinner' or t.id == 'ayce-lunch' %}/ PERSON{% endif %}</small></span>{% endif %}
+        {% if s.price %}<span class="menu-section__price">{{ s.price }}{% if t.id == 'ayce' %}<small>/ person</small>{% endif %}</span>{% endif %}
       </div>
       {% if s.note %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
-      {%- set showSlot = s.photos and site.menuPhotos != "none" -%}
-      <div class="items{% if s.cards and showSlot %} items--cards{% elif showSlot %} items--thumbs{% endif %}">
-        {% for i in s.items %}
-        {%- set hasPic = showSlot and (i.photo or site.menuPhotos == "placeholders") -%}
-        <div class="item{% if hasPic %} item--pic{% endif %}">
-          {% if hasPic %}<div class="item__pic">{% if i.photo %}<img src="{{ i.photo }}" alt="{{ i.name | lower }}" width="400" height="400" loading="lazy" decoding="async">{% else %}<span class="item__ph" aria-hidden="true"></span>{% endif %}{% if s.cards and i.number %}<span class="item__badge">{{ i.number | replace(".", "") }}</span>{% endif %}{% if s.cards and 'best' in i.tagKeys %}<span class="seal seal--sm">Best<br>seller</span>{% endif %}</div>{% endif %}
-          {% if not s.cards %}<span class="item__num">{{ (i.number or "") | replace(".", "") }}</span>{% endif %}
-          <div class="item__name">{% if i.korean %}<span class="item__kr" lang="ko">{{ i.korean }}</span>{% endif %}{{ i.name }}{% for k in i.tagKeys %}{% if k == 'spicy' %} <span class="chili" title="Spicy">🌶</span>{% elif k == 'spicy2' %} <span class="chili" title="Extra spicy">🌶🌶</span>{% elif k == 'veg' %} <span class="chili" title="Vegetarian">🌱</span>{% endif %}{% endfor %}{% if 'best' in i.tagKeys and not s.cards %} <span class="tag tag--best">Best seller</span>{% endif %}{% if 'new' in i.tagKeys %} <span class="tag tag--new">New</span>{% endif %}</div>
-          {% if i.price %}<span class="item__price">{{ i.price }}</span>{% endif %}
-          {% if i.description %}<p class="item__desc">{{ i.description }}</p>{% endif %}
+      {%- set pics = s.featured if site.menuPhotos != "none" else [] -%}
+      <div class="msec{% if pics.length %} msec--pics{% endif %}">
+        {% if pics.length %}
+        <div class="msec__pics msec__pics--{{ pics.length }}">
+          {% for f in pics %}
+          <figure class="msec__pic">
+            <img src="{{ f.photo }}" alt="{{ f.name | lower }}" width="320" height="320" loading="lazy" decoding="async">
+            <figcaption>{% if f.number %}<b>{{ f.number }}.</b> {% endif %}{{ f.name | lower }}</figcaption>
+          </figure>
+          {% endfor %}
         </div>
-        {% endfor %}
+        {% endif %}
+        {%- set plain = true -%}{% for i in s.items %}{% if i.price or i.number %}{% set plain = false %}{% endif %}{% endfor %}
+        <div class="items{% if plain %} items--plain{% endif %}">
+          {% for i in s.items %}
+          <div class="item">
+            <span class="item__num">{{ (i.number or "") | replace(".", "") }}</span>
+            <div class="item__name">{% if i.korean %}<span class="item__kr" lang="ko">{{ i.korean }}</span>{% endif %}{{ i.name }}{% for k in i.tagKeys %}{% if k == 'spicy' %} <span class="chili" title="Spicy">🌶</span>{% elif k == 'spicy2' %} <span class="chili" title="Extra spicy">🌶🌶</span>{% elif k == 'veg' %} <span class="chili" title="Vegetarian">🌱</span>{% endif %}{% endfor %}{% if 'best' in i.tagKeys %} <span class="tag tag--best">Best seller</span>{% endif %}{% if 'new' in i.tagKeys %} <span class="tag tag--new">New</span>{% endif %}</div>
+            {% if i.priceLines %}<span class="item__price item__price--sizes">{% for p in i.priceLines %}<span>{{ p }}</span>{% endfor %}</span>{% elif i.price %}<span class="item__price">{{ i.price }}</span>{% endif %}
+            {% if i.description %}<p class="item__desc">{{ i.description }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
       </div>
     </div>
     {% endfor %}

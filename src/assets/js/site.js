@@ -18,15 +18,19 @@
   /* mobile drawer */
   var burger = document.querySelector(".nav__burger");
   var drawer = document.getElementById("drawer");
+  function setDrawer(open) {
+    burger.setAttribute("aria-expanded", String(open));
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    drawer.hidden = !open;
+    nav.classList.toggle("is-open", open);
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    onScroll();
+  }
   if (burger && drawer) {
-    burger.addEventListener("click", function () {
-      var open = burger.getAttribute("aria-expanded") === "true";
-      burger.setAttribute("aria-expanded", String(!open));
-      drawer.hidden = open;
-      document.body.style.overflow = open ? "" : "hidden";
-      nav.classList.add("is-solid");
-    });
-    drawer.addEventListener("click", function (e) { if (e.target.closest("a")) { burger.click(); } });
+    burger.addEventListener("click", function () { setDrawer(burger.getAttribute("aria-expanded") !== "true"); });
+    drawer.addEventListener("click", function (e) { if (e.target.closest("a") && !e.target.closest("[data-reserve]")) setDrawer(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !drawer.hidden) { setDrawer(false); burger.focus(); } });
+    window.addEventListener("resize", function () { if (window.innerWidth > 1060 && !drawer.hidden) setDrawer(false); });
   }
 
   /* "Reserve" asks which location first */
@@ -36,7 +40,7 @@
       var t = e.target.closest("[data-reserve]");
       if (!t) return;
       e.preventDefault();
-      if (burger && burger.getAttribute("aria-expanded") === "true") burger.click();
+      if (burger && drawer && !drawer.hidden) setDrawer(false);
       dialog.showModal();
       /* the start of a booking; the Apnosh tag logs tap_book when they pick a location */
       if (typeof window.gtag === "function") window.gtag("event", "reserve_start", { page_path: window.location.pathname });
@@ -55,16 +59,17 @@
     items.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* hero video: loads after the page, never on reduced motion or data saver */
+  /* hero video: starts right away (autoplay, muted). Reduced motion or data saver keeps the still frame. */
   var v = document.querySelector(".hero__video");
   var saver = navigator.connection && navigator.connection.saveData;
-  if (v && !reduce && !saver) {
-    var start = function () {
-      v.src = v.getAttribute("data-src");
-      v.addEventListener("canplay", function () { v.classList.add("is-playing"); }, { once: true });
+  if (v) {
+    if (reduce || saver) {
+      v.pause(); v.removeAttribute("autoplay"); v.preload = "none";
+    } else {
+      var shown = function () { v.classList.add("is-playing"); };
+      if (v.readyState >= 3) shown(); else v.addEventListener("playing", shown, { once: true });
       var p = v.play(); if (p && p.catch) p.catch(function () {});
-    };
-    if (document.readyState === "complete") start(); else window.addEventListener("load", start);
+    }
   }
 
   /* open now / closed, in Seattle time */
@@ -112,19 +117,62 @@
     }
   });
 
-  /* menu tabs follow the section in view */
+  /* switching location keeps you on the same section (Alki dinner -> Kent dinner) */
+  document.querySelectorAll(".menu-switch a:not([aria-current])").forEach(function (a) {
+    a.addEventListener("click", function () { if (location.hash) a.href = a.getAttribute("href").split("#")[0] + location.hash; });
+  });
+
+  /* menu tabs: tap to jump, and the strip follows the section you're reading.
+     The strip is moved with scrollLeft only. (scrollIntoView also nudged the page itself on
+     phones, which is what made the menus bounce while you scrolled.) */
+  var strip = document.querySelector(".menu-tabs__inner");
   var tabs = document.querySelectorAll(".menu-tabs a");
-  if (tabs.length && "IntersectionObserver" in window) {
-    var byId = {};
-    tabs.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        tabs.forEach(function (a) { a.classList.remove("is-active"); });
-        var a = byId[en.target.id];
-        if (a) { a.classList.add("is-active"); a.scrollIntoView({ block: "nearest", inline: "center", behavior: reduce ? "auto" : "smooth" }); }
+  var blocks = document.querySelectorAll(".menu-block");
+  if (strip && tabs.length && blocks.length) {
+    var current = null, jumping = false, jumpTimer;
+    /* the page-wide smooth scrolling would turn every "auto" jump into a slow glide */
+    doc.style.scrollBehavior = "auto";
+    var offset = function () { var t = document.querySelector(".menu-tabs"); return (t ? t.getBoundingClientRect().bottom : 0) + 12; };
+    var setActive = function (id) {
+      if (id === current) return;
+      current = id;
+      tabs.forEach(function (a) {
+        var on = a.getAttribute("href") === "#" + id;
+        a.classList.toggle("is-active", on);
+        if (on) { a.setAttribute("aria-current", "true"); strip.scrollTo({ left: a.offsetLeft - (strip.clientWidth - a.offsetWidth) / 2, behavior: reduce ? "auto" : "smooth" }); }
+        else a.removeAttribute("aria-current");
       });
-    }, { rootMargin: "-30% 0px -60% 0px" });
-    document.querySelectorAll(".menu-block").forEach(function (s) { spy.observe(s); });
+    };
+    var spyTick = false;
+    var spyRun = function () {
+      spyTick = false;
+      if (jumping) return;
+      var line = offset() + 40, id = blocks[0].id;
+      blocks.forEach(function (b) { if (b.getBoundingClientRect().top <= line) id = b.id; });
+      setActive(id);
+    };
+    window.addEventListener("scroll", function () { if (!spyTick) { spyTick = true; requestAnimationFrame(spyRun); } }, { passive: true });
+    spyRun();
+    tabs.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var target = document.getElementById(a.getAttribute("href").slice(1));
+        if (!target) return;
+        e.preventDefault();
+        setActive(target.id);
+        jumping = true;
+        var y = window.scrollY + target.getBoundingClientRect().top - offset() + 1;
+        /* a long jump would take seconds to animate, so only short hops glide */
+        var far = Math.abs(y - window.scrollY) > window.innerHeight * 2.5;
+        window.scrollTo({ top: y, behavior: reduce || far ? "auto" : "smooth" });
+        history.replaceState(null, "", "#" + target.id);
+        /* hand control back to the scroll spy once the page has stopped moving */
+        var last = -1;
+        clearInterval(jumpTimer);
+        jumpTimer = setInterval(function () {
+          if (window.scrollY === last) { clearInterval(jumpTimer); jumping = false; spyRun(); }
+          last = window.scrollY;
+        }, 120);
+      });
+    });
   }
 })();

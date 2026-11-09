@@ -57,10 +57,13 @@
 {% include "footer.njk" %}
 {% include "reserve-dialog.njk" %}
 
+{# phones: a Reserve bar. Not on the menu pages, which guests open at the table from the QR code. #}
+{% if bodyClass != 'page-menu' %}
 <nav class="actionbar" aria-label="Quick actions">
   <a class="actionbar__menu" href="/menu/">Menus</a>
   <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
 </nav>
+{% endif %}
 
 <script src="/assets/js/site.js?v={{ buildHash }}" defer></script>
 <script src="/assets/js/forms.js?v={{ buildHash }}" defer></script>

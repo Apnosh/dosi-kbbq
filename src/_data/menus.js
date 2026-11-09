@@ -11,9 +11,8 @@ const path = require("path");
 
 const DIR = path.join(__dirname, "..", "menus");
 const TABS = [
-  { id: "ayce-dinner", label: "AYCE Dinner" },
-  { id: "ayce-lunch", label: "AYCE Lunch" },
-  { id: "combo-alacarte", label: "KBBQ Combos" },
+  { id: "ayce", label: "All You Can Eat" },
+  { id: "combo-alacarte", label: "À La Carte & Combos" },
   { id: "apps-entrees", label: "Apps & Entrées" },
   { id: "bento-lunch", label: "Lunch & Bento" },
   { id: "drinks", label: "Drinks" },
@@ -28,25 +27,71 @@ const TAGS = { "best seller": "best", spicy: "spicy", "spicy x2": "spicy2", vege
 /* menu item photos: src/assets/img/menu/<dish-name>.webp (see the README there) */
 const PHOTO_DIR = path.join(__dirname, "..", "assets", "img", "menu");
 const slugOf = (name) => String(name || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\*+/g, "").replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const photoFor = (name) => { const f = `${slugOf(name)}.webp`; return fs.existsSync(path.join(PHOTO_DIR, f)) ? `/assets/img/menu/${f}` : null; };
-/* which sections get photo slots: food, not drinks or happy hour drink deals */
-const AYCE = new Set(["ayce-dinner", "ayce-lunch"]);
-const photoSlots = (tabId, i) => tabId !== "drinks" && !(tabId === "happy-hour" && i > 0);
+/* A dish can look different on different menus: "Beef Bulgogi" is raw for the grill on the AYCE
+   menus and cooked on the entrée menu. So AYCE looks for ayce-<dish> first, bento boxes for
+   bento-<dish>, then everyone falls back to plain <dish>. */
+const photoFor = (name, prefixes = []) => {
+  const slug = slugOf(name);
+  for (const p of [...prefixes, ""]) {
+    for (const ext of ["webp", "jpg", "png"]) {
+      const f = `${p}${slug}.${ext}`;
+      if (fs.existsSync(path.join(PHOTO_DIR, f))) return `/assets/img/menu/${f}`;
+    }
+  }
+  return null;
+};
+/* which sections get photo slots: food and cocktails, not beer, soju or wine lists */
+const AYCE = new Set(["ayce"]);
+const photoSlots = (tabId, i, s) =>
+  tabId === "drinks" ? /cocktail/i.test(s.name || "") : !(tabId === "happy-hour" && i > 1);
+
+/* Menus read as text lists, like the printed ones, with a few photos beside each section
+   (the printed AYCE menu shows L1, L24, S30, S32 that way). FEATURE picks them by item number;
+   any other section shows its best sellers that have photos, then other dishes with photos. */
+const FEATURE = {
+  "ayce/signature ayce": ["L1", "L9", "L24"],
+  "ayce/premium ayce": ["P25", "P28"],
+  "ayce/supreme ayce": ["S32", "S30"],
+  "ayce/ayce appetizers": ["A10", "A3", "A11"],
+  "ayce/supreme ayce appetizers": ["A14", "A18", "A15"],
+};
+function featured(tabId, s) {
+  const items = (s.items || []).filter((i) => i.photo);
+  if (!items.length) return [];
+  const howMany = s.items.length <= 5 ? 2 : 3;
+  const code = (i) => String(i.number || "").replace(".", "").toUpperCase();
+  const wanted = FEATURE[`${tabId}/${String(s.name || "").toLowerCase()}`];
+  let pick = wanted ? wanted.map((c) => items.find((i) => code(i) === c)).filter(Boolean) : [];
+  if (!pick.length) pick = [...items.filter((i) => i.tagKeys.includes("best")), ...items.filter((i) => !i.tagKeys.includes("best"))];
+  return pick.slice(0, howMany).map((i) => ({ photo: i.photo, name: i.name.replace(/\*+$/, ""), number: code(i) }));
+}
 
 function clean(data, tabId) {
   data.intro = (data.intro || []).filter((l) => !NOT_FOR_GUESTS.some((r) => r.test(l)));
   data.fineprint = (data.fineprint || []).filter((l) => !LEGEND.some((r) => r.test(l)));
   (data.sections || []).forEach((s, si) => {
-    s.photos = photoSlots(tabId, si);
+    s.photos = photoSlots(tabId, si, s);
     s.cards = s.photos && AYCE.has(tabId);
     s.note = s.note ? s.note.replace(/^\s*per person\.?\s*/i, "").trim() || null : null;
+    /* notes written for whoever typed up the menu, not for guests */
+    if (s.note && /printed|heading|front side|column/i.test(s.note)) s.note = null;
+    if (s.note) s.note = s.note.replace(/\s*\|\|\s*/g, " · ").replace(/\s*\|\s*/g, " · ").replace(/ : /g, ": ").replace(/(\d)\s*~\s*(\d)/g, "$1 to $2");
     for (const i of s.items || []) {
       const t = new Set((i.tags || []).map((x) => TAGS[String(x).toLowerCase()]).filter(Boolean));
       if (t.has("spicy2")) t.delete("spicy");
       i.tagKeys = [...t];
+      /* combo prices "S - $99.95 / L - $159.95" stack as two short lines */
+      if (/^\s*S\s*-.*\/\s*L\s*-/i.test(i.price || "")) {
+        i.priceLines = i.price.split("/").map((p) => p.trim().replace(/^S\s*-\s*/i, "Small ").replace(/^L\s*-\s*/i, "Large "));
+      }
       i.slug = slugOf(i.name);
-      i.photo = s.photos ? photoFor(i.name) : null;
+      const prefixes = AYCE.has(tabId) ? ["ayce-"] : tabId === "happy-hour" ? ["hh-"] : /bento/i.test(s.name || "") ? ["bento-"] : [];
+      i.photo = s.photos ? photoFor(i.name, prefixes) : null;
+      /* the studio shots are transparent cut-outs (.webp); the happy hour ones are round crops (.jpg) */
+      i.cutout = !!(i.photo && i.photo.endsWith(".webp"));
     }
+    s.hasPhotos = (s.items || []).some((i) => i.photo);
+    s.featured = featured(tabId, s);
   });
   return data;
 }
@@ -66,41 +111,62 @@ function ayce(menus) {
     const s = tab && tab.sections.find((x) => re.test(x.name || ""));
     return s ? s.price : null;
   };
-  const days = (tab) => {
-    const l = tab && tab.intro.find((x) => /monday|tuesday|weekday/i.test(x));
-    return l ? l.replace(/^all you can eat\s*\|\s*/i, "") : null;
-  };
+  /* one AYCE menu, three tiers: Signature (24 meats), Premium (+4), Supreme (+4 and extra appetizers) */
   const out = {};
   for (const [loc, tabs] of Object.entries(menus)) {
-    const lunch = tabs.find((t) => t.id === "ayce-lunch");
-    const dinner = tabs.find((t) => t.id === "ayce-dinner");
+    const t = tabs.find((x) => x.id === "ayce");
     out[loc] = {
-      lunch: price(lunch, /lunch/i),
-      lunchDays: days(lunch),
-      premium: price(dinner, /premium/i),
-      supreme: price(dinner, /supreme/i),
+      signature: price(t, /signature/i),
+      premium: price(t, /premium/i),
+      supreme: price(t, /^supreme ayce$/i),
     };
   }
   return out;
 }
 
-/* the grill items the printed AYCE dinner menu marks BEST SELLER (same at both locations) */
+/* the grill items the printed AYCE menu marks BEST SELLER (same at both locations) */
 function grillBest(tabs) {
-  const dinner = tabs.find((t) => t.id === "ayce-dinner");
-  if (!dinner) return [];
+  const t = tabs.find((x) => x.id === "ayce");
+  if (!t) return [];
   const out = [];
-  for (const s of dinner.sections) {
-    if (!/premium|supreme/i.test(s.name || "")) continue;
+  for (const s of t.sections) {
+    const tier = (/^(signature|premium|supreme) ayce$/i.exec(s.name || "") || [])[1];
+    if (!tier) continue;
     for (const i of s.items) {
-      if (i.tagKeys.includes("best")) out.push({ number: (i.number || "").replace(".", ""), name: i.name.replace(/\*+$/, ""), korean: i.korean, tier: /supreme/i.test(s.name) ? "Supreme" : "Premium", spicy: i.tagKeys.some((k) => k.startsWith("spicy")) });
+      if (i.tagKeys.includes("best")) out.push({ number: (i.number || "").replace(".", ""), name: i.name.replace(/\*+$/, ""), korean: i.korean, tier: tier[0].toUpperCase() + tier.slice(1).toLowerCase(), spicy: i.tagKeys.some((k) => k.startsWith("spicy")) });
     }
   }
   return out;
 }
 
+/* "from" prices for ordering à la carte, the lowest at either location, read from the menus */
+function alacarte(menus) {
+  const money = (p) => { const m = String(p || "").match(/\$\s*([\d.]+)/); return m ? parseFloat(m[1]) : null; };
+  const from = (tabId, sectionRe) => {
+    let low = null;
+    for (const tabs of Object.values(menus)) {
+      const tab = tabs.find((t) => t.id === tabId);
+      if (!tab) continue;
+      for (const s of tab.sections) {
+        if (sectionRe && !sectionRe.test(s.name || "")) continue;
+        for (const i of s.items) { const v = money(i.price); if (v != null && (low == null || v < low)) low = v; }
+      }
+    }
+    return low == null ? null : `$${low.toFixed(2)}`;
+  };
+  return {
+    combo: from("combo-alacarte", /combo/i),
+    plates: from("combo-alacarte", /carte/i),
+    apps: from("apps-entrees", /appetizer/i),
+    entrees: from("apps-entrees", /entree/i),
+    bento: from("bento-lunch"),
+  };
+}
+
 module.exports = function () {
   const menus = { alki: load("alki"), kent: load("kent") };
   menus.ayce = ayce(menus);
+  menus.alacarte = alacarte({ alki: menus.alki, kent: menus.kent });
   menus.grillBest = grillBest(menus.alki);
   const hh = menus.alki.find((t) => t.id === "happy-hour");
   menus.happyHour = hh ? { hours: hh.intro[0] || null, sections: hh.sections } : null;
