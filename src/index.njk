@@ -3,12 +3,15 @@ layout: base.njk
 permalink: /
 bodyClass: page-home
 schemaRestaurants: all
-description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your table, endless banchan, soju and cocktails, on the Alki Beach waterfront in West Seattle and in Kent, WA.
+description: All-you-can-eat Korean BBQ in Seattle from $29.95. Premium cuts grilled at your table, endless banchan, soju and cocktails, on the Alki Beach waterfront in West Seattle and in Kent, WA.
 ---
 {%- set alki = locations | byKey('alki') | withPortal(apnosh) -%}
 {%- set kent = locations | byKey('kent') | withPortal(apnosh) -%}
 {%- set A = menus.ayce -%}
+{%- set R = reviews -%}
+{%- set fromPrice = A.kent.lunch if A.kent.lunch < A.alki.lunch else A.alki.lunch -%}
 
+{# ---------- hero ---------- #}
 <section class="hero">
   <div class="hero__media" aria-hidden="true">
     <picture>
@@ -19,74 +22,59 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
   </div>
   <div class="wrap hero__inner">
     <p class="eyebrow">Alki Beach · Kent, WA</p>
-    <h1 class="display h1">{{ apnosh.content['hero.headline'] or "All you can eat. Grilled at your table." }}</h1>
-    <p class="lede">{{ apnosh.content['hero.lede'] or "Seattle’s Korean BBQ, on the beach and in Kent." }}</p>
+    <h1 class="display h1">{{ apnosh.content['hero.headline'] or "All you can eat Korean BBQ" }}<span class="serif hero__accent">{{ apnosh.content['hero.lede'] or "grilled right at your table" }}</span></h1>
+    <div class="proof">
+      <a class="proof__item" href="#reviews"><span class="stars" aria-hidden="true">★★★★★</span><b>{{ R.summary.rating }}</b> on Google · {{ R.summary.count }} reviews</a>
+      <span class="proof__item"><b>From {{ fromPrice }}</b> per person</span>
+    </div>
     <div class="btn-row">
       <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
-      <a class="btn btn--ghost" href="/menu/">Menus</a>
+      <a class="btn btn--ghost" href="/menu/">See the menus</a>
     </div>
     <div class="hero__status">
       {% for l in [alki, kent] %}
-      <a class="status-chip" href="{{ l.page }}" data-hours='{{ l.hours | json }}'>
-        <span class="dot"></span>
-        <span><strong>{{ l.name }}</strong> · <span data-status>{{ (l.hours | hoursRows)[0].days }} {{ (l.hours | hoursRows)[0].time }}</span></span>
-      </a>
+      <a class="status-line" href="{{ l.page }}" data-hours='{{ l.hours | json }}'><span class="dot"></span><strong>{{ l.name }}</strong><span data-status>{{ l.address.street }}</span></a>
       {% endfor %}
     </div>
   </div>
 </section>
 
+{# ---------- a promotion set in the Apnosh portal, only while one is running ---------- #}
+{% if apnosh.activePromo %}
+<aside class="promo" aria-label="Current offer">
+  <div class="wrap promo__inner">
+    <span class="promo__tag">Now on</span>
+    <p><b>{{ apnosh.activePromo.name }}</b>{% if apnosh.activePromo.description %} · {{ apnosh.activePromo.description }}{% endif %}{% if apnosh.activePromo.valid_until %} <span class="muted">Ends {{ apnosh.activePromo.valid_until | niceDate }}</span>{% endif %}</p>
+    {% if apnosh.activePromo.code %}<span class="promo__code">Code {{ apnosh.activePromo.code }}</span>{% endif %}
+  </div>
+</aside>
+{% endif %}
+
 <div class="marquee" aria-hidden="true">
   <div class="marquee__track">
     {% for n in [1, 2] %}
-    <span>Premium cuts</span><span class="kr">차돌박이</span><span>Endless banchan</span><span class="kr">삼겹살</span><span>Soju &amp; cocktails</span><span class="kr">갈비</span><span>Grilled at your table</span><span class="kr">소주</span><span>Walk-ins welcome</span>
+    <span>30+ meats</span><span class="kr">차돌박이</span><span>Endless banchan</span><span class="kr">삼겹살</span><span>Soju &amp; cocktails</span><span class="kr">갈비</span><span>Steps from Alki Beach</span><span class="kr">소주</span><span>Kent’s first KBBQ</span>
     {% endfor %}
   </div>
 </div>
 
-{# ---------- how it works: three photos, three words each ---------- #}
-<section class="section">
+{# ---------- pick your feast ---------- #}
+<section class="section" id="ayce">
   <div class="wrap">
-    <div class="tiers-head reveal">
-      <h2 class="display h2">How <span class="red">AYCE</span> works</h2>
-    </div>
-    <div class="how">
-      <figure class="how__card reveal">
-        {% img "premium-cuts", "Premium cuts of beef and pork for Korean BBQ", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
-        <figcaption><b>01</b><span>Pick your tier</span></figcaption>
-      </figure>
-      <figure class="how__card reveal reveal-d1">
-        {% img "meat-rolls", "Rolled thin-sliced brisket and pork belly", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
-        <figcaption><b>02</b><span>Order by the round</span></figcaption>
-      </figure>
-      <figure class="how__card reveal reveal-d2">
-        {% img "grilling-galbi", "Grilling marinated galbi at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
-        <figcaption><b>03</b><span>Grill &amp; repeat</span></figcaption>
-      </figure>
-    </div>
-    <div class="rules reveal">
-      <span>90 minutes</span><span>4 meats + 2 apps per round</span><span>2 guest minimum</span><span>Kids 4–10 half price</span>
-    </div>
-  </div>
-</section>
-
-{# ---------- AYCE tiers ---------- #}
-<section class="section section--tight" id="ayce">
-  <div class="wrap">
-    <div class="tiers-head reveal">
-      <h2 class="display h2">Three ways to <span class="ember-text">feast</span></h2>
-      <a class="arrow-link" href="/menu/">Full menus</a>
+    <div class="sec-head reveal">
+      <h2 class="display h2">Pick your <span class="serif">feast</span></h2>
+      <p class="sec-head__sub">Per person. The whole table orders the same one.</p>
     </div>
     <div class="tiers">
       <a class="tier reveal" href="/kent-menu/#ayce-lunch">
         <div class="tier__bg">{% img "table-spread", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
-        <p class="tier__when">Weekday lunch</p>
+        <p class="tier__when">Weekdays 11–3</p>
         <h3>Lunch</h3>
         <div class="tier__price">
-          <div><b>{{ A.alki.lunch }}</b><small>Alki</small></div>
-          <div><b>{{ A.kent.lunch }}</b><small>Kent</small></div>
+          <div><b>{{ A.alki.lunch }}</b><small>Alki · Mon–Thu</small></div>
+          <div><b>{{ A.kent.lunch }}</b><small>Kent · Mon–Fri</small></div>
         </div>
-        <p class="tier__line">24 meats · stews · banchan</p>
+        <p class="tier__line">24 meats, stews, banchan</p>
       </a>
       <a class="tier reveal reveal-d1" href="/alki-menu/#ayce-dinner">
         <div class="tier__bg">{% img "premium-cuts", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
@@ -96,7 +84,7 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
           <div><b>{{ A.alki.premium }}</b><small>Alki</small></div>
           <div><b>{{ A.kent.premium }}</b><small>Kent</small></div>
         </div>
-        <p class="tier__line">28 meats · stews · banchan</p>
+        <p class="tier__line">28 meats, stews, banchan</p>
       </a>
       <a class="tier tier--hot reveal reveal-d2" href="/alki-menu/#ayce-dinner">
         <div class="tier__bg">{% img "grill-pork-belly", "", { sizes: "(max-width: 960px) 100vw, 33vw" } %}</div>
@@ -110,6 +98,34 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
         <p class="tier__line">Premium + Angus ribeye &amp; short rib</p>
       </a>
     </div>
+    <p class="fine reveal">90 minutes · up to 4 meats and 2 apps per round · kids 4–10 half price · 2 guest minimum</p>
+  </div>
+</section>
+
+{# ---------- first timers ---------- #}
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="display h2">First time? <span class="serif">We’ve got you.</span></h2>
+    </div>
+    <div class="how">
+      <figure class="how__card reveal">
+        {% img "premium-cuts", "Premium cuts of beef and pork for Korean BBQ", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>1</b><span>Pick a tier</span></figcaption>
+      </figure>
+      <figure class="how__card reveal reveal-d1">
+        {% img "meat-rolls", "Rolled thin-sliced brisket and pork belly", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>2</b><span>Order in rounds</span></figcaption>
+      </figure>
+      <figure class="how__card reveal reveal-d2">
+        {% img "grilling-galbi", "A server showing how to grill galbi at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}
+        <figcaption><b>3</b><span>We’ll help you grill</span></figcaption>
+      </figure>
+    </div>
+    <blockquote class="pull reveal">
+      <p>“{{ R.firstTimers.quote }}”</p>
+      <cite><span class="stars" aria-label="5 stars">★★★★★</span> {{ R.firstTimers.name }}, Google review</cite>
+    </blockquote>
   </div>
 </section>
 
@@ -117,18 +133,41 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
 <section class="rail" aria-label="Photos from Do Si">
   <div class="rail__track">
     {% for n in [1, 2] %}
-    {% for p in ["sizzling-galbi", "grill-table", "steamed-egg", "meat-platter", "interior-neon", "yangnyeom-wings", "spread-tall", "grill-pork-belly", "bibimbap", "table-spread"] %}
-    <div class="rail__item{% if p == 'spread-tall' %} rail__item--tall{% endif %}"{% if n == 2 %} aria-hidden="true"{% endif %}>{% img p, ("" if n == 2 else "Food and dining room at Do Si Korean BBQ"), { sizes: "40vw" } %}</div>
+    {% for p in ["sizzling-galbi", "grill-table", "steamed-egg", "meat-platter", "interior-neon", "yangnyeom-wings", "spread-tall", "grill-pork-belly", "bibimbap", "alki-front"] %}
+    <div class="rail__item{% if p == 'spread-tall' %} rail__item--tall{% endif %}"{% if n == 2 %} aria-hidden="true"{% endif %}>{% img p, ("" if n == 2 else "Food and dining at Do Si Korean BBQ"), { sizes: "40vw" } %}</div>
     {% endfor %}
     {% endfor %}
   </div>
 </section>
 
-{# ---------- beyond the grill ---------- #}
+{# ---------- reviews ---------- #}
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="sec-head sec-head--split reveal">
+      <h2 class="display h2">Loved on <span class="serif">Alki</span></h2>
+      <div class="score">
+        <b>{{ R.summary.rating }}</b>
+        <div><span class="stars" aria-hidden="true">★★★★★</span><small>{{ R.summary.count }} Google reviews</small></div>
+      </div>
+    </div>
+    <div class="quotes">
+      {% for q in R.home %}
+      <figure class="quote reveal{% if loop.index % 3 == 2 %} reveal-d1{% elif loop.index % 3 == 0 %} reveal-d2{% endif %}">
+        <span class="stars" aria-label="5 stars">★★★★★</span>
+        <blockquote>“{{ q.quote }}”</blockquote>
+        <figcaption>{{ q.name }} · Google</figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <a class="arrow-link reveal" href="{{ alki.address | mapsUrl }}" target="_blank" rel="noopener" style="margin-top:28px">Read more on Google</a>
+  </div>
+</section>
+
+{# ---------- off the grill ---------- #}
 <section class="section cream">
   <div class="wrap">
-    <div class="tiers-head reveal">
-      <h2 class="display h2">Beyond the grill</h2>
+    <div class="sec-head sec-head--split reveal">
+      <h2 class="display h2">Off the grill, <span class="serif">too</span></h2>
       <a class="arrow-link" href="/alki-menu/#apps-entrees">Apps &amp; entrées</a>
     </div>
     <div class="dishes">
@@ -137,55 +176,49 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
         <div class="dish__body"><h3>Yangnyeom chicken</h3><span class="kr" lang="ko">양념치킨</span></div>
       </article>
       <article class="dish reveal reveal-d1">
-        <div class="dish__img">{% img "steamed-egg", "Fluffy Korean steamed egg in a hot stone pot", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "steamed-egg", "Fluffy Korean steamed egg in a hot stone pot", { sizes: "(max-width: 560px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Steamed egg</h3><span class="kr" lang="ko">계란찜</span></div>
       </article>
       <article class="dish reveal">
-        <div class="dish__img">{% img "cheese-tteokbokki", "Cheese tteokbokki, spicy rice cakes with melted cheese and boiled egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "cheese-tteokbokki", "Cheese tteokbokki, spicy rice cakes with melted cheese", { sizes: "(max-width: 560px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Tteokbokki</h3><span class="kr" lang="ko">떡볶이</span></div>
       </article>
       <article class="dish reveal reveal-d1">
-        <div class="dish__img">{% img "bibimbap", "Hot stone bibimbap with vegetables, beef and a fried egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "bibimbap", "Hot stone bibimbap with vegetables, beef and a fried egg", { sizes: "(max-width: 560px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Bibimbap</h3><span class="kr" lang="ko">비빔밥</span></div>
       </article>
       <article class="dish reveal reveal-d2">
-        <div class="dish__img">{% img "kimchi-fried-rice", "Kimchi fried rice topped with a fried egg", { sizes: "(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw" } %}</div>
+        <div class="dish__img">{% img "kimchi-fried-rice", "Kimchi fried rice topped with a fried egg", { sizes: "(max-width: 560px) 50vw, 33vw" } %}</div>
         <div class="dish__body"><h3>Kimchi fried rice</h3><span class="kr" lang="ko">김치볶음밥</span></div>
       </article>
     </div>
   </div>
 </section>
 
-{# ---------- the room: full-bleed photo, one line ---------- #}
+{# ---------- the room: photo + a guest's words ---------- #}
 <section class="bleed">
   <div class="bleed__img">{% img "interior-wide", "Do Si Korean BBQ dining room with neon Korean signs and retro posters", { sizes: "100vw" } %}</div>
   <div class="wrap bleed__inner reveal">
-    <h2 class="display h2">A dining atmosphere<br>unlike any other</h2>
-    <ul class="icon-row">
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2 3 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg>Tabletop grills</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3zM12 13v6m-4 2h8"/></svg>Full bar</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 17V9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v8M3 17h18M7 20v-3m10 3v-3"/></svg>Groups welcome</li>
-      <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>Walk-ins welcome</li>
-    </ul>
+    <blockquote class="bleed__quote">“{{ R.room.quote }}”</blockquote>
+    <p class="bleed__cite"><span class="stars" aria-hidden="true">★★★★★</span> {{ R.room.name }}, Google review</p>
   </div>
 </section>
 
-{# ---------- locations: photo, name, today, buttons ---------- #}
+{# ---------- locations ---------- #}
 <section class="section section--tight" id="locations">
   <div class="wrap">
-    <div class="tiers-head reveal">
-      <h2 class="display h2">Beach views or <span class="red">Kent’s first</span> KBBQ</h2>
+    <div class="sec-head sec-head--split reveal">
+      <h2 class="display h2">Pick your <span class="serif">Do Si</span></h2>
       <a class="arrow-link" href="/locations/">Hours &amp; directions</a>
     </div>
     <div class="locs">
       {% for l in [alki, kent] %}
       <article class="loc loc--photo reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
-        {% set iw = 1200 if l.key == 'alki' else 1600 %}{% set ih = 1600 if l.key == 'alki' else 1067 %}
-        <div class="loc__bg">{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}</div>
+        <div class="loc__bg">{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw" } %}</div>
         <div class="loc__over">
-          <small>{{ l.neighborhood }}</small>
+          <small>{{ "On the waterfront" if l.key == 'alki' else "Kent’s first KBBQ" }}</small>
           <h3>{{ l.name }}</h3>
-          <a class="status-chip" href="{{ l.page }}" data-hours='{{ l.hours | json }}'><span class="dot"></span><span data-status>{{ l.address.street }}</span></a>
+          <a class="status-line" href="{{ l.page }}" data-hours='{{ l.hours | json }}'><span class="dot"></span><span data-status>{{ l.address.street }}</span></a>
           <div class="btn-row">
             <a class="btn btn--red" href="{{ l.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve</a>
             <a class="btn btn--ghost" href="{{ l.menuPage }}">Menu</a>
@@ -198,11 +231,30 @@ description: All-you-can-eat Korean BBQ in Seattle. Premium cuts grilled at your
   </div>
 </section>
 
-{# ---------- occasions: one photo, one line ---------- #}
+{# ---------- groups ---------- #}
 <section class="bleed bleed--short">
   <div class="bleed__img">{% img "table-spread", "A full Korean BBQ table spread at Do Si", { sizes: "100vw" } %}</div>
   <div class="wrap bleed__inner reveal">
-    <h2 class="display h2">Birthdays. Team dinners.<br>First dates.</h2>
-    <div class="btn-row"><a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a><a class="btn btn--ghost" href="/private-events/">Rent Alki for an event</a></div>
+    <h2 class="display h2">Bring the <span class="serif">whole crew</span></h2>
+    <p class="lede">Birthdays, team dinners and full buyouts at Alki.</p>
+    <div class="btn-row"><a class="btn btn--red" href="/private-events/">Plan an event</a><a class="btn btn--ghost" href="/locations/#reserve" data-reserve>Reserve a table</a></div>
   </div>
 </section>
+
+{# ---------- events set in the Apnosh portal, only when there are some ---------- #}
+{% if apnosh.upcomingEvents and apnosh.upcomingEvents.length %}
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2 class="display h2">Coming <span class="serif">up</span></h2></div>
+    <div class="events">
+      {% for e in apnosh.upcomingEvents | batch(4) | first %}
+      <article class="event reveal">
+        <p class="event__date">{{ e.start_at | niceDate }}</p>
+        <h3>{{ e.name }}</h3>
+        {% if e.description %}<p class="muted">{{ e.description }}</p>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

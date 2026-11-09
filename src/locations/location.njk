@@ -46,6 +46,12 @@ eleventyComputed:
       <div class="rules">
         {% for x in loc.extras %}<span>{{ x }}</span>{% endfor %}<span>90-minute AYCE</span><span>Kids 4–10 half price</span>
       </div>
+      {% if loc.key == 'alki' %}
+      <div class="quotes quotes--compact" style="margin-top:28px">
+        {% for q in reviews.home | batch(3) | first %}<figure class="quote"><span class="stars" aria-label="5 stars">★★★★★</span><blockquote>“{{ q.quote }}”</blockquote><figcaption>{{ q.name }} · Google</figcaption></figure>{% endfor %}
+      </div>
+      <p class="fine"><span class="stars">★</span> {{ reviews.summary.rating }} average from {{ reviews.summary.count }} recent Google reviews</p>
+      {% endif %}
       {% if loc.key == 'alki' %}<a class="callout" href="/private-events/"><span><b>Private events &amp; buyouts</b>Rent Do Si Alki for your group</span><span class="callout__go">Request a date →</span></a>{% endif %}
       <p class="muted" style="margin-top:28px;font-size:.92rem">Serving {{ loc.areaServed | join(", ") }}.</p>
     </div>

@@ -18,6 +18,7 @@ npm run build   # writes _site/
 | Menus (one JSON per printed menu) | `src/menus/<location>-<menu>.json` |
 | Menu tab order and labels | `src/_data/menus.js` |
 | FAQ (prices are read from the menus) | `src/_data/faq.js` |
+| Guest reviews shown on the site (real Google reviews, chosen by hand) | `src/_data/reviews.json` |
 | Styles / scripts | `src/assets/css/site.css`, `src/assets/js/` |
 | Photos (pre-sized WebP + JPG) | `src/assets/img/<name>-800.webp`, `-1600.webp`, `-1600.jpg` |
 
@@ -38,7 +39,10 @@ With the slug set, at build time `src/_data/apnosh.js` fetches
   listing (`withPortal` in `.eleventy.js`). Today the portal has the Alki listing, so Alki's hours
   come from the portal and Kent's from `locations.json`. If the portal is down, the site builds
   with `locations.json`.
-- **Copy**: `hero.headline` and `hero.lede` on the home page, declared in `src/apnosh-content.json`.
+- **Copy**: `hero.headline` and `hero.lede` (the script line under it) on the home page, declared in
+  `src/apnosh-content.json`.
+- **Promotions and events**: a running promotion shows as a red bar under the home hero, and
+  upcoming events as a "Coming up" section. Both disappear when the portal has none.
 - **Analytics**: every page loads the Apnosh tag (`/t/<slug>.js`): Google Analytics for the
   property connected in the portal, plus call, directions and reservation taps.
 - **Forms**: the contact form posts to `/api/forms/submit/<slug>` and lands in the portal inbox.

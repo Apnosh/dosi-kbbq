@@ -104,6 +104,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("withPortal", withPortal);
   eleventyConfig.addFilter("upcomingSpecial", upcomingSpecial);
   eleventyConfig.addFilter("json", (v) => JSON.stringify(v));
+  /* "2026-12-13T18:00:00Z" -> "Sat, Dec 13 · 10 AM" in Seattle time; a bare date has no time */
+  eleventyConfig.addFilter("niceDate", (v) => {
+    if (!v) return "";
+    const s = String(v), d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? `${s}T12:00:00` : s);
+    if (Number.isNaN(d.getTime())) return s;
+    const tz = "America/Los_Angeles";
+    const day = d.toLocaleDateString("en-US", { timeZone: tz, weekday: "short", month: "short", day: "numeric" });
+    if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return day;
+    return `${day} · ${d.toLocaleTimeString("en-US", { timeZone: tz, hour: "numeric", minute: "2-digit" }).replace(":00", "")}`;
+  });
   eleventyConfig.addFilter("telHref", (phone) => "tel:+1" + String(phone || "").replace(/\D/g, "").replace(/^1/, ""));
   eleventyConfig.addFilter("mapsUrl", (a) =>
     "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`Do Si Korean BBQ, ${a.street}, ${a.city}, ${a.state} ${a.zip}`));

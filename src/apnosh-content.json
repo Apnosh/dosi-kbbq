@@ -9,17 +9,17 @@
       "key": "hero.headline",
       "page": "Home",
       "label": "Home headline",
-      "description": "The big headline over the grill video on the home page.",
-      "default": "All you can eat. Grilled at your table.",
-      "constraints": { "minChars": 12, "maxChars": 48, "multiline": false }
+      "description": "The big headline over the grill video on the home page. Keep \"Korean BBQ\" in it: it is the page's main heading for Google.",
+      "default": "All you can eat Korean BBQ",
+      "constraints": { "minChars": 12, "maxChars": 34, "multiline": false }
     },
     {
       "key": "hero.lede",
       "page": "Home",
-      "label": "Home subhead",
-      "description": "The sentence under the home headline.",
-      "default": "Seattle’s Korean BBQ, on the beach and in Kent.",
-      "constraints": { "minChars": 20, "maxChars": 90, "multiline": false }
+      "label": "Home accent line",
+      "description": "The short line in script under the home headline.",
+      "default": "grilled right at your table",
+      "constraints": { "minChars": 8, "maxChars": 34, "multiline": false }
     }
   ]
 }

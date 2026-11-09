@@ -10,7 +10,7 @@ bodyClass: page-menu
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/menu/">Menus</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
     <p class="eyebrow">{{ loc.neighborhood }}</p>
-    <h1 class="display h1">{{ loc.name }} <span class="ember-text">menu</span></h1>
+    <h1 class="display h1">{{ loc.name }} <span class="serif">menu</span></h1>
     <p class="lede">{{ intro }}</p>
     <div class="menu-switch" role="navigation" aria-label="Choose a location">
       {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}

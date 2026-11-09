@@ -1,0 +1,15 @@
+{
+  "_doc": "Real Google reviews of Do Si Alki, read from the Apnosh portal on 2026-11-09. Quotes are the reviewer's own words, shortened only where marked with an ellipsis, with light spelling and punctuation fixes (capitals, apostrophes). Credit is first name and last initial. Rating and count are from the 227 Google reviews the portal has synced (Oct 2025 – Nov 2026), not Google's lifetime total.",
+  "summary": { "rating": 4.5, "count": 227, "source": "Google", "location": "alki" },
+  "home": [
+    { "quote": "It is probably the best Korean BBQ place I have ever been to. It’s super clean, the food is amazing, the view is amazing and their service was amazing.", "name": "Emily R.", "loc": "alki" },
+    { "quote": "We came as novices and our server helped us through everything. He didn’t make us feel dumb and made sure we were well fed and taken care of.", "name": "Andrea G.", "loc": "alki" },
+    { "quote": "The price is really great for Korean BBQ, especially in the Seattle area… Kind, funny, attentive, but not overbearing.", "name": "Amelia P.", "loc": "alki" },
+    { "quote": "One of the better KBBQ spots I have been to in Seattle. If you are around Alki I highly recommend. The Buldak chicken is amazing.", "name": "Austin P.", "loc": "alki" },
+    { "quote": "Our server was amazing. Very friendly and fun. Food was really good too. The location is amazing. Can’t beat those views.", "name": "Daniel L.", "loc": "alki" },
+    { "quote": "So glad WS finally has a KBBQ place and we’ll definitely be coming back.", "name": "Jessie H.", "loc": "alki" }
+  ],
+  "room": { "quote": "The whole environment is just fun: great energy, and it makes for an easy spot to hang out over a grill with friends.", "name": "Julian S." },
+  "firstTimers": { "quote": "I walked into this place clueless, but the smell alone was enough to keep me excited to learn… Both goals (in addition to a full belly) were fully accomplished!", "name": "Lori M." },
+  "party": { "quote": "Came here for my birthday… the server was very accommodating and friendly. Not to mention the food was spectacular. Thank you Do Si for a great birthday dinner.", "name": "Neydi" }
+}

@@ -6,7 +6,12 @@
 
   /* nav goes solid once you scroll off the hero */
   var nav = document.getElementById("nav");
-  function onScroll() { if (nav) nav.classList.toggle("is-solid", window.scrollY > 24 || !document.querySelector(".hero")); }
+  /* the phone action bar shows once the hero's own buttons have scrolled away */
+  var bar = document.querySelector(".actionbar");
+  function onScroll() {
+    if (nav) nav.classList.toggle("is-solid", window.scrollY > 24 || !document.querySelector(".hero"));
+    if (bar) bar.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.6);
+  }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
 
@@ -83,7 +88,7 @@
     }
     return null;
   }
-  document.querySelectorAll(".status-chip[data-hours]").forEach(function (el) {
+  document.querySelectorAll(".status-chip[data-hours], .status-line[data-hours]").forEach(function (el) {
     try {
       var s = status(JSON.parse(el.getAttribute("data-hours")));
       if (!s) return;
