@@ -12,8 +12,8 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
   <div class="wrap hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Private events</span></nav>
     <p class="eyebrow">Alki Beach · West Seattle</p>
-    <h1 class="display h1">Make Alki <span class="serif">yours</span></h1>
-    <p class="lede">Birthdays, company parties, rehearsal dinners. Korean BBQ on the waterfront, just for your group.</p>
+    <h1 class="display h1">Private Events <span class="serif">at Alki</span></h1>
+    <p class="lede">Birthdays, company parties and rehearsal dinners. Book a large group, or the whole restaurant.</p>
     <div class="btn-row"><a class="btn btn--red" href="#request">Request a date</a><a class="btn btn--ghost" href="{{ alki.phone | telHref }}">Call {{ alki.phone }}</a></div>
   </div>
 </section>
@@ -21,9 +21,9 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
 <section class="section section--tight">
   <div class="wrap">
     <div class="how">
-      <figure class="how__card reveal">{% img "meat-platter", "A platter of premium cuts for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}<figcaption><b>01</b><span>Tell us the date</span></figcaption></figure>
-      <figure class="how__card reveal reveal-d1">{% img "grill-table", "A group grilling together at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}<figcaption><b>02</b><span>We plan it with you</span></figcaption></figure>
-      <figure class="how__card reveal reveal-d2">{% img "alki-front", "Do Si Korean BBQ on Alki Avenue", { sizes: "(max-width: 760px) 100vw, 33vw" } %}<figcaption><b>03</b><span>Fire up the grills</span></figcaption></figure>
+      <figure class="how__card reveal">{% img "meat-platter", "A platter of premium cuts for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
+      <figure class="how__card reveal reveal-d1">{% img "grill-table", "A group grilling together at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
+      <figure class="how__card reveal reveal-d2">{% img "alki-front", "Do Si Korean BBQ on Alki Avenue", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
     </div>
     <blockquote class="pull reveal">
       <p>“{{ reviews.party.quote }}”</p>
@@ -36,8 +36,8 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
 <section class="section section--tight" id="request" style="padding-top:0">
   <div class="wrap split" style="align-items:start">
     <div class="reveal">
-      <h2 class="display h2">Request<br>your event</h2>
-      <p class="lede" style="margin-top:18px">Send the details and we’ll get back to you with availability and pricing. Nothing is booked until we confirm.</p>
+      <h2 class="display h2">Request <span class="serif">a Date</span></h2>
+      <p class="lede" style="margin-top:18px">Send us the details and we’ll call or email you back with availability and pricing. Your date isn’t booked until we confirm it.</p>
       <div class="contact-cards" style="margin-top:28px">
         <div class="contact-card"><h3>Prefer to talk?</h3><p style="margin:0"><a href="{{ alki.phone | telHref }}">{{ alki.phone }}</a><br><a href="mailto:{{ site.email }}">{{ site.email }}</a></p></div>
         <div class="contact-card"><h3>Where</h3><p style="margin:0"><a href="{{ alki.address | mapsUrl }}" target="_blank" rel="noopener">{{ alki.address.street }}, {{ alki.address.city }}, {{ alki.address.state }} {{ alki.address.zip }}</a></p></div>

@@ -644,3 +644,82 @@ a.tier { text-decoration: none; color: inherit; min-height: 360px; }
 .quotes--compact .quote { padding: 20px 22px; }
 .quotes--compact .quote blockquote { font-size: 1.15rem; }
 @media (max-width: 640px) { .quotes--compact { display: grid; margin: 0; padding: 0; } .quotes--compact .quote { flex: none; } }
+
+/* ==========================================================================
+   4th pass: Do Si's own look instead of a generic landing page.
+   Taken from the printed menus: charcoal, white headings between double
+   rules, gold Korean above, red BEST SELLER seals, the lion. Effects that
+   read as template (grain, glows, outline watermarks, script accents,
+   fade-ins on everything) are switched off here.
+   ========================================================================== */
+:root { --ink: #161616; --char: #1e1e1e; --char-2: #262626; --char-3: #303030; --gold: #d4ba55; }
+body::after { content: none; }
+.kr-bg, .hero__kr, .marquee { display: none !important; }
+.page-head::before, .footer__cta::before { content: none; }
+.js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+.eyebrow { letter-spacing: .14em; }
+.eyebrow::before { content: none; }
+/* the menus write one word gold and one white ("DINNER AYCE"); accents now do the same */
+.serif, .display .serif, .cream .serif { font: inherit; font-size: inherit; line-height: inherit; letter-spacing: inherit; text-transform: inherit; font-style: normal; color: var(--gold); }
+.cream .serif { color: var(--red-deep); }
+.gold { color: var(--gold); }
+.center { text-align: center; }
+.center.muted, p.center { max-width: 640px; margin-left: auto; margin-right: auto; }
+
+/* section headings as on the menus: ══ KBBQ COMBO ══ with the Korean in gold above */
+.kr-label { font-family: var(--kr); color: var(--gold); text-align: center; font-size: 1.05rem; letter-spacing: .06em; margin: 0 0 6px; }
+.kr-label--left { text-align: left; }
+.rule-head { display: flex; align-items: center; gap: clamp(14px, 3vw, 28px); margin: 0 0 14px; font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(2.2rem, 5.6vw, 4.2rem); line-height: 1; text-align: center; justify-content: center; }
+.rule-head::before, .rule-head::after { content: ""; flex: 1 1 40px; max-width: 360px; height: 9px; border-top: 3px solid currentColor; border-bottom: 3px solid currentColor; opacity: .9; }
+.cream .rule-head { color: var(--cream-ink); }
+.section .rule-head + p { margin-bottom: clamp(28px, 4vw, 44px); }
+
+.hero::before { background: linear-gradient(180deg, rgba(22,22,22,.55) 0%, rgba(22,22,22,.15) 35%, rgba(22,22,22,.55) 70%, var(--ink) 100%); }
+.hero h1 { max-width: 11ch; margin-bottom: 18px; }
+.hero .lede { margin-bottom: 14px; max-width: 46ch; color: #f0e8de; }
+.rating { display: inline-flex; gap: 6px; align-items: baseline; margin-bottom: 28px; text-decoration: none; font-size: 1rem; }
+.rating b { font-size: 1.15rem; }
+
+.tier { border-radius: 16px; }
+.tier h3 { font-size: clamp(2.2rem, 3.4vw, 2.8rem); margin: 0 0 6px; }
+.tier__when { order: 0; margin: 0 0 auto; color: #cfc5b9; font-size: .82rem; letter-spacing: .04em; text-transform: none; font-weight: 500; }
+.tier__price b { color: var(--gold); }
+.fine.center { margin-top: 26px; }
+
+.first__inner { display: grid; grid-template-columns: minmax(180px, 320px) 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; }
+.first__lion img { width: 100%; height: auto; }
+.first .pull { text-align: left; margin: 26px 0 0; max-width: none; padding-left: 18px; border-left: 3px solid var(--red); }
+.first .pull p { font-family: var(--body); font-style: normal; font-size: 1.08rem; line-height: 1.55; color: #e8dfd4; margin-bottom: 8px; }
+@media (max-width: 700px) { .first__inner { grid-template-columns: 1fr; } .first__lion { display: block; max-width: 200px; margin: 0 auto; } .first__inner .kr-label--left, .first__inner h2 { text-align: center; } }
+
+.quote { border-radius: 14px; }
+.quote blockquote { font-family: var(--body); font-style: normal; font-size: 1.02rem; line-height: 1.6; color: #e8dfd4; }
+.quote figcaption { color: #fff; font-weight: 600; }
+.bleed__quote { font-family: var(--body); font-style: normal; font-weight: 500; font-size: clamp(1.4rem, 3.2vw, 2.3rem); line-height: 1.3; max-width: 30ch; }
+
+.dish { border-radius: 14px; }
+.dish__body { display: block; }
+.dish .kr { display: block; font-size: .9rem; margin-bottom: 2px; }
+.dish h3 { font-size: 1.45rem; }
+.chili { font-size: .8em; vertical-align: 2px; }
+.dish__img { position: relative; }
+/* the red starburst from the menus */
+.seal { position: absolute; top: 12px; left: 12px; width: 64px; height: 64px; display: grid; place-items: center; text-align: center; background: #b0100c; color: #fff; font: 700 .58rem/1.05 var(--body); letter-spacing: .06em; text-transform: uppercase; clip-path: polygon(50% 0%, 59% 9%, 71% 4%, 75% 16%, 88% 15%, 86% 28%, 97% 33%, 91% 45%, 100% 54%, 90% 62%, 95% 74%, 83% 77%, 82% 90%, 70% 88%, 63% 99%, 52% 92%, 41% 100%, 34% 89%, 21% 92%, 19% 79%, 6% 76%, 10% 63%, 0% 55%, 8% 45%, 2% 33%, 13% 28%, 11% 15%, 24% 16%, 28% 4%, 40% 9%); }
+
+.loc { border-radius: 16px; }
+.loc__over small { letter-spacing: .14em; }
+.footer__cta { padding-top: clamp(56px, 8vw, 96px); }
+.footer__cta h2.rule-head { font-size: clamp(2.4rem, 6vw, 4.6rem); margin-bottom: 14px; }
+.footer__lion { display: block; width: clamp(130px, 16vw, 190px); margin: 0 auto 10px; }
+.footer__lion img { width: 100%; height: auto; }
+.first__lion { display: block; }
+.rating .muted { color: #d9cfc3; }
+.tier__when { margin: 0; }
+.tier__price { margin-top: auto; padding-top: 22px; }
+.pull p { font-family: var(--body); font-style: normal; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.55; }
+/* menu rules as plain lines, the way the printed menus print them */
+.menu-block .chips { display: block; margin-top: 12px; color: #cfc5b9; font-size: .92rem; line-height: 1.7; }
+.menu-block .chip { display: inline; padding: 0; border: 0; background: none; border-radius: 0; color: inherit; font-size: inherit; }
+.menu-block .chip--gold { color: var(--gold); font-weight: 600; }
+.menu-block .chip + .chip::before { content: " · "; color: var(--muted); }
+.rules span { border-radius: 8px; }

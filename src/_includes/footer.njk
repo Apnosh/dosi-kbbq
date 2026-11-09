@@ -1,8 +1,9 @@
 <footer class="footer">
   <div class="footer__cta">
-    <p class="kr-bg" aria-hidden="true">도시</p>
-    <h2 class="display">Hungry <span class="serif">yet?</span></h2>
-    <p>Walk-ins welcome. Groups and weekends, book ahead.</p>
+    <picture class="footer__lion"><source type="image/webp" srcset="/assets/img/lion-steak.webp"><img src="/assets/img/lion-steak.png" alt="The Do Si lion riding a steak" width="356" height="420" loading="lazy"></picture>
+    <p class="kr-label" lang="ko">예약</p>
+    <h2 class="rule-head">Book a Table</h2>
+    <p>Walk-ins welcome. For groups and weekends, book ahead.</p>
     <div class="btn-row">
       {% for loc in locations %}<a class="btn {% if loop.first %}btn--red{% else %}btn--light{% endif %}" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endfor %}
     </div>
