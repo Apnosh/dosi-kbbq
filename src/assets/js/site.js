@@ -117,6 +117,66 @@
     }
   });
 
+  /* offer popup (30% off Wednesdays): once per visit, a moment after the page settles */
+  var pop = document.getElementById("promo-pop");
+  if (pop && typeof pop.showModal === "function") {
+    var popKey = "dosi-promo-" + pop.getAttribute("data-promo");
+    var seen = false;
+    try { seen = sessionStorage.getItem(popKey) === "1"; } catch (e) {}
+    var closePop = function () { if (pop.open) pop.close(); };
+    pop.querySelectorAll("[data-promo-close]").forEach(function (b) { b.addEventListener("click", closePop); });
+    pop.addEventListener("click", function (e) { if (e.target === pop) closePop(); });
+    pop.addEventListener("close", function () { try { sessionStorage.setItem(popKey, "1"); } catch (e) {} });
+    if (!seen) setTimeout(function () {
+      var other = document.querySelector("dialog[open]");
+      if (!other && (!drawer || drawer.hidden)) pop.showModal();
+    }, 2500);
+  }
+
+  /* AYCE tier picker: show only what the chosen tier includes. Without JS every section shows.
+     A link like /alki-menu/#ayce-supreme opens with that tier picked. */
+  var tierBox = document.querySelector("[data-tiers]");
+  if (tierBox) {
+    var block = tierBox.closest(".menu-block");
+    var tierBtns = tierBox.querySelectorAll("[data-tier]");
+    var addsLine = block.querySelector("[data-tier-adds]");
+    /* pin the bar right under the menu tabs, whatever height they end up */
+    var tabBar = document.querySelector(".menu-tabs");
+    var setTabsH = function () { if (tabBar) doc.style.setProperty("--tabs-h", tabBar.offsetHeight + "px"); };
+    setTabsH(); window.addEventListener("resize", setTabsH);
+    var current = 0;
+    var pickTier = function (level, fromTap) {
+      var prev = current; current = level;
+      tierBtns.forEach(function (b) {
+        var on = b.getAttribute("data-tier") === String(level);
+        b.setAttribute("aria-selected", String(on));
+        if (on && addsLine) addsLine.textContent = b.getAttribute("data-adds") + ".";
+      });
+      /* keep the reader's place: note where the first section on screen sits, then put it back */
+      var secs = block.querySelectorAll("[data-section-tier]");
+      var barBottom = tierBox.getBoundingClientRect().bottom, anchor = null, anchorTop = 0;
+      if (fromTap) secs.forEach(function (sec) {
+        if (!anchor && !sec.hidden && sec.getBoundingClientRect().bottom > barBottom) { anchor = sec; anchorTop = sec.getBoundingClientRect().top; }
+      });
+      secs.forEach(function (sec) {
+        var t = Number(sec.getAttribute("data-section-tier"));
+        sec.hidden = t > level;
+        /* a tier up: the sections it adds flash gold so the difference is easy to spot */
+        sec.classList.remove("is-new");
+        if (fromTap && t > prev && t <= level) { void sec.offsetWidth; sec.classList.add("is-new"); }
+      });
+      if (anchor && !anchor.hidden) window.scrollBy(0, anchor.getBoundingClientRect().top - anchorTop);
+      block.setAttribute("data-tier-on", level);
+    };
+    tierBtns.forEach(function (b) {
+      b.addEventListener("click", function () { pickTier(Number(b.getAttribute("data-tier")), true); });
+    });
+    var fromHash = /^#ayce-(signature|premium|supreme)$/.exec(location.hash);
+    var start = fromHash ? ["signature", "premium", "supreme"].indexOf(fromHash[1]) + 1 : 1;
+    pickTier(start);
+    if (fromHash) setTimeout(function () { block.scrollIntoView(); }, 0);
+  }
+
   /* switching location keeps you on the same section (Alki dinner -> Kent dinner) */
   document.querySelectorAll(".menu-switch a:not([aria-current])").forEach(function (a) {
     a.addEventListener("click", function () { if (location.hash) a.href = a.getAttribute("href").split("#")[0] + location.hash; });

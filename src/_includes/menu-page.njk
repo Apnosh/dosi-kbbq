@@ -5,7 +5,7 @@ bodyClass: page-menu
 {%- set loc = locations | byKey(locKey) -%}
 {%- set l = loc | withPortal(apnosh) -%}
 {%- set tabs = menus[locKey] -%}
-<section class="page-head page-head--menu">
+<section class="page-head page-head--menu textured">
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/menu/">Menus</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
     <div class="menu-head">
@@ -31,24 +31,45 @@ bodyClass: page-menu
 <div class="wrap">
   {% for t in tabs %}
   <section class="menu-block" id="{{ t.id }}" aria-labelledby="{{ t.id }}-h">
-    {%- set banner = { "ayce": "premium-cuts", "combo-alacarte": "meat-platter", "apps-entrees": "yangnyeom-wings", "bento-lunch": "bibimbap", "drinks": "interior-neon", "happy-hour": "grill-table" }[t.id] -%}
+    {%- set banner = { "ayce": "kbbq-platter", "combo-alacarte": "kbbq-tray", "apps-entrees": "seafood-pancake-photo", "bento-lunch": "kimchi-rice-spoon", "drinks": "bar", "happy-hour": "alki-deck-wide" }[t.id] -%}
     {% if banner %}<div class="menu-banner">{% img banner, "", { sizes: "(max-width: 1240px) 100vw, 1200px" } %}</div>{% endif %}
     <div class="menu-block__head">
       <div>
         <h2 class="rule-head rule-head--left{% if t.id == 'drinks' or t.id == 'happy-hour' %} rule-head--drinks{% endif %}" id="{{ t.id }}-h">{{ t.label }}</h2>
         {% if t.intro.length %}<div class="chips">{% for c in t.intro %}<span class="chip{% if loop.first %} chip--gold{% endif %}">{{ c | replace("All You Can Eat | ", "") }}</span>{% endfor %}</div>{% endif %}
       </div>
-      {% if t.id == 'ayce' %}<a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve {{ loc.name }}</a>{% endif %}
     </div>
 
+    {% if t.tiers %}
+    {# pick a tier, see everything it includes right here. The bar stays pinned while you scroll the AYCE menu. #}
+    <p class="tiers__label">Your table's tier · tap to compare</p>
+    <div class="tiers textured" data-tiers>
+      <div class="tiers__opts" role="tablist" aria-label="AYCE tiers">
+        {% for tr in t.tiers %}
+        <button type="button" class="tier" role="tab" data-tier="{{ tr.level }}" data-key="{{ tr.key }}" data-adds="{{ tr.adds }}" aria-selected="{{ 'true' if loop.first else 'false' }}">
+          <span class="tier__name">{{ tr.name }}</span>
+          <span class="tier__price">{{ tr.price }}</span>
+          <span class="tier__what">{{ tr.meats }} meats · {{ tr.apps }} apps</span>
+        </button>
+        {% endfor %}
+      </div>
+    </div>
+    <p class="tiers__adds" data-tier-adds aria-live="polite">{{ t.tiers[0].adds }}.</p>
+    {% endif %}
+
     {% for s in t.sections %}
-    <div class="menu-section">
+    <div class="menu-section"{% if s.tier %} data-section-tier="{{ s.tier }}"{% endif %}>
       <div class="menu-section__head">
+        {% if s.tier %}
+        <h3>{{ s.tierHead }}</h3>
+        <span class="tier-badge tier-badge--{{ s.tier }}">{{ ["In every tier", "Premium & Supreme", "Supreme only"][s.tier - 1] }}</span>
+        {% else %}
         <h3>{{ s.name }}</h3>
         {% if s.korean %}<span class="kr">{{ s.korean }}</span>{% endif %}
-        {% if s.price %}<span class="menu-section__price">{{ s.price }}{% if t.id == 'ayce' %}<small>/ person</small>{% endif %}</span>{% endif %}
+        {% if s.price %}<span class="menu-section__price">{{ s.price }}</span>{% endif %}
+        {% endif %}
       </div>
-      {% if s.note %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
+      {% if s.note and not s.tier %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
       {%- set pics = s.featured if site.menuPhotos != "none" else [] -%}
       <div class="msec{% if pics.length %} msec--pics{% endif %}">
         {% if pics.length %}

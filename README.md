@@ -35,6 +35,22 @@ sections (L1, L9, L24 for Signature, and so on); other sections show their best 
 photos. Set `menuPhotos` in
 `src/_data/site.json` to `none` to hide menu photos entirely.
 
+### Offer popup (30% off Wednesdays)
+
+The popup is a graphic plus a Reserve button, set in `promoPopup` in `src/_data/site.json`: `image`
+(the graphic, e.g. `src/assets/img/promo-wednesday.webp`), `alt` (the graphic's words, for screen
+readers and Google) and `button`. It shows once per visit, a couple of seconds after the page loads,
+and never on the menu pages (guests there are ordering at the table). Set `enabled` to `false` to
+turn it off. When the offer changes, swap the image and change `id` so people who closed the old one
+see the new one.
+
+### AYCE tiers
+
+The All You Can Eat menu has a Signature / Premium / Supreme bar that stays pinned under the menu tabs
+while you scroll it. Picking a tier shows only the meats and appetizers it includes, says what it adds
+over the tier below, and briefly highlights the sections that just appeared. Link straight to a tier with `/alki-menu/#ayce-supreme` (or
+`#ayce-signature`, `#ayce-premium`); the home page price board does this.
+
 To change a price, edit the item in `src/menus/…json`. The home page tiers, location pages and
 FAQ read AYCE prices from the menus, so they update together.
 

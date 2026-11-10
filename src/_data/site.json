@@ -12,5 +12,17 @@
   },
   "menuPhotos": "only-real",
   "_menuPhotos": "placeholders: every dish shows a photo slot, empty ones as placeholders (for review). only-real: only dishes with a photo file show one. none: no photos on menus.",
-  "stats": { "yearsOpen": 2, "meatSelections": 30, "locations": 2 }
+  "stats": {
+    "yearsOpen": 2,
+    "meatSelections": 30,
+    "locations": 2
+  },
+  "promoPopup": {
+    "enabled": true,
+    "id": "wednesday-30",
+    "image": "/assets/img/promo-wednesday.webp",
+    "alt": "30% off Wednesdays at Do Si Korean BBQ. For a limited time, dine-in only, at Kent (12912 SE Kent-Kangley Rd) and Alki Beach (2516 Alki Ave SW).",
+    "button": "Reserve a Wednesday table",
+    "_help": "The popup shown once per visit (not on the menu pages): the graphic in 'image' plus a Reserve button. 'alt' is what screen readers and Google read, so keep it matching the graphic. Set enabled to false to turn it off; change 'id' when the offer changes so people who closed the old one see the new one."
+  }
 }

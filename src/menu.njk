@@ -18,7 +18,7 @@ breadcrumbs: [{ name: "Menus", url: "/menu/" }]
   <div class="wrap menu-hub">
     {% for loc in locations %}
     <a href="{{ loc.menuPage }}" class="reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
-      {% set hubImg = "meat-platter" if loc.key == 'alki' else "sizzling-galbi" %}{% img hubImg, "", { sizes: "(max-width: 760px) 100vw, 50vw" } %}
+      {% set hubImg = "kbbq-spread" if loc.key == 'alki' else "kbbq-spread-2" %}{% img hubImg, "", { sizes: "(max-width: 760px) 100vw, 50vw" } %}
       <div class="menu-hub__label">
         <p class="eyebrow">{{ loc.neighborhood }}</p>
         <h2>{{ loc.name }} menu</h2>

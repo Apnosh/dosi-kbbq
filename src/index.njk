@@ -50,26 +50,26 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
 {% endif %}
 
 {# ================= AYCE BOARD ================= #}
-<section class="section" id="ayce">
+<section class="section textured" id="ayce">
   <div class="wrap">
     <p class="kr-label" lang="ko">무한리필</p>
     <h2 class="rule-head"><span class="accent">All You</span> Can Eat</h2>
     <p class="sub">Per person. The whole table orders from the same menu.</p>
     <div class="board">
-      <a class="board__col" href="/alki-menu/#ayce">
-        <div class="board__img">{% img "table-spread", "A Korean BBQ table with banchan", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">24 meats</span></div>
+      <a class="board__col" href="/alki-menu/#ayce-signature">
+        <div class="board__img">{% img "kbbq-spread", "A Korean BBQ table with pork belly, corn cheese and banchan", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">24 meats</span></div>
         <h3><span class="accent">Signature</span> AYCE</h3>
         <p class="board__note">Brisket, pork belly, bulgogi, chicken and shrimp, with 13 appetizers and stews and endless banchan</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.signature }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.signature }}</dd></div></dl>
       </a>
-      <a class="board__col" href="/alki-menu/#ayce">
-        <div class="board__img">{% img "premium-cuts", "Premium cuts of brisket, short rib and pork belly", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">28 meats</span></div>
+      <a class="board__col" href="/alki-menu/#ayce-premium">
+        <div class="board__img">{% img "kbbq-cuts", "Ribeye, short rib and brisket ready for the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">28 meats</span></div>
         <h3><span class="accent">Premium</span> AYCE</h3>
         <p class="board__note">All of Signature, plus LA galbi, beef tongue, baby octopus and spicy squid</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.premium }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.premium }}</dd></div></dl>
       </a>
-      <a class="board__col board__col--top" href="/alki-menu/#ayce">
-        <div class="board__img">{% img "grill-pork-belly", "Pork belly and kimchi on the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">32 meats</span><span class="tag tag--new board__new">5 new apps</span></div>
+      <a class="board__col board__col--top" href="/alki-menu/#ayce-supreme">
+        <div class="board__img">{% img "kbbq-platter", "A platter of premium cuts over the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">32 meats</span><span class="tag tag--new board__new">5 new apps</span></div>
         <h3><span class="accent">Supreme</span> AYCE</h3>
         <p class="board__note">All of Premium, plus Angus ribeye and short rib, pork jowl, beef intestine, and Supreme-only apps like egg soufflé and bulgogi quesadilla</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.supreme }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.supreme }}</dd></div></dl>
@@ -79,39 +79,31 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
   </div>
 </section>
 
-{# ================= À LA CARTE ================= #}
-{%- set C = menus.alacarte -%}
-<section class="section section--tight alc" id="a-la-carte">
+{# ================= APPS & ENTREES, right under the AYCE tiers ================= #}
+<section class="section section--tight" id="apps">
   <div class="wrap">
-    <div class="alc__head">
-      <div>
-        <p class="kr-label kr-label--left" lang="ko">단품 메뉴</p>
-        <h2 class="display h2">Or Order <span class="accent">À La Carte</span></h2>
-      </div>
-      <p class="alc__lede">Not up for all you can eat? Order exactly what you want. Grill a combo for two, pick a plate of one cut, or skip the grill with fried chicken, bulgogi and stews.</p>
-    </div>
-    <div class="alc__grid">
-      {% set alc = [
-        { id: "combo-alacarte", img: "meat-platter", title: "KBBQ Combos", note: "A grill platter with rice, banchan and salad. Small feeds 2, large feeds 4.", price: C.combo, unit: "for two" },
-        { id: "combo-alacarte", img: "galbi-grill", title: "Meats by the Plate", note: "16 cuts, from brisket and pork belly to LA galbi. Pick 2 or more, with rice and banchan.", price: C.plates, unit: "a plate" },
-        { id: "apps-entrees", img: "fried-wings", title: "Apps & Entrées", note: "Korean fried chicken, tokbokki, bulgogi plates and bubbling stews.", price: C.apps, unit: "" },
-        { id: "bento-lunch", img: "bibimbap", title: "Lunch & Bento", note: "Lunch specials and bento boxes, a quicker sit-down meal with rice and banchan.", price: C.bento, unit: "" }
+    <p class="kr-label" lang="ko">사이드 &amp; 식사</p>
+    <h2 class="rule-head"><span class="accent">Apps</span> &amp; Entrées</h2>
+    <p class="sub">On their own, or added to all you can eat.</p>
+    <div class="plates">
+      {% set plates = [
+        { img: "yangnyeom-chicken", kr: "양념치킨", name: "Yangnyeom Chicken", spicy: true, alt: "Yangnyeom chicken wings in sweet chili glaze" },
+        { img: "savory-egg-souffle", kr: "계란찜", name: "Egg Soufflé", best: true, alt: "Egg soufflé in a hot stone pot" },
+        { img: "hot-stone-bibimbap", kr: "돌판비빔밥", name: "Hot Stone Bibimbap", best: true, alt: "Hot stone bibimbap with a fried egg" },
+        { img: "tokbokki", kr: "떡볶이", name: "Tokbokki", spicy: true, alt: "Tokbokki rice cakes with cheese and egg" },
+        { img: "kimchi-fried-rice", kr: "김치볶음밥", name: "Kimchi Fried Rice", spicy: true, alt: "Kimchi fried rice with a fried egg" }
       ] %}
-      {% for c in alc %}
-      <a class="alc__card" href="/alki-menu/#{{ c.id }}">
-        <div class="alc__img">{% img c.img, "", { sizes: "(max-width: 700px) 40vw, 25vw" } %}</div>
-        <div class="alc__body">
-          <h3>{{ c.title }}</h3>
-          <p>{{ c.note }}</p>
-          {% if c.price %}<span class="alc__price"><small>From</small> {{ c.price }}{% if c.unit %} <small>{{ c.unit }}</small>{% endif %}</span>{% endif %}
-        </div>
-      </a>
+      {% for d in plates %}
+      <figure class="plate">
+        <div class="plate__img plate__img--cut"><img src="/assets/img/menu/{{ d.img }}.webp" alt="{{ d.alt }}" width="320" height="320" loading="lazy" decoding="async">{% if d.best %}<span class="seal seal--sm">Best<br>seller</span>{% endif %}</div>
+        <figcaption><span class="kr" lang="ko">{{ d.kr }}</span><span class="plate__name">{{ d.name }}{% if d.spicy %} <span class="chili" title="Spicy">🌶</span>{% endif %}</span></figcaption>
+      </figure>
       {% endfor %}
     </div>
+    <p class="center"><a class="arrow-link" href="/alki-menu/#apps-entrees">Full menu</a></p>
   </div>
 </section>
 
-{# ================= GRILL BEST SELLERS ================= #}
 <section class="section section--alt">
   <div class="wrap best">
     <div class="best__list">
@@ -129,8 +121,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
       <a class="arrow-link" href="/alki-menu/#ayce">All 32 meats</a>
     </div>
     <div class="best__photos">
-      <div class="best__a">{% img "meat-rolls", "Thinly sliced beef brisket and pork belly", { sizes: "(max-width: 900px) 100vw, 40vw" } %}<span class="seal">Best<br>seller</span></div>
-      <div class="best__b">{% img "grilling-galbi", "Grilling LA galbi at the table", { sizes: "(max-width: 900px) 60vw, 25vw" } %}</div>
+      <div class="best__a">{% img "kbbq-raw", "Thinly sliced brisket, pork belly and marinated meats with banchan", { sizes: "(max-width: 900px) 100vw, 40vw" } %}<span class="seal">Best<br>seller</span></div>
+      <div class="best__b">{% img "grill-galbi", "Grilled galbi with chopsticks", { sizes: "(max-width: 900px) 60vw, 25vw" } %}</div>
     </div>
   </div>
 </section>
@@ -155,8 +147,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
 <section class="rail" aria-label="Photos from Do Si">
   <div class="rail__track">
     {% for n in [1, 2] %}
-    {% for p in ["sizzling-galbi", "grill-table", "meat-platter", "interior-neon", "spread-tall", "grill-pork-belly", "alki-front", "table-spread"] %}
-    <div class="rail__item{% if p == 'spread-tall' %} rail__item--tall{% endif %}"{% if n == 2 %} aria-hidden="true"{% endif %}>{% img p, ("" if n == 2 else "Food and dining at Do Si Korean BBQ"), { sizes: "40vw" } %}</div>
+    {% for p in ["grill-spread", "alki-deck", "bibimbap-egg", "kbbq-feast", "dumplings-photo", "dining-room", "cocktails-pink", "kimchi-rice-spoon", "tofu-stew-photo", "bar", "fries-stew", "kbbq-spread-2", "cocktail-orange"] %}
+    <div class="rail__item{% if p in ['bibimbap-egg', 'cocktails-pink', 'fries-stew', 'cocktail-orange'] %} rail__item--tall{% endif %}"{% if n == 2 %} aria-hidden="true"{% endif %}>{% img p, ("" if n == 2 else "Food and dining at Do Si Korean BBQ"), { sizes: "40vw" } %}</div>
     {% endfor %}
     {% endfor %}
   </div>
@@ -165,8 +157,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
 {# ================= HAPPY HOUR (Alki): the neon menu ================= #}
 {% if HH %}
 <section class="neon" id="happy-hour">
-  <img class="neon__palm neon__palm--l" src="/assets/img/hh/palm-l.jpg" alt="" width="126" height="190" loading="lazy" aria-hidden="true">
-  <img class="neon__palm neon__palm--r" src="/assets/img/hh/palm-r.jpg" alt="" width="200" height="172" loading="lazy" aria-hidden="true">
+  <img class="neon__palm neon__palm--l" src="/assets/img/hh/palm-left.webp" alt="" width="320" height="330" loading="lazy" aria-hidden="true">
+  <img class="neon__palm neon__palm--r" src="/assets/img/hh/palm-right.webp" alt="" width="290" height="330" loading="lazy" aria-hidden="true">
   <div class="wrap neon__inner">
     <p class="neon__kicker">Happy Hour · Alki Beach</p>
     <h2 class="neon__title">Grill &amp; Chill</h2>
@@ -221,33 +213,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
   </div>
 </section>
 
-{# ================= APPS & ENTREES: round photos like the happy hour menu ================= #}
-<section class="section section--alt">
-  <div class="wrap">
-    <p class="kr-label" lang="ko">사이드 &amp; 식사</p>
-    <h2 class="rule-head"><span class="accent">Apps</span> &amp; Entrées</h2>
-    <p class="sub">On their own, or added to all you can eat.</p>
-    <div class="plates">
-      {% set plates = [
-        { img: "yangnyeom-wings", kr: "양념치킨", name: "Yangnyeom Chicken", spicy: true, alt: "Yangnyeom chicken wings in sweet chili glaze" },
-        { img: "steamed-egg", kr: "계란찜", name: "Egg Soufflé", best: true, alt: "Egg soufflé in a hot stone pot" },
-        { img: "bibimbap", kr: "돌판비빔밥", name: "Hot Stone Bibimbap", best: true, alt: "Hot stone bibimbap with a fried egg" },
-        { img: "cheese-tteokbokki", kr: "떡볶이", name: "Tokbokki", spicy: true, alt: "Tokbokki rice cakes with cheese and egg" },
-        { img: "kimchi-fried-rice", kr: "김치볶음밥", name: "Kimchi Fried Rice", spicy: true, alt: "Kimchi fried rice with a fried egg" }
-      ] %}
-      {% for d in plates %}
-      <figure class="plate">
-        <div class="plate__img">{% img d.img, d.alt, { sizes: "220px" } %}{% if d.best %}<span class="seal seal--sm">Best<br>seller</span>{% endif %}</div>
-        <figcaption><span class="kr" lang="ko">{{ d.kr }}</span><span class="plate__name">{{ d.name }}{% if d.spicy %} <span class="chili" title="Spicy">🌶</span>{% endif %}</span></figcaption>
-      </figure>
-      {% endfor %}
-    </div>
-    <p class="center"><a class="arrow-link" href="/alki-menu/#apps-entrees">Full menu</a></p>
-  </div>
-</section>
-
 <section class="bleed">
-  <div class="bleed__img">{% img "interior-wide", "The Do Si dining room, with neon Korean signs and old posters on the walls", { sizes: "100vw" } %}</div>
+  <div class="bleed__img">{% img "dining-room", "The Do Si dining room, with string flags, neon and a full bar", { sizes: "100vw" } %}</div>
   <div class="wrap bleed__inner">
     <blockquote class="bleed__quote">“{{ R.room.quote }}”</blockquote>
     <p class="bleed__cite">{{ R.room.name }}, Google review</p>
@@ -289,8 +256,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
   </div>
 </section>
 
-<section class="bleed bleed--short">
-  <div class="bleed__img">{% img "table-spread", "A full Korean BBQ table at Do Si", { sizes: "100vw" } %}</div>
+<section class="bleed bleed--short bleed--dark">
+  <div class="bleed__img">{% img "alki-deck-wide", "The Alki Beach rooftop deck with umbrellas and string lights over the water", { sizes: "100vw" } %}</div>
   <div class="wrap bleed__inner">
     <p class="kr-label kr-label--left" lang="ko">단체 예약</p>
     <h2 class="display h2"><span class="accent">Parties</span> &amp; Buyouts</h2>

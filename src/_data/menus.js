@@ -66,6 +66,31 @@ function featured(tabId, s) {
   return pick.slice(0, howMany).map((i) => ({ photo: i.photo, name: i.name.replace(/\*+$/, ""), number: code(i) }));
 }
 
+/* the tier picker: each tier's price and what it includes, counting every lower tier too */
+function tiersOf(sections) {
+  return [1, 2, 3].map((level) => {
+    const own = sections.find((s) => s.tier === level && s.price);
+    const upTo = sections.filter((s) => s.tier <= level);
+    const count = (re) => upTo.filter((s) => re.test(s.name || "")).reduce((n, s) => n + s.items.length, 0);
+    const tidy = (n) => String(n).replace(/\*+$/, "").toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase()).replace(/\bLa\b/, "LA");
+    const ownMeats = sections.filter((s) => s.tier === level && !/appetizer/i.test(s.name || "")).flatMap((s) => s.items.map((i) => tidy(i.name)));
+    const ownApps = sections.filter((s) => s.tier === level && /appetizer/i.test(s.name || "")).flatMap((s) => s.items.map((i) => tidy(i.name)));
+    const list = (a) => (a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0] || "");
+    let adds;
+    if (level === 1) adds = `${count(/^(?!.*appetizer)/i)} meats and ${count(/appetizer/i)} appetizers & stews, with banchan`;
+    else adds = `Everything in ${["Signature", "Premium"][level - 2]}, plus ${list(ownMeats)}${ownApps.length ? `, and ${ownApps.length} more appetizers: ${list(ownApps)}` : ""}`;
+    return {
+      level,
+      adds,
+      key: ["signature", "premium", "supreme"][level - 1],
+      name: ["Signature", "Premium", "Supreme"][level - 1],
+      price: own ? own.price : null,
+      meats: count(/^(?!.*appetizer)/i),
+      apps: count(/appetizer/i),
+    };
+  });
+}
+
 function clean(data, tabId) {
   data.intro = (data.intro || []).filter((l) => !NOT_FOR_GUESTS.some((r) => r.test(l)));
   data.fineprint = (data.fineprint || []).filter((l) => !LEGEND.some((r) => r.test(l)));
@@ -75,7 +100,7 @@ function clean(data, tabId) {
     s.note = s.note ? s.note.replace(/^\s*per person\.?\s*/i, "").trim() || null : null;
     /* notes written for whoever typed up the menu, not for guests */
     if (s.note && /printed|heading|front side|column/i.test(s.note)) s.note = null;
-    if (s.note) s.note = s.note.replace(/\s*\|\|\s*/g, " · ").replace(/\s*\|\s*/g, " · ").replace(/ : /g, ": ").replace(/(\d)\s*~\s*(\d)/g, "$1 to $2");
+    if (s.note) s.note = s.note.replace(/\s*\|\|\s*/g, " · ").replace(/\s*\|\s*/g, " · ").replace(/ : /g, ": ").replace(/\s*~\s*/g, " to ").replace(/(day)\s+-\s+(\w+day)/gi, "$1 to $2");
     for (const i of s.items || []) {
       const t = new Set((i.tags || []).map((x) => TAGS[String(x).toLowerCase()]).filter(Boolean));
       if (t.has("spicy2")) t.delete("spicy");
@@ -92,6 +117,14 @@ function clean(data, tabId) {
     }
     s.hasPhotos = (s.items || []).some((i) => i.photo);
     s.featured = featured(tabId, s);
+    /* AYCE tiers: 1 Signature, 2 Premium, 3 Supreme. A section belongs to the lowest tier that gets it. */
+    if (AYCE.has(tabId)) {
+      const n = String(s.name || "").toLowerCase();
+      s.tier = /supreme/.test(n) ? 3 : /premium/.test(n) ? 2 : 1;
+      s.tierHead = /appetizer/.test(n)
+        ? (s.tier === 3 ? "+ Supreme appetizers" : "Appetizers & stews")
+        : (s.tier === 1 ? "Meats" : s.tier === 2 ? "+ Premium meats" : "+ Supreme meats");
+    }
   });
   return data;
 }
@@ -101,6 +134,7 @@ function load(loc) {
     const file = path.join(DIR, `${loc}-${t.id}.json`);
     if (!fs.existsSync(file)) return null;
     const data = clean(JSON.parse(fs.readFileSync(file, "utf8")), t.id);
+    if (AYCE.has(t.id)) data.tiers = tiersOf(data.sections);
     return { ...data, id: t.id, label: t.label };
   }).filter(Boolean);
 }
