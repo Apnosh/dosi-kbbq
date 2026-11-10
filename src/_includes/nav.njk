@@ -41,8 +41,6 @@
   <div class="drawer__calls drawer__calls--order">
     {% for loc in locations %}{% if loc.orderUrl %}<a class="btn btn--light" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">{{ loc.name }}</a>{% endif %}{% endfor %}
   </div>
-  <div class="drawer__calls">
-    {% for loc in locations %}<a class="btn btn--ghost" href="{{ loc.phone | telHref }}">Call {{ loc.name }}</a>{% endfor %}
-  </div>
+  <p class="loc__links drawer__phones">{% for loc in locations %}<a href="{{ loc.phone | telHref }}">Call {{ loc.name }}</a>{% endfor %}</p>
   <a class="btn btn--red" href="/locations/#reserve" data-reserve>Reserve a table</a>
 </div>

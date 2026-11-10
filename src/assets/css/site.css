@@ -744,8 +744,19 @@ button { font: inherit; color: inherit; }
 /* ---------- Order pickup (Toast) ---------- */
 .btn--light:hover { background: #f1f1f1; }
 .menu-hub__item { display: grid; gap: 10px; align-content: start; }
-.menu-hub__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.menu-hub__actions .btn { padding: 0 10px; font-size: .74rem; letter-spacing: .08em; }
 .menu-head__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .menu-order { min-height: 44px; padding: 0 18px; font-size: .74rem; }
 .drawer__calls--order { margin-top: 4px; }
+
+/* ---------- fewer buttons: two real buttons (Reserve, Order pickup), the rest as small links ---------- */
+.loc__links { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 4px 0 0; }
+.loc__links a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font: 600 .76rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+.loc__links a::after { content: "→"; transition: transform .2s var(--ease); }
+.loc__links a:hover::after { transform: translateX(3px); }
+.loc__links--hero { margin-top: 14px; }
+.loc__links--hero a { color: #fff; }
+.drawer__phones { justify-content: center; margin: 6px 0 2px; }
+@media (max-width: 480px) {
+  .hero__inner .btn-row { flex-wrap: nowrap; gap: 8px; }
+  .hero__inner .btn-row .btn { flex: 1 1 0; padding: 0 10px; font-size: .74rem; letter-spacing: .08em; }
+}
