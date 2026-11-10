@@ -39,6 +39,7 @@ breadcrumbs: [{ name: "Locations", url: "/locations/" }]
           <div class="map" style="aspect-ratio:16/9"><iframe title="Map to Do Si Korean BBQ {{ l.name }}" src="{{ l.address | mapsEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
           <div class="btn-row loc__btns">
             <a class="btn btn--red" href="{{ l.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve</a>
+            {% if l.orderUrl %}<a class="btn btn--light" href="{{ l.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
             <a class="btn btn--ghost" href="{{ l.menuPage }}">Menu</a>
             <a class="btn btn--ghost" href="{{ l.page }}">Details</a>
           </div>
