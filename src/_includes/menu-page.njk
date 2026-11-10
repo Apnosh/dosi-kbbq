@@ -71,7 +71,7 @@ bodyClass: page-menu
       </div>
       {% if s.note and not s.tier %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
       {%- set pics = s.featured if site.menuPhotos != "none" else [] -%}
-      <div class="msec{% if pics.length %} msec--pics{% endif %}">
+      <div class="msec{% if pics.length %} msec--pics{% if s.items.length <= 10 %} msec--row{% endif %}{% endif %}">
         {% if pics.length %}
         <div class="msec__pics msec__pics--{{ pics.length }}">
           {% for f in pics %}
