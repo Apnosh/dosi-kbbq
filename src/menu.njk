@@ -26,10 +26,7 @@ breadcrumbs: [{ name: "Menus", url: "/menu/" }]
         <div class="chips"><span class="chip chip--gold">AYCE from {{ A[loc.key].signature }}</span>{% if loc.key == 'alki' %}<span class="chip">Happy hour</span>{% else %}<span class="chip">Bento &amp; lunch specials</span>{% endif %}</div>
       </div>
     </a>
-    <div class="menu-hub__actions">
-      <a class="btn btn--red" href="{{ loc.menuPage }}">View {{ loc.name }} menu</a>
-      {% if loc.orderUrl %}<a class="btn btn--light" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
-    </div>
+    {% if loc.orderUrl %}<p class="loc__links"><a href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order {{ loc.name }} pickup</a></p>{% endif %}
     </div>
     {% endfor %}
   </div>

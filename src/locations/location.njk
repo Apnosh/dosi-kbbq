@@ -24,9 +24,8 @@ eleventyComputed:
     <div class="btn-row" style="margin-top:28px">
       <a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve a table</a>
       {% if loc.orderUrl %}<a class="btn btn--light" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
-      <a class="btn btn--ghost" href="{{ loc.menuPage }}">{{ loc.name }} menu</a>
-      <a class="btn btn--ghost" href="{{ l.phone | telHref }}">Call {{ l.phone }}</a>
     </div>
+    <p class="loc__links loc__links--hero"><a href="{{ loc.menuPage }}">See the {{ loc.name }} menu</a><a href="{{ l.phone | telHref }}">Call {{ l.phone }}</a></p>
   </div>
 </section>
 
