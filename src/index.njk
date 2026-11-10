@@ -32,11 +32,6 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
       {% endfor %}
     </div>
   </div>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__track">
-      {% for n in [1, 2] %}{% for m in [["Galbi", "갈비"], ["Bulgogi", "불고기"], ["Pork belly", "삼겹살"], ["Brisket", "차돌박이"], ["Ribeye", "등심"], ["Banchan", "반찬"], ["Soju", "소주"]] %}<span>{{ m[0] }}</span><span class="kr" lang="ko">{{ m[1] }}</span>{% endfor %}{% endfor %}
-    </div>
-  </div>
 </section>
 
 {% if apnosh.activePromo %}
@@ -213,8 +208,8 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
   </div>
 </section>
 
-<section class="bleed">
-  <div class="bleed__img">{% img "dining-room", "The Do Si dining room, with string flags, neon and a full bar", { sizes: "100vw" } %}</div>
+<section class="bleed bleed--dark">
+  <div class="bleed__img">{% img "grill-spread", "A table of meats sizzling on the grill with banchan", { sizes: "100vw" } %}</div>
   <div class="wrap bleed__inner">
     <blockquote class="bleed__quote">“{{ R.room.quote }}”</blockquote>
     <p class="bleed__cite">{{ R.room.name }}, Google review</p>
