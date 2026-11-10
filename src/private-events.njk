@@ -8,7 +8,7 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
 ---
 {%- set alki = locations | byKey('alki') | withPortal(apnosh) -%}
 <section class="hero hero--page">
-  <div class="hero__media" aria-hidden="true">{% img "table-spread", "", { sizes: "100vw", eager: true } %}</div>
+  <div class="hero__media" aria-hidden="true">{% img "kbbq-feast", "", { sizes: "100vw", eager: true } %}</div>
   <div class="wrap hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Private events</span></nav>
     <p class="eyebrow">Alki Beach · West Seattle</p>
@@ -18,7 +18,7 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
   </div>
 </section>
 
-<section class="section section--tight floor" id="second-floor">
+<section class="section section--tight floor textured" id="second-floor">
   <div class="wrap">
     <p class="kr-label" lang="ko">2층 단독 대관</p>
     <h2 class="display h2 center" style="margin-bottom:14px"><span class="accent">The 2nd Floor</span> Is Yours</h2>
@@ -35,9 +35,9 @@ breadcrumbs: [{ name: "Private events", url: "/private-events/" }]
 <section class="section section--tight" style="padding-top:0">
   <div class="wrap">
     <div class="how">
-      <figure class="how__card reveal">{% img "meat-platter", "A platter of premium cuts for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
-      <figure class="how__card reveal reveal-d1">{% img "grill-table", "A group grilling together at the table", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
-      <figure class="how__card reveal reveal-d2">{% img "alki-front", "Do Si Korean BBQ on Alki Avenue", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
+      <figure class="how__card reveal">{% img "kbbq-spread", "A full Korean BBQ spread for a group", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
+      <figure class="how__card reveal reveal-d1">{% img "dining-windows", "Upstairs at Alki, with windows onto the beach", { sizes: "(max-width: 760px) 100vw, 33vw" } %}</figure>
+      <figure class="how__card reveal reveal-d2">{% img "alki-deck-sign", "The Do Si rooftop deck at Alki Beach", { sizes: "(max-width: 760px) 100vw, 33vw", w: 1066, h: 1600 } %}</figure>
     </div>
     <blockquote class="pull reveal">
       <p>“{{ reviews.party.quote }}”</p>

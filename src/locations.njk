@@ -20,7 +20,7 @@ breadcrumbs: [{ name: "Locations", url: "/locations/" }]
       {% for loc in locations %}{% set l = loc | withPortal(apnosh) %}{% set special = l.specialHours | upcomingSpecial if l.specialHours else [] %}
       <article class="loc">
         <div class="loc__img">
-          {% set iw = 1200 if l.key == 'alki' else 1600 %}{% set ih = 1600 if l.key == 'alki' else 1067 %}{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}
+          {% set iw = 1600 %}{% set ih = 1067 if l.key == 'alki' else 1200 %}{% img l.photo, l.fullName, { sizes: "(max-width: 880px) 100vw, 50vw", w: iw, h: ih } %}
           <div class="loc__label"><small>{{ l.neighborhood }}</small><h2 class="display" style="font-size:clamp(2.6rem,5vw,3.8rem);line-height:.9">{{ l.name }}</h2></div>
         </div>
         <div class="loc__body">

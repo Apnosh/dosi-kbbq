@@ -1,0 +1,13 @@
+{#- The site-wide offer popup: the graphic from src/_data/site.json → promoPopup, plus a Reserve button.
+    Shown once per visit after a short delay, never on the menu pages (guests there are ordering at the table). -#}
+{%- set P = site.promoPopup -%}
+{% if P and P.enabled and bodyClass != 'page-menu' %}
+<dialog class="promo-pop" id="promo-pop" data-promo="{{ P.id }}" aria-label="{{ P.alt }}">
+  <button class="promo-pop__close" type="button" aria-label="Close" data-promo-close>&times;</button>
+  <img class="promo-pop__img" src="{{ P.image }}" alt="{{ P.alt }}" width="800" height="1000" loading="lazy" decoding="async">
+  <div class="promo-pop__actions">
+    <a class="btn btn--red" href="/locations/#reserve" data-reserve data-promo-close>{{ P.button }}</a>
+    <button class="btn btn--ghost" type="button" data-promo-close>Close</button>
+  </div>
+</dialog>
+{% endif %}

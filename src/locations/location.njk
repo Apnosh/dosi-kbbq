@@ -15,7 +15,7 @@ eleventyComputed:
 {%- set special = l.specialHours | upcomingSpecial if l.specialHours else [] -%}
 <section class="hero hero--page">
   <div class="hero__media" aria-hidden="true">
-    {% if loc.key == 'alki' %}{% img "meat-platter", "", { sizes: "100vw", eager: true } %}{% else %}{% img "interior-wide", "", { sizes: "100vw", eager: true } %}{% endif %}
+    {% if loc.key == 'alki' %}{% img "alki-storefront", "", { sizes: "100vw", eager: true } %}{% else %}{% img "kent-storefront", "", { sizes: "100vw", eager: true, h: 1200 } %}{% endif %}
   </div>
   <div class="wrap hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/locations/">Locations</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
@@ -39,9 +39,15 @@ eleventyComputed:
         <a href="{{ loc.menuPage }}#ayce" class="is-hot"><small>Supreme</small><b>{{ A.supreme }}</b><span>32 meats + 5 apps</span></a>
       </div>
       <div class="photo-strip">
-        <div>{% img "grilling-galbi", "Galbi on the tabletop grill at Do Si Korean BBQ " + loc.name, { sizes: "33vw" } %}</div>
-        <div>{% img "premium-cuts", "Premium cuts of beef and pork for all-you-can-eat Korean BBQ", { sizes: "33vw" } %}</div>
-        <div>{% img "yangnyeom-wings", "Yangnyeom chicken wings", { sizes: "33vw" } %}</div>
+        {% if loc.key == 'alki' %}
+        <div>{% img "dining-room", "The dining room at Do Si Korean BBQ Alki Beach", { sizes: "33vw" } %}</div>
+        <div>{% img "alki-deck-wide", "The rooftop deck at Alki Beach, with umbrellas over the water", { sizes: "33vw" } %}</div>
+        <div>{% img "dining-windows", "Upstairs at Alki, with windows onto the beach", { sizes: "33vw" } %}</div>
+        {% else %}
+        <div>{% img "kent-storefront", "Do Si Korean BBQ on Kent-Kangley Road", { sizes: "33vw", h: 1200 } %}</div>
+        <div>{% img "grill-spread", "Meats on the tabletop grill at Do Si Korean BBQ Kent", { sizes: "33vw" } %}</div>
+        <div>{% img "kbbq-spread-2", "A full table of Korean BBQ, stews and sides", { sizes: "33vw" } %}</div>
+        {% endif %}
       </div>
       <div class="rules">
         {% for x in loc.extras %}<span>{{ x }}</span>{% endfor %}<span>90-minute AYCE</span><span>Kids 4–10 half price</span>
