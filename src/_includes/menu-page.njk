@@ -13,8 +13,11 @@ bodyClass: page-menu
         <p class="eyebrow">{{ loc.neighborhood }}</p>
         <h1 class="display h1">{{ loc.name }} <span class="serif">menu</span></h1>
       </div>
-      <div class="menu-switch" role="navigation" aria-label="Choose a location">
-        {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
+      <div class="menu-head__actions">
+        <div class="menu-switch" role="navigation" aria-label="Choose a location">
+          {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
+        </div>
+        {% if loc.orderUrl %}<a class="btn btn--light menu-order" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
       </div>
     </div>
     <p class="lede">{{ intro }}</p>

@@ -17,7 +17,8 @@ breadcrumbs: [{ name: "Menus", url: "/menu/" }]
 <section class="section section--tight" style="padding-top:0">
   <div class="wrap menu-hub">
     {% for loc in locations %}
-    <a href="{{ loc.menuPage }}" class="reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
+    <div class="menu-hub__item reveal{% if loop.index == 2 %} reveal-d1{% endif %}">
+    <a href="{{ loc.menuPage }}">
       {% set hubImg = "kbbq-spread" if loc.key == 'alki' else "kbbq-spread-2" %}{% img hubImg, "", { sizes: "(max-width: 760px) 100vw, 50vw" } %}
       <div class="menu-hub__label">
         <p class="eyebrow">{{ loc.neighborhood }}</p>
@@ -25,6 +26,11 @@ breadcrumbs: [{ name: "Menus", url: "/menu/" }]
         <div class="chips"><span class="chip chip--gold">AYCE from {{ A[loc.key].signature }}</span>{% if loc.key == 'alki' %}<span class="chip">Happy hour</span>{% else %}<span class="chip">Bento &amp; lunch specials</span>{% endif %}</div>
       </div>
     </a>
+    <div class="menu-hub__actions">
+      <a class="btn btn--red" href="{{ loc.menuPage }}">View {{ loc.name }} menu</a>
+      {% if loc.orderUrl %}<a class="btn btn--light" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
+    </div>
+    </div>
     {% endfor %}
   </div>
 </section>

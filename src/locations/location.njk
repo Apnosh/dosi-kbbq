@@ -23,6 +23,7 @@ eleventyComputed:
     <h1 class="display h1">{{ loc.headline }}</h1>
     <div class="btn-row" style="margin-top:28px">
       <a class="btn btn--red" href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">Reserve a table</a>
+      {% if loc.orderUrl %}<a class="btn btn--light" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
       <a class="btn btn--ghost" href="{{ loc.menuPage }}">{{ loc.name }} menu</a>
       <a class="btn btn--ghost" href="{{ l.phone | telHref }}">Call {{ l.phone }}</a>
     </div>
