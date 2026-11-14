@@ -17,7 +17,7 @@
       "fri": [{ "open": "15:00", "close": "22:00" }],
       "sat": [{ "open": "11:00", "close": "22:00" }]
     },
-    "reserveUrl": "https://tables.toasttab.com/restaurants/01f529ed-1da6-469a-a4d7-32bd101bf213/findTime",
+    "reserveUrl": "https://reservation.chowbus.com/restaurant/2ac3d7d6-92c3-4f05-a327-f9daccf9392b",
     "orderUrl": "https://toast.app/r/do-si-korean-bbq-west-seattle-2516-alki-avenue-southwest/order/r-01f529ed-1da6-469a-a4d7-32bd101bf213?diningOption=takeout&utm_medium=redirect",
     "photo": "alki-storefront",
     "headline": "Korean BBQ on the Alki Beach waterfront",
