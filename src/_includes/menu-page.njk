@@ -7,16 +7,20 @@ bodyClass: page-menu
 {%- set tabs = menus[locKey] -%}
 <section class="page-head page-head--menu textured">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/menu/">Menus</a><span aria-hidden="true">/</span><span>{{ loc.name }}</span></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>{{ loc.name }} menu</span></nav>
     <div class="menu-head">
       <div>
         <p class="eyebrow">{{ loc.neighborhood }}</p>
         <h1 class="display h1">{{ loc.name }} <span class="serif">menu</span></h1>
       </div>
       <div class="menu-head__actions">
-        <div class="menu-switch" role="navigation" aria-label="Choose a location">
-          {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}</a>{% endfor %}
-        </div>
+        {# one menu page per location; this dropdown switches between them #}
+        <details class="menu-pick">
+          <summary aria-label="Choose a location. Showing the {{ loc.name }} menu"><small>Location</small><span>{{ loc.name }}</span></summary>
+          <nav class="menu-pick__list" aria-label="Choose a location">
+            {% for o in locations %}<a href="{{ o.menuPage }}"{% if o.key == locKey %} aria-current="page"{% endif %}>{{ o.name }}<small>{{ o.address.city }}, {{ o.address.state }}</small></a>{% endfor %}
+          </nav>
+        </details>
         {% if loc.orderUrl %}<a class="btn btn--light menu-order" href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup</a>{% endif %}
       </div>
     </div>

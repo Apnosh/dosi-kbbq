@@ -371,9 +371,6 @@ button { font: inherit; color: inherit; }
 .event h3 { font: 400 1.7rem/1.05 var(--display); text-transform: uppercase; margin-bottom: 8px; }
 
 /* ---------- menus ---------- */
-.menu-switch { display: inline-flex; padding: 4px; margin-top: 24px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); }
-.menu-switch a { padding: 11px 22px; border-radius: 999px; text-decoration: none; font: 600 .8rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.menu-switch a[aria-current] { background: var(--red); color: #fff; }
 .menu-tabs { position: sticky; top: var(--nav-h); z-index: 40; background: rgba(24,24,24,.96); border-block: 1px solid var(--line); }
 .menu-tabs__inner { display: flex; gap: 4px; overflow-x: auto; max-width: var(--wrap); margin: 0 auto; padding: 10px var(--gut); scrollbar-width: none; }
 .menu-tabs__inner::-webkit-scrollbar { display: none; }
@@ -410,15 +407,6 @@ button { font: inherit; color: inherit; }
 .item__desc { grid-column: 2 / -1; margin: 4px 0 0; color: #bdbdbd; font: italic 300 .88rem/1.5 var(--body); }
 .fineprint { margin-top: 28px; padding: 16px 18px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); color: var(--muted); font: italic 300 .84rem/1.6 var(--body); }
 .fineprint p:last-child { margin: 0; }
-.menu-hub { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-@media (max-width: 760px) { .menu-hub { grid-template-columns: 1fr; } }
-.menu-hub__item > a { position: relative; display: block; aspect-ratio: 4/5; border-radius: 18px; overflow: hidden; text-decoration: none; isolation: isolate; }
-.menu-hub img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1s var(--ease); }
-.menu-hub__item > a::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 35%, rgba(24,24,24,.94)); }
-.menu-hub__item > a:hover img { transform: scale(1.04); }
-.menu-hub__label { position: absolute; left: 26px; right: 26px; bottom: 26px; }
-.menu-hub__label h2 { font: 400 clamp(2.6rem, 6vw, 4.2rem)/.9 var(--display); text-transform: uppercase; margin-bottom: 10px; }
-.menu-hub .chips { font-style: normal; }
 
 /* ---------- location page ---------- */
 .loc-page { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
@@ -589,7 +577,6 @@ button { font: inherit; color: inherit; }
 .menu-section__price small { margin-left: 6px; }
 .menu-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 14px; }
 .menu-head .h1 { margin: 0; }
-.menu-head .menu-switch { margin: 0; }
 /* the tab strip: fade on the right edge says "there's more, swipe" */
 .menu-tabs { overscroll-behavior-x: contain; }
 .menu-tabs::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 36px; background: linear-gradient(90deg, transparent, rgba(24,24,24,.96)); pointer-events: none; }
@@ -603,7 +590,6 @@ button { font: inherit; color: inherit; }
   .page-head--menu .lede { font-size: .92rem; margin-bottom: 6px; }
   .page-head--menu .chips { margin-top: 4px; font-size: .82rem; }
   .menu-head { flex-direction: column; align-items: flex-start; }
-  .menu-switch a { padding: 10px 18px; }
   .menu-tabs__inner { padding: 8px var(--gut); }
   .menu-tabs a { padding: 9px 13px; font-size: .98rem; }
   .menu-block { padding-top: 40px; }
@@ -743,7 +729,6 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Order pickup (Toast) ---------- */
 .btn--light:hover { background: #f1f1f1; }
-.menu-hub__item { display: grid; gap: 10px; align-content: start; }
 .menu-head__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .menu-order { min-height: 44px; padding: 0 18px; font-size: .74rem; }
 .drawer__calls--order { margin-top: 4px; }
@@ -760,3 +745,18 @@ button { font: inherit; color: inherit; }
   .hero__inner .btn-row { flex-wrap: nowrap; gap: 8px; }
   .hero__inner .btn-row .btn { flex: 1 1 0; padding: 0 10px; font-size: .74rem; letter-spacing: .08em; }
 }
+
+/* ---------- menu page: location dropdown (Kent at /menu/, Alki Beach at /alki-menu/) ---------- */
+.menu-pick { position: relative; }
+.menu-pick summary { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px 0 18px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); cursor: pointer; list-style: none; font: 600 .8rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.menu-pick summary::-webkit-details-marker { display: none; }
+.menu-pick summary small { font-size: .68rem; color: var(--gold); }
+.menu-pick summary::after { content: ""; width: 7px; height: 7px; margin: -4px 2px 0 2px; border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold); transform: rotate(45deg); transition: transform .2s var(--ease); }
+.menu-pick[open] summary::after { transform: rotate(-135deg); margin-top: 4px; }
+.menu-pick summary:hover, .menu-pick[open] summary { border-color: var(--gold); }
+.menu-pick__list { position: absolute; top: calc(100% + 8px); left: 0; z-index: 45; min-width: 220px; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+.menu-pick__list a { display: flex; flex-direction: column; gap: 5px; padding: 12px 14px; border-radius: 8px; text-decoration: none; font: 400 1.15rem/1 var(--display); text-transform: uppercase; letter-spacing: .02em; color: #fff; }
+.menu-pick__list a small { font: 400 .76rem/1 var(--body); letter-spacing: .04em; text-transform: none; color: var(--muted); }
+.menu-pick__list a:hover { background: var(--panel-2); }
+.menu-pick__list a[aria-current] { background: var(--red); }
+.menu-pick__list a[aria-current] small { color: #fff; }

@@ -101,7 +101,7 @@ In the portal, under the client's site settings: site type `external_repo`, live
 - Structured data: Organization, Restaurant per location (address, hours, menu, reservations),
   full Menu with priced items, FAQPage, BreadcrumbList
 - `sitemap.xml`, `robots.txt`
-- Old WordPress URLs kept (`/menu/`, `/alki-menu/`, `/about/`, `/contact/`, `/locations/`) and
+- Old WordPress URLs kept (`/menu/` is the Kent menu, `/alki-menu/`, `/about/`, `/contact/`, `/locations/`) and
   stray ones redirected in `vercel.json`
 - Menus are real text now (they were images), so Google can read every dish and price
 

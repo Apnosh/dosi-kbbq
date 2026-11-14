@@ -178,9 +178,16 @@
   }
 
   /* switching location keeps you on the same section (Alki dinner -> Kent dinner) */
-  document.querySelectorAll(".menu-switch a:not([aria-current])").forEach(function (a) {
+  document.querySelectorAll(".menu-pick a:not([aria-current])").forEach(function (a) {
     a.addEventListener("click", function () { if (location.hash) a.href = a.getAttribute("href").split("#")[0] + location.hash; });
   });
+  /* the location dropdown closes when you tap outside it or press Escape */
+  var pick = document.querySelector(".menu-pick");
+  if (pick) {
+    document.addEventListener("click", function (e) { if (pick.open && !pick.contains(e.target)) pick.open = false; });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pick.open) { pick.open = false; pick.querySelector("summary").focus(); } });
+    pick.querySelectorAll("a[aria-current]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); pick.open = false; }); });
+  }
 
   /* menu tabs: tap to jump, and the strip follows the section you're reading.
      The strip is moved with scrollLeft only. (scrollIntoView also nudged the page itself on

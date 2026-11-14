@@ -1,4 +1,4 @@
-{%- set onMenu = page.url == '/menu/' or page.url == '/alki-menu/' or page.url == '/kent-menu/' -%}
+{%- set onMenu = page.url == '/menu/' or page.url == '/alki-menu/' -%}
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="/" aria-label="Do Si Korean BBQ home">
@@ -9,7 +9,7 @@
         <a href="/menu/"{% if onMenu %} aria-current="page"{% endif %}>Menus</a>
         <div class="nav__dropmenu">
           <a href="/alki-menu/">Alki Beach menu</a>
-          <a href="/kent-menu/">Kent menu</a>
+          <a href="/menu/">Kent menu</a>
         </div>
       </div>
       <a href="/locations/"{% if '/locations/' in page.url %} aria-current="page"{% endif %}>Locations</a>
