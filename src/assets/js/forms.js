@@ -8,7 +8,7 @@
 (function () {
   var ENDPOINT = window.DOSI_FORMS_ENDPOINT || null;
   var openedAt = Date.now();
-  var EMAIL = "dosikbbq@outlook.com";
+  var EMAIL = "info@dosikbbq.com";
 
   document.querySelectorAll("form[data-dosi-form]").forEach(function (form) {
     var trap = document.createElement("input");
