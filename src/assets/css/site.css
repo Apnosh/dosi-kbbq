@@ -760,3 +760,15 @@ button { font: inherit; color: inherit; }
 .menu-pick__list a:hover { background: var(--panel-2); }
 .menu-pick__list a[aria-current] { background: var(--red); }
 .menu-pick__list a[aria-current] small { color: #fff; }
+
+/* ---------- location pages: the longer write-up under the details ---------- */
+.loc-more { margin-top: clamp(48px, 7vw, 88px); }
+.loc-more__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+.loc-more__grid article { padding: 24px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
+.loc-more__grid article:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.loc-more__grid h3 { margin: 0 0 12px; font: 400 1.6rem/1.1 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.loc-more__grid p { margin: 0 0 12px; color: #d6d6d6; }
+.loc-more__grid p:last-child { margin: 0; }
+.loc-more__grid a, .loc-more .muted a { color: var(--gold); }
+.loc-more__faqhead { margin: clamp(40px, 6vw, 64px) 0 24px; }
+@media (max-width: 760px) { .loc-more__grid { grid-template-columns: 1fr; } .loc-more__grid article { padding: 20px; } }

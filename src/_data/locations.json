@@ -8,6 +8,7 @@
     "menuPage": "/alki-menu/",
     "phone": "(206) 806-8422",
     "address": { "street": "2516 Alki Ave SW", "city": "Seattle", "state": "WA", "zip": "98116" },
+    "geo": { "lat": 47.58071, "lng": -122.40595 },
     "hours": {
       "sun": [{ "open": "11:00", "close": "22:00" }],
       "mon": [{ "open": "15:00", "close": "21:00" }],
@@ -34,6 +35,7 @@
     "menuPage": "/menu/",
     "phone": "(253) 981-4277",
     "address": { "street": "12912 SE Kent-Kangley Rd", "city": "Kent", "state": "WA", "zip": "98030" },
+    "geo": { "lat": 47.35947, "lng": -122.16915 },
     "hours": {
       "sun": [{ "open": "11:00", "close": "21:00" }],
       "mon": [{ "open": "11:00", "close": "21:00" }],

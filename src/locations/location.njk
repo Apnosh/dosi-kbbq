@@ -81,6 +81,74 @@ eleventyComputed:
       </div>
     </aside>
   </div>
+  {# ---- more about this restaurant: every fact here is on the menus or elsewhere on the site ---- #}
+  <div class="wrap loc-more">
+    {% if loc.key == 'alki' %}
+    <p class="kr-label" lang="ko">알카이 비치</p>
+    <h2 class="rule-head"><span class="accent">Korean BBQ</span> in West Seattle</h2>
+    <div class="loc-more__grid">
+      <article>
+        <h3>All-you-can-eat on Alki Beach</h3>
+        <p>Do Si Alki is an all-you-can-eat Korean BBQ restaurant on Alki Avenue, steps from the West Seattle waterfront. Every table has its own grill. Pick one of three tiers for the table: Signature at {{ A.signature }} with 20 meats, Premium at {{ A.premium }} with 28, or Supreme at {{ A.supreme }} with all 32, including USDA Choice Angus ribeye and boneless short rib.</p>
+        <p>You order in rounds of up to 4 meats and 4 appetizers, with unlimited banchan, for 90 minutes. There is a 2-guest minimum, the whole table orders the same tier, and kids 4 to 10 are half price. <a href="{{ loc.menuPage }}#ayce">See the Alki Beach AYCE menu</a>.</p>
+      </article>
+      <article>
+        <h3>Happy hour by the water</h3>
+        <p>Happy hour is only at Alki Beach, from 2 to 5pm and again from 8pm to close. It comes with happy hour bites like corn cheese, wings and dumplings, house cocktails, $1 off beer and $2 off wine and liquor (excluding wells). <a href="{{ loc.menuPage }}#happy-hour">See the happy hour menu</a>.</p>
+        <p>The full bar also pours soju and Do Si’s own cocktails. <a href="{{ loc.menuPage }}#drinks">See the drinks menu</a>.</p>
+      </article>
+      <article>
+        <h3>A rooftop deck and a private second floor</h3>
+        <p>Upstairs, the dining room’s windows look onto the beach, and the rooftop deck looks out over the water. The second floor can be booked as a private space for up to 40 guests, any day of the week, for birthdays, company dinners, rehearsal dinners and holiday parties. Full restaurant buyouts are available too. <a href="/private-events/">Ask about a private event</a>.</p>
+      </article>
+      <article>
+        <h3>Combos, classics and pickup</h3>
+        <p>Not in the mood for all-you-can-eat? Order KBBQ combos for 2 or 4, à la carte meats for the grill, or Korean classics from the kitchen: fried chicken wings, seafood pancake, tokbokki, bibimbap, japchae, soft tofu stew and bento boxes. <a href="{{ loc.menuPage }}#combo-alacarte">See combos and à la carte</a>.</p>
+        {% if loc.orderUrl %}<p>Eating at home or on the beach? <a href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup from Alki Beach</a>.</p>{% endif %}
+      </article>
+      <article>
+        <h3>Finding us and booking</h3>
+        <p>We are at {{ l.address.street }}, {{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}, a short trip from Admiral and the rest of West Seattle. Walk-ins are always welcome. For groups and weekend nights, we recommend <a href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">reserving a table online</a> or calling <a href="{{ l.phone | telHref }}">{{ l.phone }}</a>. An 18% gratuity is added for parties of 5 or more.</p>
+      </article>
+    </div>
+    {% else %}
+    <p class="kr-label" lang="ko">켄트</p>
+    <h2 class="rule-head"><span class="accent">Korean BBQ</span> in Kent, WA</h2>
+    <div class="loc-more__grid">
+      <article>
+        <h3>All-you-can-eat in Kent</h3>
+        <p>Do Si Kent is the first Korean BBQ restaurant in Kent, on Kent-Kangley Road. Every table has its own grill. Pick one of three tiers for the table: Signature at {{ A.signature }} with 20 meats, Premium at {{ A.premium }} with 28, or Supreme at {{ A.supreme }} with all 32, including USDA Choice Angus ribeye and boneless short rib.</p>
+        <p>You order in rounds of up to 4 meats and 2 appetizers, with unlimited banchan, for 90 minutes. There is a 2-guest minimum, the whole table orders the same tier, and kids 4 to 10 are half price. <a href="{{ loc.menuPage }}#ayce">See the Kent AYCE menu</a>.</p>
+      </article>
+      <article>
+        <h3>Lunch specials and bento boxes</h3>
+        <p>Lunch specials run Monday to Friday, 11am to 4pm, and come with rice and banchan: beef, chicken or pork bulgogi, LA galbi, stir-fried squid, bibimbap, kimchi fried rice, japchae and three stews. Bento boxes add chicken wings and dumplings to your choice of LA galbi, bulgogi or stir-fried squid. <a href="{{ loc.menuPage }}#bento-lunch">See lunch and bento</a>.</p>
+      </article>
+      <article>
+        <h3>Birthdays, teams and big tables</h3>
+        <p>Kent is built for groups: birthdays, family dinners, coworkers and date nights, with plenty of parking outside. Book ahead for a large table, or <a href="/contact/#groups">tell us about your group</a> and we’ll help plan it. An 18% gratuity is added for parties of 5 or more.</p>
+      </article>
+      <article>
+        <h3>Combos, classics and pickup</h3>
+        <p>Not in the mood for all-you-can-eat? Order KBBQ combos for 2 or 4, à la carte meats for the grill, or Korean classics from the kitchen: fried chicken wings, seafood pancake, tokbokki, bibimbap, japchae and soft tofu stew, with soju and beer towers to share. <a href="{{ loc.menuPage }}#combo-alacarte">See combos and à la carte</a>.</p>
+        {% if loc.orderUrl %}<p>Eating at home? <a href="{{ loc.orderUrl }}" target="_blank" rel="noopener">Order pickup from Kent</a>.</p>{% endif %}
+      </article>
+      <article>
+        <h3>Finding us and booking</h3>
+        <p>We are at {{ l.address.street }}, {{ l.address.city }}, {{ l.address.state }} {{ l.address.zip }}, serving Kent, Renton, Auburn, Covington and the rest of South King County. Walk-ins are always welcome. For groups and weekend nights, we recommend <a href="{{ loc.reserveUrl }}" data-apnosh="book" target="_blank" rel="noopener">reserving a table online</a> or calling <a href="{{ l.phone | telHref }}">{{ l.phone }}</a>.</p>
+      </article>
+    </div>
+    {% endif %}
+
+    <h2 class="rule-head loc-more__faqhead"><span class="accent">Good</span> to know</h2>
+    <div class="faq">
+      {% set wanted = ["Do I need a reservation?", "How does all-you-can-eat work?", "Can I take leftovers home?", "Do you have vegetarian options?", "Can I order à la carte instead of AYCE?"] %}
+      {% for f in faq %}{% if f.q in wanted or (loc.key == 'alki' and 'rent out' in f.q) or (loc.key == 'kent' and 'birthdays' in f.q) %}
+      <details><summary>{{ f.q }}</summary><div class="answer"><p>{{ f.a | safe }}</p></div></details>
+      {% endif %}{% endfor %}
+    </div>
+    <p class="muted" style="margin-top:20px"><a href="/faq/">All frequently asked questions</a></p>
+  </div>
   <div class="wrap" style="margin-top:clamp(40px,6vw,72px)">
     <div class="map"><iframe title="Map to Do Si Korean BBQ {{ loc.name }}" src="{{ l.address | mapsEmbed }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
   </div>

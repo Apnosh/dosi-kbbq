@@ -26,6 +26,7 @@
     "priceRange": "$$",
     "servesCuisine": ["Korean", "Korean BBQ", "All-You-Can-Eat"],
     "address": { "@type": "PostalAddress", "streetAddress": l.address.street, "addressLocality": l.address.city, "addressRegion": l.address.state, "postalCode": l.address.zip, "addressCountry": "US" },
+    "geo": { "@type": "GeoCoordinates", "latitude": loc.geo.lat, "longitude": loc.geo.lng },
     "areaServed": l.areaServed,
     "openingHoursSpecification": l.hours | openingHoursSpec,
     "hasMenu": site.url + l.menuPage,
