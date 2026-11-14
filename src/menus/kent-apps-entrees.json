@@ -50,6 +50,14 @@
           "uncertain": false
         },
         {
+          "name": "Honey Garlic Soy Chicken",
+          "korean": "간장치킨",
+          "description": "Honey garlic soy glazed fried chicken wings (5pcs)",
+          "price": "$10.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
           "name": "Corn Cheese",
           "korean": "콘치즈",
           "description": "Sweet corn in creamy mayo topped with grilled savory cheese",
