@@ -79,12 +79,22 @@
           "uncertain": false
         },
         {
-          "name": "Seafood Pancake",
-          "korean": "해물파전",
-          "description": "Korean pancake made with shrimp, squid, and vegetables",
-          "price": "$18.95",
+          "name": "Sweet Potato Fries",
+          "korean": "고구마튀김",
+          "description": "Sweet potato fries tossed in fried garlic",
+          "price": "$10.45",
           "tags": [
-            "best seller"
+            "vegetarian"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "Sotteok Sotteok",
+          "korean": "소떡소떡",
+          "description": "Skewered sausage and rice cake with sweet & savory glaze",
+          "price": "$9.95",
+          "tags": [
+            "spicy"
           ],
           "uncertain": false
         },
@@ -94,6 +104,34 @@
           "description": "Deep fried Korean potstickers (8pcs)",
           "price": "$8.95",
           "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Quesadilla",
+          "korean": "케사디야",
+          "description": "Marinated Korean BBQ and melted cheese in a toasted tortilla",
+          "price": "$11.95",
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "name": "Calamari",
+          "korean": "오징어 튀김",
+          "description": "Lightly battered fried squid, served with a creamy & spicy sauce",
+          "price": "$18.95",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Seafood Pancake",
+          "korean": "해물파전",
+          "description": "Korean pancake made with shrimp, squid, and vegetables",
+          "price": "$18.95",
+          "tags": [
+            "best seller"
+          ],
           "uncertain": false
         },
         {
