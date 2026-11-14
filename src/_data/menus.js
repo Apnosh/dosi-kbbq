@@ -135,7 +135,7 @@ function clean(data, tabId) {
 
 /* Drinks: alcoholic first, then non-alcoholic, each under its own heading. A location whose
    drinks menu lists only one kind (Kent prints only alcohol) gets no headings. */
-const NO_ALCOHOL = /non-alcoholic|fountain|^drinks$/i;
+const NO_ALCOHOL = /non-alcoholic|fountain|^drinks$|mocktail|soft drinks/i;
 function groupDrinks(data) {
   const secs = data.sections || [];
   const na = secs.filter((s) => NO_ALCOHOL.test(s.name || ""));
@@ -143,8 +143,6 @@ function groupDrinks(data) {
   if (!na.length || !alc.length) return;
   alc[0].group = { id: "drinks-alcoholic", name: "Alcoholic", note: "Must be 21+ with valid ID" };
   na[0].group = { id: "drinks-non-alcoholic", name: "Non-alcoholic", note: null };
-  /* the printed NON-ALCOHOLIC list is alcohol-free beer; say so now that the group has that name */
-  for (const s of na) if (/^non-alcoholic$/i.test(s.name || "")) s.name = "Non-alcoholic beer";
   data.sections = [...alc, ...na];
   data.groups = [alc[0].group, na[0].group];
 }

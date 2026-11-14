@@ -1,6 +1,6 @@
 {
   "location": "kent",
-  "source": "Menu_BeerSoju_NonAlcoholic_Updated.png",
+  "source": "Menu_BeerSoju_NonAlcoholic_Updated.png, Kent cocktails & non-alcoholic menu card (Nov 2026)",
   "title": "Do Si Korean BBQ",
   "intro": [],
   "sections": [
@@ -103,6 +103,94 @@
           "korean": null,
           "description": "Soonhari Apple Mango, Grape, Green Apple, Lychee, Peach, Plum, Strawberry, Yogurt",
           "price": "$16",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Cocktails",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Do Si Special",
+          "korean": null,
+          "description": "Mezcal, Lime Juice, Basil, Simple Syrup",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Cigar on the Beach",
+          "korean": null,
+          "description": "Mezcal, House-Made Blood Orange Syrup, Lime Juice, Sparkling Water, Grenadine",
+          "price": "$16",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Margarita",
+          "korean": null,
+          "description": "Tequila Blanco, Lime (+$2 Mango, Strawberry, Lychee, Passion Fruit)",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Mojito",
+          "korean": null,
+          "description": "White Rum, Lime, Mint (+$2 Mango, Strawberry, Lychee, Passion Fruit)",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Lychee Martini",
+          "korean": null,
+          "description": "Vodka, St. Germain’s Elderflower Liqueur, Lychee Juice, Lychee Fruit",
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Lemon Drop",
+          "korean": null,
+          "description": "Vodka, Lemon Liqueur, Lemon Juice",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Do Si Fizz",
+          "korean": null,
+          "description": "Gin, Passion Fruit Syrup, Lime Juice",
+          "price": "$15",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Strawberry Yogurt Soju",
+          "korean": null,
+          "description": "Original Soju, Milkis, Strawberry Syrup, Dried Strawberry",
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Bloodmoon Soju",
+          "korean": null,
+          "description": "Original Soju, Blood Orange Syrup, Pineapple Juice, Milkis",
+          "price": "$14",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Blue Hawaiian Soju",
+          "korean": null,
+          "description": "Yogurt Soju, Milkis, Pineapple Juice, Blue Curacao",
+          "price": "$14",
           "tags": [],
           "uncertain": false
         }
@@ -255,6 +343,70 @@
           "korean": null,
           "description": null,
           "price": "$8",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Mocktails",
+      "korean": null,
+      "price": null,
+      "note": null,
+      "items": [
+        {
+          "name": "Basil Lemonade",
+          "korean": null,
+          "description": "Basil, Orgeat Syrup, Lemonade, Lemon",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Mangolada",
+          "korean": null,
+          "description": "Mango Syrup, Lime, Lemonade, Tajin",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Passion Punch",
+          "korean": null,
+          "description": "Passion Fruit Syrup, Lemon, Blue Curacao, Grenadine, Tajin, Soda",
+          "price": "$13",
+          "tags": [],
+          "uncertain": false
+        }
+      ]
+    },
+    {
+      "name": "Soft Drinks",
+      "korean": null,
+      "price": null,
+      "note": "Printed under the heading NON-ALCOHOLIC",
+      "items": [
+        {
+          "name": "Soda",
+          "korean": null,
+          "description": "Pepsi, Pepsi Zero, Diet Pepsi, Starry, Root Beer, Orange Crush, Dr. Pepper, Sparkling Water",
+          "price": "$3.50",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Milkis",
+          "korean": null,
+          "description": "Original, Honeydew, Peach, Banana",
+          "price": "$3.50",
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "name": "Juice",
+          "korean": null,
+          "description": "Orange, Pineapple, Lemonade",
+          "price": "$4.50",
           "tags": [],
           "uncertain": false
         }

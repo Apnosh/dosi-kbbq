@@ -191,10 +191,10 @@
       ]
     },
     {
-      "name": "NON-ALCOHOLIC",
+      "name": "NON-ALCOHOLIC BEER",
       "korean": null,
       "price": null,
-      "note": null,
+      "note": "Printed under the heading NON-ALCOHOLIC",
       "items": [
         {
           "name": "CORONA",
