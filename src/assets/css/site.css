@@ -772,3 +772,12 @@ button { font: inherit; color: inherit; }
 .loc-more__grid a, .loc-more .muted a { color: var(--gold); }
 .loc-more__faqhead { margin: clamp(40px, 6vw, 64px) 0 24px; }
 @media (max-width: 760px) { .loc-more__grid { grid-template-columns: 1fr; } .loc-more__grid article { padding: 20px; } }
+
+/* ---------- drinks: alcoholic and non-alcoholic groups ---------- */
+.menu-groups { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 8px; }
+.menu-groups a { display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 999px; border: 1px solid var(--line); text-decoration: none; font: 600 .76rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+.menu-groups a:hover { border-color: var(--gold); color: var(--gold); }
+.menu-group { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 44px 0 4px; padding-bottom: 10px; border-bottom: 3px double var(--line-2); scroll-margin-top: calc(var(--nav-h) + 70px); }
+.menu-group:first-of-type { margin-top: 20px; }
+.menu-group h3 { margin: 0; font: 400 clamp(1.9rem, 4.4vw, 2.8rem)/1 var(--display); text-transform: uppercase; color: var(--gold); }
+.menu-group span { font-size: .85rem; font-style: italic; color: var(--muted); }

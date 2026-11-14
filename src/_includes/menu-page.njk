@@ -64,7 +64,9 @@ bodyClass: page-menu
     <p class="tiers__adds" data-tier-adds aria-live="polite">{{ t.tiers[0].adds }}.</p>
     {% endif %}
 
+    {% if t.groups %}<p class="menu-groups">{% for g in t.groups %}<a href="#{{ g.id }}">{{ g.name }}</a>{% endfor %}</p>{% endif %}
     {% for s in t.sections %}
+    {% if s.group %}<div class="menu-group" id="{{ s.group.id }}"><h3>{{ s.group.name }}</h3>{% if s.group.note %}<span>{{ s.group.note }}</span>{% endif %}</div>{% endif %}
     <div class="menu-section"{% if s.tier %} data-section-tier="{{ s.tier }}"{% endif %}>
       <div class="menu-section__head">
         {% if s.tier %}
