@@ -43,7 +43,7 @@
       "fri": [{ "open": "11:00", "close": "22:00" }],
       "sat": [{ "open": "11:00", "close": "22:00" }]
     },
-    "reserveUrl": "https://tables.toasttab.com/restaurants/e2ed57e2-1125-4180-8284-8e773c417efd/findTime",
+    "reserveUrl": "https://reservation.chowbus.com/restaurant/9cefdd10-eb2f-4ccc-bd4b-9a3bc10304f0",
     "orderUrl": "https://www.toasttab.com/local/order/dosikbbq/r-e2ed57e2-1125-4180-8284-8e773c417efd?diningOption=takeout",
     "photo": "kent-storefront",
     "headline": "The first Korean BBQ in Kent, WA",

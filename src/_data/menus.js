@@ -32,10 +32,14 @@ const slugOf = (name) => String(name || "").toLowerCase().normalize("NFD").repla
    bento-<dish>, then everyone falls back to plain <dish>. */
 const photoFor = (name, prefixes = []) => {
   const slug = slugOf(name);
+  /* the AYCE menu prints the grade on its beef ("USDA Choice Beef Bulgogi"); the photo is named for the cut */
+  const slugs = [...new Set([slug, slug.replace(/^usda-choice-/, "")])];
   for (const p of [...prefixes, ""]) {
-    for (const ext of ["webp", "jpg", "png"]) {
-      const f = `${p}${slug}.${ext}`;
-      if (fs.existsSync(path.join(PHOTO_DIR, f))) return `/assets/img/menu/${f}`;
+    for (const sl of slugs) {
+      for (const ext of ["webp", "jpg", "png"]) {
+        const f = `${p}${sl}.${ext}`;
+        if (fs.existsSync(path.join(PHOTO_DIR, f))) return `/assets/img/menu/${f}`;
+      }
     }
   }
   return null;
@@ -46,14 +50,14 @@ const photoSlots = (tabId, i, s) =>
   tabId === "drinks" ? /cocktail/i.test(s.name || "") : !(tabId === "happy-hour" && i > 1);
 
 /* Menus read as text lists, like the printed ones, with a few photos beside each section
-   (the printed AYCE menu shows L1, L24, S30, S32 that way). FEATURE picks them by item number;
+   (the printed AYCE menu shows S1, S2, P5, L19 that way). FEATURE picks them by item number;
    any other section shows its best sellers that have photos, then other dishes with photos. */
 const FEATURE = {
-  "ayce/signature ayce": ["L1", "L9", "L24"],
-  "ayce/premium ayce": ["P25", "P28"],
-  "ayce/supreme ayce": ["S32", "S30"],
-  "ayce/ayce appetizers": ["A10", "A3", "A11"],
-  "ayce/supreme ayce appetizers": ["A14", "A18", "A15"],
+  "ayce/signature ayce": ["L19", "L21", "L27"],
+  "ayce/premium ayce": ["P5", "P7", "P12"],
+  "ayce/supreme ayce": ["S1", "S2"],
+  "ayce/ayce appetizers": ["A18", "A10", "A19"],
+  "ayce/supreme ayce appetizers": ["A1", "A5", "A2"],
 };
 function featured(tabId, s) {
   const items = (s.items || []).filter((i) => i.photo);
@@ -72,13 +76,13 @@ function tiersOf(sections) {
     const own = sections.find((s) => s.tier === level && s.price);
     const upTo = sections.filter((s) => s.tier <= level);
     const count = (re) => upTo.filter((s) => re.test(s.name || "")).reduce((n, s) => n + s.items.length, 0);
-    const tidy = (n) => String(n).replace(/\*+$/, "").toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase()).replace(/\bLa\b/, "LA");
+    const tidy = (n) => String(n).replace(/\*+$/, "").toLowerCase().replace(/\b([a-z])/g, (c) => c.toUpperCase()).replace(/\bLa\b/, "LA").replace(/\bUsda\b/, "USDA");
     const ownMeats = sections.filter((s) => s.tier === level && !/appetizer/i.test(s.name || "")).flatMap((s) => s.items.map((i) => tidy(i.name)));
     const ownApps = sections.filter((s) => s.tier === level && /appetizer/i.test(s.name || "")).flatMap((s) => s.items.map((i) => tidy(i.name)));
     const list = (a) => (a.length > 1 ? a.slice(0, -1).join(", ") + " and " + a[a.length - 1] : a[0] || "");
     let adds;
-    if (level === 1) adds = `${count(/^(?!.*appetizer)/i)} meats and ${count(/appetizer/i)} appetizers & stews, with banchan`;
-    else adds = `Everything in ${["Signature", "Premium"][level - 2]}, plus ${list(ownMeats)}${ownApps.length ? `, and ${ownApps.length} more appetizers: ${list(ownApps)}` : ""}`;
+    if (level === 1) adds = `${count(/^(?!.*appetizer)/i)} meats and ${count(/appetizer/i)} appetizers, with banchan`;
+    else adds = `Everything in ${["Signature", "Premium"][level - 2]}, plus ${list(ownMeats)}${ownApps.length ? `, and ${ownApps.length} more appetizers and stews: ${list(ownApps)}` : ""}`;
     return {
       level,
       adds,
@@ -122,7 +126,7 @@ function clean(data, tabId) {
       const n = String(s.name || "").toLowerCase();
       s.tier = /supreme/.test(n) ? 3 : /premium/.test(n) ? 2 : 1;
       s.tierHead = /appetizer/.test(n)
-        ? (s.tier === 3 ? "+ Supreme appetizers" : "Appetizers & stews")
+        ? (s.tier === 3 ? "+ Supreme appetizers & stews" : "Appetizers")
         : (s.tier === 1 ? "Meats" : s.tier === 2 ? "+ Premium meats" : "+ Supreme meats");
     }
   });
@@ -145,7 +149,7 @@ function ayce(menus) {
     const s = tab && tab.sections.find((x) => re.test(x.name || ""));
     return s ? s.price : null;
   };
-  /* one AYCE menu, three tiers: Signature (24 meats), Premium (+4), Supreme (+4 and extra appetizers) */
+  /* one AYCE menu, three tiers: Signature (20 meats), Premium (+8), Supreme (+4 and extra appetizers and stews) */
   const out = {};
   for (const [loc, tabs] of Object.entries(menus)) {
     const t = tabs.find((x) => x.id === "ayce");

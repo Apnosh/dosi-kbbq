@@ -14,11 +14,11 @@ module.exports = function () {
     },
     {
       q: "What’s the difference between Signature, Premium and Supreme?",
-      a: "Signature has 24 meats, from thin-sliced brisket and pork belly to bulgogi, chicken and shrimp, plus 13 appetizers and stews and unlimited banchan. Premium adds LA galbi, beef tongue, baby octopus and spicy marinated squid. Supreme adds pork jowl, beef intestine, Angus ribeye (limit 1 per person) and Angus boneless short rib (limit 2 per person), plus five Supreme-only appetizers: bulgogi quesadilla, sotteok sotteok, sweet potato fries, honey garlic soy wings and egg soufflé (1 per table).",
+      a: "Signature has 20 meats: sliced beef belly and pork belly in six marinades each, pork bulgogi, pork collar and four kinds of chicken, plus 12 appetizers and unlimited banchan. Premium adds USDA Choice brisket, beef bulgogi and LA galbi, beef tongue, shrimp, Cajun shrimp, baby octopus and spicy marinated squid. Supreme adds USDA Choice Angus ribeye and boneless short rib (limit 2 per person), pork jowl and beef intestine, plus seven Supreme-only appetizers and stews: bulgogi quesadilla, sotteok sotteok, sweet potato fries, calamari, egg soufflé (1 per table), kimchi stew and soybean stew.",
     },
     {
       q: "How does all-you-can-eat work?",
-      a: "Your whole table orders from the same AYCE menu, with a 2-guest minimum. You can order up to 4 types of meat and 2 appetizers per round, and dining time is 90 minutes. Our staff will help first-timers with the grill.",
+      a: "Your whole table orders from the same AYCE menu, with a 2-guest minimum. You can order up to 4 types of meat per round, plus 4 appetizers at Alki Beach or 2 in Kent, and dining time is 90 minutes. Our staff will help first-timers with the grill.",
     },
     {
       q: "Can I take leftovers home?",

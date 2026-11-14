@@ -1,6 +1,6 @@
 {
   "location": "kent",
-  "source": "Kent-Menu-AYCE.pdf, Kent-Menu-AYCE-appetizers.pdf (Oct 2026)",
+  "source": "Kent AYCE menu and AYCE appetizers menu (Nov 2026)",
   "title": "ALL YOU CAN EAT",
   "intro": [
     "Limit 90 minutes.",
@@ -9,30 +9,19 @@
     "Limit 4 types of meat & 2 appetizers per round."
   ],
   "fineprint": [
-    "(*) Ribeye: limit 1 per person. (**) Boneless short rib: limit 2 per person. Egg souffle: limit 1 per table.",
+    "(*) Ribeye and boneless short rib: limit 2 per person. Egg souffle: limit 1 per table.",
     "Entire party must order from the same menu. Leftovers & takeout is not allowed. There is an extra charge of $15 for any leftovers. 18% gratuity is added to parties of 5 or more. Consuming raw and undercooked meat, poultry, seafood, or eggs may increase your risk of foodborne illness. Prices are subject to change without notice."
   ],
   "sections": [
     {
       "name": "SIGNATURE AYCE",
       "korean": null,
-      "price": "$27.95",
-      "note": "24 meats",
+      "price": "$29.95",
+      "note": "20 meats",
       "items": [
         {
-          "number": "L1.",
-          "name": "THINLY SLICED BEEF BRISKET",
-          "korean": "차돌박이",
-          "description": null,
-          "price": null,
-          "tags": [
-            "best seller"
-          ],
-          "uncertain": false
-        },
-        {
-          "number": "L2.",
-          "name": "THINLY SLICED BEEF BELLY",
+          "number": "L13.",
+          "name": "USDA CHOICE THINLY SLICED BEEF BELLY",
           "korean": "우삼겹",
           "description": null,
           "price": null,
@@ -40,8 +29,8 @@
           "uncertain": false
         },
         {
-          "number": "L3.",
-          "name": "FRESH HERB SLICED BEEF BELLY",
+          "number": "L14.",
+          "name": "USDA CHOICE FRESH HERB SLICED BEEF BELLY",
           "korean": "허브우삼겹",
           "description": null,
           "price": null,
@@ -51,8 +40,8 @@
           "uncertain": false
         },
         {
-          "number": "L4.",
-          "name": "GOCHUJANG SLICED BEEF BELLY",
+          "number": "L15.",
+          "name": "USDA CHOICE GOCHUJANG SLICED BEEF BELLY",
           "korean": "고추장우삼겹",
           "description": null,
           "price": null,
@@ -62,8 +51,8 @@
           "uncertain": false
         },
         {
-          "number": "L5.",
-          "name": "ROSE WINE SLICED BEEF BELLY",
+          "number": "L16.",
+          "name": "USDA CHOICE ROSE WINE SLICED BEEF BELLY",
           "korean": "로제우삼겹",
           "description": null,
           "price": null,
@@ -71,8 +60,8 @@
           "uncertain": false
         },
         {
-          "number": "L6.",
-          "name": "BULDAK SLICED BEEF BELLY",
+          "number": "L17.",
+          "name": "USDA CHOICE BULDAK SLICED BEEF BELLY",
           "korean": "불닭우삼겹",
           "description": null,
           "price": null,
@@ -82,8 +71,8 @@
           "uncertain": false
         },
         {
-          "number": "L7.",
-          "name": "BBQ SLICED BEEF BELLY",
+          "number": "L18.",
+          "name": "USDA CHOICE BBQ SLICED BEEF BELLY",
           "korean": "비비큐우삼겹",
           "description": null,
           "price": null,
@@ -91,18 +80,7 @@
           "uncertain": false
         },
         {
-          "number": "L8.",
-          "name": "BEEF BULGOGI",
-          "korean": "불고기",
-          "description": null,
-          "price": null,
-          "tags": [
-            "best seller"
-          ],
-          "uncertain": false
-        },
-        {
-          "number": "L9.",
+          "number": "L19.",
           "name": "PORK BELLY",
           "korean": "삼겹살",
           "description": null,
@@ -113,7 +91,7 @@
           "uncertain": false
         },
         {
-          "number": "L10.",
+          "number": "L20.",
           "name": "RED WINE PORK BELLY",
           "korean": "와인삼겹살",
           "description": null,
@@ -122,7 +100,7 @@
           "uncertain": false
         },
         {
-          "number": "L11.",
+          "number": "L21.",
           "name": "THINLY SLICED PORK BELLY",
           "korean": "대패삼겹살",
           "description": null,
@@ -133,7 +111,7 @@
           "uncertain": false
         },
         {
-          "number": "L12.",
+          "number": "L22.",
           "name": "FRESH HERB SLICED PORK BELLY",
           "korean": "허브삼겹살",
           "description": null,
@@ -144,7 +122,7 @@
           "uncertain": false
         },
         {
-          "number": "L13.",
+          "number": "L23.",
           "name": "GOCHUJANG SLICED PORK BELLY",
           "korean": "고추장삼겹살",
           "description": null,
@@ -155,7 +133,7 @@
           "uncertain": false
         },
         {
-          "number": "L14.",
+          "number": "L24.",
           "name": "ROSE WINE SLICED PORK BELLY",
           "korean": "로제삼겹살",
           "description": null,
@@ -164,7 +142,7 @@
           "uncertain": false
         },
         {
-          "number": "L15.",
+          "number": "L25.",
           "name": "BULDAK SLICED PORK BELLY",
           "korean": "불닭삼겹살",
           "description": null,
@@ -175,7 +153,7 @@
           "uncertain": false
         },
         {
-          "number": "L16.",
+          "number": "L26.",
           "name": "BBQ SLICED PORK BELLY",
           "korean": "비비큐삼겹살",
           "description": null,
@@ -184,7 +162,7 @@
           "uncertain": false
         },
         {
-          "number": "L17.",
+          "number": "L27.",
           "name": "PORK BULGOGI",
           "korean": "돼지불고기",
           "description": null,
@@ -196,7 +174,7 @@
           "uncertain": false
         },
         {
-          "number": "L18.",
+          "number": "L28.",
           "name": "MARINATED PORK COLLAR",
           "korean": "목살",
           "description": null,
@@ -205,7 +183,7 @@
           "uncertain": false
         },
         {
-          "number": "L19.",
+          "number": "L29.",
           "name": "FRESH HERB CHICKEN",
           "korean": "허브치킨",
           "description": null,
@@ -216,7 +194,7 @@
           "uncertain": false
         },
         {
-          "number": "L20.",
+          "number": "L30.",
           "name": "GARLIC SOY CHICKEN",
           "korean": "마늘치킨",
           "description": null,
@@ -225,7 +203,7 @@
           "uncertain": false
         },
         {
-          "number": "L21.",
+          "number": "L31.",
           "name": "BULDAK CHICKEN",
           "korean": "불닭치킨",
           "description": null,
@@ -236,29 +214,9 @@
           "uncertain": false
         },
         {
-          "number": "L22.",
+          "number": "L32.",
           "name": "CHICKEN BULGOGI",
           "korean": "치킨불고기",
-          "description": null,
-          "price": null,
-          "tags": [
-            "spicy"
-          ],
-          "uncertain": false
-        },
-        {
-          "number": "L23.",
-          "name": "SHRIMP",
-          "korean": "새우",
-          "description": null,
-          "price": null,
-          "tags": [],
-          "uncertain": false
-        },
-        {
-          "number": "L24.",
-          "name": "CAJUN SHRIMP",
-          "korean": "케이준새우",
           "description": null,
           "price": null,
           "tags": [
@@ -275,8 +233,30 @@
       "note": "Includes all Signature AYCE, plus:",
       "items": [
         {
-          "number": "P25.",
-          "name": "LA GALBI",
+          "number": "P5.",
+          "name": "USDA CHOICE BEEF BRISKET",
+          "korean": "차돌박이",
+          "description": null,
+          "price": null,
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": "P6.",
+          "name": "USDA CHOICE BEEF BULGOGI",
+          "korean": "불고기",
+          "description": null,
+          "price": null,
+          "tags": [
+            "best seller"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": "P7.",
+          "name": "USDA CHOICE LA GALBI",
           "korean": "LA 갈비",
           "description": null,
           "price": null,
@@ -286,7 +266,7 @@
           "uncertain": false
         },
         {
-          "number": "P26.",
+          "number": "P8.",
           "name": "BEEF TONGUE",
           "korean": "우설",
           "description": null,
@@ -295,7 +275,27 @@
           "uncertain": false
         },
         {
-          "number": "P27.",
+          "number": "P9.",
+          "name": "SHRIMP",
+          "korean": "새우",
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": "P10.",
+          "name": "CAJUN SHRIMP",
+          "korean": "케이준새우",
+          "description": null,
+          "price": null,
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": "P11.",
           "name": "BABY OCTOPUS",
           "korean": "쭈꾸미",
           "description": null,
@@ -304,7 +304,7 @@
           "uncertain": false
         },
         {
-          "number": "P28.",
+          "number": "P12.",
           "name": "MARINATED SQUID",
           "korean": "매운오징어",
           "description": null,
@@ -324,26 +324,8 @@
       "note": "Includes all Signature and Premium AYCE, plus:",
       "items": [
         {
-          "number": "S29.",
-          "name": "PORK JOWL",
-          "korean": "항정살",
-          "description": null,
-          "price": null,
-          "tags": [],
-          "uncertain": false
-        },
-        {
-          "number": "S30.",
-          "name": "BEEF INTESTINE",
-          "korean": "곱창",
-          "description": null,
-          "price": null,
-          "tags": [],
-          "uncertain": false
-        },
-        {
-          "number": "S31.",
-          "name": "ANGUS BEEF RIBEYE*",
+          "number": "S1.",
+          "name": "USDA CHOICE ANGUS BEEF RIBEYE*",
           "korean": "꽃등심",
           "description": null,
           "price": null,
@@ -353,14 +335,32 @@
           "uncertain": false
         },
         {
-          "number": "S32.",
-          "name": "ANGUS BEEF BONELESS SHORT RIB**",
+          "number": "S2.",
+          "name": "USDA CHOICE ANGUS BEEF BONELESS SHORT RIB*",
           "korean": "꽃살",
           "description": null,
           "price": null,
           "tags": [
             "best seller"
           ],
+          "uncertain": false
+        },
+        {
+          "number": "S3.",
+          "name": "PORK JOWL",
+          "korean": "항정살",
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": "S4.",
+          "name": "BEEF INTESTINE",
+          "korean": "곱창",
+          "description": null,
+          "price": null,
+          "tags": [],
           "uncertain": false
         }
       ]
@@ -372,7 +372,7 @@
       "note": "Included with Signature & Premium AYCE",
       "items": [
         {
-          "number": "A1.",
+          "number": "A8.",
           "name": "GARLIC FRENCH FRIES",
           "korean": "감자튀김",
           "description": null,
@@ -383,7 +383,7 @@
           "uncertain": false
         },
         {
-          "number": "A2.",
+          "number": "A9.",
           "name": "CRISPY FRIED CHICKEN WINGS",
           "korean": "후라이드 치킨",
           "description": null,
@@ -392,7 +392,7 @@
           "uncertain": false
         },
         {
-          "number": "A3.",
+          "number": "A10.",
           "name": "DO SI FRIED CHICKEN WINGS",
           "korean": "도시 시그니쳐 치킨",
           "description": null,
@@ -403,7 +403,7 @@
           "uncertain": false
         },
         {
-          "number": "A4.",
+          "number": "A11.",
           "name": "BUTTER SWEET CHILI CHICKEN WINGS",
           "korean": "닭강정",
           "description": null,
@@ -414,7 +414,7 @@
           "uncertain": false
         },
         {
-          "number": "A5.",
+          "number": "A12.",
           "name": "YANGNYEOM FRIED CHICKEN WINGS",
           "korean": "양념치킨",
           "description": null,
@@ -425,7 +425,16 @@
           "uncertain": false
         },
         {
-          "number": "A6.",
+          "number": "A13.",
+          "name": "HONEY GARLIC SOY CHICKEN WINGS",
+          "korean": "간장치킨",
+          "description": null,
+          "price": null,
+          "tags": [],
+          "uncertain": false
+        },
+        {
+          "number": "A14.",
           "name": "FRIED KOREAN DUMPLINGS",
           "korean": "군만두",
           "description": null,
@@ -436,7 +445,7 @@
           "uncertain": false
         },
         {
-          "number": "A7.",
+          "number": "A15.",
           "name": "JAPCHAE",
           "korean": "잡채",
           "description": null,
@@ -445,7 +454,7 @@
           "uncertain": false
         },
         {
-          "number": "A8.",
+          "number": "A16.",
           "name": "BIBIMBAP",
           "korean": "비빔밥",
           "description": null,
@@ -457,7 +466,7 @@
           "uncertain": false
         },
         {
-          "number": "A9.",
+          "number": "A17.",
           "name": "TOKBOKKI",
           "korean": "떡볶이",
           "description": null,
@@ -468,7 +477,7 @@
           "uncertain": false
         },
         {
-          "number": "A10.",
+          "number": "A18.",
           "name": "CORN CHEESE",
           "korean": "콘치즈",
           "description": null,
@@ -480,7 +489,7 @@
           "uncertain": false
         },
         {
-          "number": "A11.",
+          "number": "A19.",
           "name": "CRISPY PANCAKE",
           "korean": "파전",
           "description": null,
@@ -488,26 +497,6 @@
           "tags": [
             "vegetarian"
           ],
-          "uncertain": false
-        },
-        {
-          "number": "A12.",
-          "name": "KIMCHI STEW",
-          "korean": "김치찌개",
-          "description": null,
-          "price": null,
-          "tags": [
-            "spicy"
-          ],
-          "uncertain": false
-        },
-        {
-          "number": "A13.",
-          "name": "SOYBEAN STEW",
-          "korean": "된장찌개",
-          "description": null,
-          "price": null,
-          "tags": [],
           "uncertain": false
         }
       ]
@@ -519,10 +508,10 @@
       "note": "Included with Supreme AYCE, plus all Signature & Premium appetizers",
       "items": [
         {
-          "number": "A14.",
+          "number": "A1.",
           "name": "BULGOGI QUESADILLA",
           "korean": "불고기 케사디야",
-          "description": "Sweet, savory beef wrapped in a crispy, melted-cheese tortilla",
+          "description": null,
           "price": null,
           "tags": [
             "best seller",
@@ -531,10 +520,10 @@
           "uncertain": false
         },
         {
-          "number": "A15.",
+          "number": "A2.",
           "name": "SOTTEOK SOTTEOK",
           "korean": "소떡소떡",
-          "description": "Sausages and rice cakes, glazed in a sweet and spicy sauce",
+          "description": null,
           "price": null,
           "tags": [
             "spicy"
@@ -542,10 +531,10 @@
           "uncertain": false
         },
         {
-          "number": "A16.",
+          "number": "A3.",
           "name": "SWEET POTATO FRIES",
           "korean": "고구마튀김",
-          "description": "Crispy deep-fried sweet potato served with ketchup",
+          "description": null,
           "price": null,
           "tags": [
             "vegetarian"
@@ -553,23 +542,43 @@
           "uncertain": false
         },
         {
-          "number": "A17.",
-          "name": "HONEY GARLIC SOY CHICKEN WINGS",
-          "korean": "간장치킨",
-          "description": "Crispy chicken coated in a glossy, sticky glaze",
+          "number": "A4.",
+          "name": "CALAMARI",
+          "korean": "오징어 튀김",
+          "description": null,
           "price": null,
           "tags": [],
           "uncertain": false
         },
         {
-          "number": "A18.",
+          "number": "A5.",
           "name": "EGG SOUFFLE*",
           "korean": "계란찜",
-          "description": "Savory steamed egg in a clay pot",
+          "description": null,
           "price": null,
           "tags": [
             "best seller"
           ],
+          "uncertain": false
+        },
+        {
+          "number": "A6.",
+          "name": "KIMCHI STEW",
+          "korean": "김치찌개",
+          "description": null,
+          "price": null,
+          "tags": [
+            "spicy"
+          ],
+          "uncertain": false
+        },
+        {
+          "number": "A7.",
+          "name": "SOYBEAN STEW",
+          "korean": "된장찌개",
+          "description": null,
+          "price": null,
+          "tags": [],
           "uncertain": false
         }
       ]

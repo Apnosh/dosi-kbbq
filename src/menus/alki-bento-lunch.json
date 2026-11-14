@@ -94,7 +94,7 @@
           "name": "CHICKEN BULGOGI",
           "korean": "닭불고기",
           "description": "Grilled chicken marinated in spicy house sauce",
-          "price": "$18.45",
+          "price": "$18.95",
           "tags": [
             "spicy"
           ],
@@ -139,7 +139,7 @@
           "name": "BIBIMBAP",
           "korean": "비빔밥",
           "description": "Steamed rice mixed with sautéed vegetables, beef topped with egg & spicy bibimbap sauce",
-          "price": "$17.45",
+          "price": "$17.95",
           "tags": [
             "spicy"
           ],

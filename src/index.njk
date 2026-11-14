@@ -3,7 +3,7 @@ layout: base.njk
 permalink: /
 bodyClass: page-home
 schemaRestaurants: all
-description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers up to 32 meats, grilled at your table with banchan, stews, soju and cocktails. Or order à la carte. On Alki Beach in West Seattle and in Kent, WA.
+description: All-you-can-eat Korean BBQ in Seattle from $29.95, in three tiers up to 32 meats, grilled at your table with banchan, stews, soju and cocktails. Or order à la carte. On Alki Beach in West Seattle and in Kent, WA.
 ---
 {%- set alki = locations | byKey('alki') | withPortal(apnosh) -%}
 {%- set kent = locations | byKey('kent') | withPortal(apnosh) -%}
@@ -52,25 +52,25 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
     <p class="sub">Per person. The whole table orders from the same menu.</p>
     <div class="board">
       <a class="board__col" href="/alki-menu/#ayce-signature">
-        <div class="board__img">{% img "kbbq-spread", "A Korean BBQ table with pork belly, corn cheese and banchan", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">24 meats</span></div>
+        <div class="board__img">{% img "kbbq-spread", "A Korean BBQ table with pork belly, corn cheese and banchan", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">20 meats</span></div>
         <h3><span class="accent">Signature</span> AYCE</h3>
-        <p class="board__note">Brisket, pork belly, bulgogi, chicken and shrimp, with 13 appetizers and stews and endless banchan</p>
+        <p class="board__note">Beef belly, pork belly, pork bulgogi and chicken, with 12 appetizers and endless banchan</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.signature }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.signature }}</dd></div></dl>
       </a>
       <a class="board__col" href="/alki-menu/#ayce-premium">
         <div class="board__img">{% img "kbbq-cuts", "Ribeye, short rib and brisket ready for the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">28 meats</span></div>
         <h3><span class="accent">Premium</span> AYCE</h3>
-        <p class="board__note">All of Signature, plus LA galbi, beef tongue, baby octopus and spicy squid</p>
+        <p class="board__note">All of Signature, plus USDA Choice brisket, bulgogi and LA galbi, beef tongue, shrimp, baby octopus and spicy squid</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.premium }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.premium }}</dd></div></dl>
       </a>
       <a class="board__col board__col--top" href="/alki-menu/#ayce-supreme">
-        <div class="board__img">{% img "kbbq-platter", "A platter of premium cuts over the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">32 meats</span><span class="tag tag--new board__new">5 new apps</span></div>
+        <div class="board__img">{% img "kbbq-platter", "A platter of premium cuts over the grill", { sizes: "(max-width: 900px) 100vw, 33vw" } %}<span class="photo-label">32 meats</span><span class="tag tag--new board__new">7 more apps</span></div>
         <h3><span class="accent">Supreme</span> AYCE</h3>
-        <p class="board__note">All of Premium, plus Angus ribeye and short rib, pork jowl, beef intestine, and Supreme-only apps like egg soufflé and bulgogi quesadilla</p>
+        <p class="board__note">All of Premium, plus USDA Choice Angus ribeye and short rib, pork jowl, beef intestine, and Supreme-only apps and stews like egg soufflé, calamari and bulgogi quesadilla</p>
         <dl class="board__prices"><div><dt>Alki Beach</dt><dd>{{ A.alki.supreme }}</dd></div><div><dt>Kent</dt><dd>{{ A.kent.supreme }}</dd></div></dl>
       </a>
     </div>
-    <p class="fineline">Limit 90 minutes · Minimum 2 persons per table · Kids (4–10) half price · 4 meats &amp; 2 appetizers per round</p>
+    <p class="fineline">Limit 90 minutes · Minimum 2 persons per table · Kids (4–10) half price · 4 meats per round, with 4 appetizers at Alki Beach or 2 in Kent</p>
   </div>
 </section>
 
@@ -131,7 +131,7 @@ description: All-you-can-eat Korean BBQ in Seattle from $27.95, in three tiers u
       <h2 class="display h2">New to <span class="accent">Korean BBQ?</span></h2>
       <ol class="steps">
         <li><b>1</b><span>Pick Signature, Premium or Supreme for the table.</span></li>
-        <li><b>2</b><span>Order up to 4 meats and 2 appetizers a round. Banchan comes with it.</span></li>
+        <li><b>2</b><span>Order up to 4 meats a round, plus appetizers (4 at Alki Beach, 2 in Kent). Banchan comes with it.</span></li>
         <li><b>3</b><span>Your server gets the grill going and shows you how. Order again whenever you’re ready.</span></li>
       </ol>
       <blockquote class="pull"><p>“{{ R.firstTimers.quote }}”</p><cite>{{ R.firstTimers.name }}, Google review</cite></blockquote>
