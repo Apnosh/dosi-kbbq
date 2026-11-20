@@ -654,7 +654,7 @@ button { font: inherit; color: inherit; }
   .msec .item__kr { font-size: .72rem; margin-bottom: 1px; }
 }
 /* two columns read top to bottom, like the printed menu (L1–L12, then L13–L24) */
-@media (min-width: 1100px) {
+@media (min-width: 761px) {
   .msec--pics .items:not(.items--plain) { display: block; columns: 2; column-gap: 40px; }
   .msec--pics .items:not(.items--plain) .item { break-inside: avoid; }
 }
@@ -717,8 +717,8 @@ button { font: inherit; color: inherit; }
 .bleed--dark::after { background: linear-gradient(180deg, rgba(12,12,12,.55) 0%, rgba(12,12,12,.7) 45%, rgba(12,12,12,.95) 100%); }
 .bleed--dark .bleed__text, .bleed--dark .h2, .bleed--dark .bleed__quote { text-shadow: 0 2px 18px rgba(0,0,0,.6); }
 
-/* short sections (10 dishes or fewer): photos sit in a row above the list instead of a tall column
-   beside it, which left a gap when the list was shorter than the photos */
+/* every section: photos sit in a row above the list instead of a tall column beside it, which
+   left an empty gap whenever the list was shorter than the photos */
 .msec--row { grid-template-columns: 1fr; gap: 6px; }
 .msec--row .msec__pics { order: 0; position: static; padding: 0; display: flex; flex-wrap: wrap; gap: 18px; }
 .msec--row .msec__pic { width: 170px; }

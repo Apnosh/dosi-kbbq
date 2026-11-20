@@ -80,8 +80,9 @@ bodyClass: page-menu
         {% endif %}
       </div>
       {% if s.note and not s.tier %}<p class="menu-section__note">{{ s.note }}</p>{% endif %}
+      {#- photos sit in a row above the list; a column beside it ran taller than the list and left a gap -#}
       {%- set pics = s.featured if site.menuPhotos != "none" else [] -%}
-      <div class="msec{% if pics.length %} msec--pics{% if s.items.length <= 10 %} msec--row{% endif %}{% endif %}">
+      <div class="msec{% if pics.length %} msec--pics msec--row{% endif %}">
         {% if pics.length %}
         <div class="msec__pics msec__pics--{{ pics.length }}">
           {% for f in pics %}
