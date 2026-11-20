@@ -71,7 +71,7 @@ function featured(tabId, s) {
 }
 
 /* the tier the AYCE menu opens on (1 Signature, 2 Premium, 3 Supreme); a #ayce-<tier> link still wins */
-const DEFAULT_TIER = 2;
+const DEFAULT_TIER = 3;
 
 /* the tier picker: each tier's price and what it includes, counting every lower tier too */
 function tiersOf(sections) {

@@ -134,7 +134,7 @@
   }
 
   /* AYCE tier picker: show only what the chosen tier includes. Without JS every section shows.
-     It opens on the tier marked data-default (Premium); a link like /alki-menu/#ayce-supreme
+     It opens on the tier marked data-default (Supreme); a link like /alki-menu/#ayce-supreme
      opens with that tier picked instead. */
   var tierBox = document.querySelector("[data-tiers]");
   if (tierBox) {

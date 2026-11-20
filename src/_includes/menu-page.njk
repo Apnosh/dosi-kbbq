@@ -52,7 +52,8 @@ bodyClass: page-menu
     <p class="tiers__label">Your table's tier · tap to compare</p>
     <div class="tiers textured" data-tiers>
       <div class="tiers__opts" role="tablist" aria-label="AYCE tiers">
-        {% for tr in t.tiers %}
+        {# priciest first, like the printed menu: Supreme, Premium, Signature #}
+        {% for tr in t.tiers | reverse %}
         <button type="button" class="tier" role="tab" data-tier="{{ tr.level }}" data-key="{{ tr.key }}" data-adds="{{ tr.adds }}" {% if tr.isDefault %}data-default {% endif %}aria-selected="{{ 'true' if tr.isDefault else 'false' }}">
           <span class="tier__name">{{ tr.name }}</span>
           <span class="tier__price">{{ tr.price }}</span>
