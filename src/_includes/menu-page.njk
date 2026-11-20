@@ -53,7 +53,7 @@ bodyClass: page-menu
     <div class="tiers textured" data-tiers>
       <div class="tiers__opts" role="tablist" aria-label="AYCE tiers">
         {% for tr in t.tiers %}
-        <button type="button" class="tier" role="tab" data-tier="{{ tr.level }}" data-key="{{ tr.key }}" data-adds="{{ tr.adds }}" aria-selected="{{ 'true' if loop.first else 'false' }}">
+        <button type="button" class="tier" role="tab" data-tier="{{ tr.level }}" data-key="{{ tr.key }}" data-adds="{{ tr.adds }}" {% if tr.isDefault %}data-default {% endif %}aria-selected="{{ 'true' if tr.isDefault else 'false' }}">
           <span class="tier__name">{{ tr.name }}</span>
           <span class="tier__price">{{ tr.price }}</span>
           <span class="tier__what">{{ tr.meats }} meats · {{ tr.apps }} apps</span>
@@ -61,7 +61,7 @@ bodyClass: page-menu
         {% endfor %}
       </div>
     </div>
-    <p class="tiers__adds" data-tier-adds aria-live="polite">{{ t.tiers[0].adds }}.</p>
+    <p class="tiers__adds" data-tier-adds aria-live="polite">{% for tr in t.tiers %}{% if tr.isDefault %}{{ tr.adds }}.{% endif %}{% endfor %}</p>
     {% endif %}
 
     {% if t.groups %}<p class="menu-groups">{% for g in t.groups %}<a href="#{{ g.id }}">{{ g.name }}</a>{% endfor %}</p>{% endif %}

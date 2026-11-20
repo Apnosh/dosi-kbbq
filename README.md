@@ -47,7 +47,8 @@ see the new one.
 ### AYCE tiers
 
 The All You Can Eat menu has a Signature / Premium / Supreme bar that stays pinned under the menu tabs
-while you scroll it. Picking a tier shows only the meats and appetizers it includes, says what it adds
+while you scroll it. It opens on Premium (`DEFAULT_TIER` in `src/_data/menus.js`), and the priciest
+tier's sections come first, so switching tiers changes the top of the menu. Picking a tier shows only the meats and appetizers it includes, says what it adds
 over the tier below, and briefly highlights the sections that just appeared. Link straight to a tier with `/alki-menu/#ayce-supreme` (or
 `#ayce-signature`, `#ayce-premium`); the home page price board does this.
 

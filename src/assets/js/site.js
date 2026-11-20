@@ -134,7 +134,8 @@
   }
 
   /* AYCE tier picker: show only what the chosen tier includes. Without JS every section shows.
-     A link like /alki-menu/#ayce-supreme opens with that tier picked. */
+     It opens on the tier marked data-default (Premium); a link like /alki-menu/#ayce-supreme
+     opens with that tier picked instead. */
   var tierBox = document.querySelector("[data-tiers]");
   if (tierBox) {
     var block = tierBox.closest(".menu-block");
@@ -172,7 +173,8 @@
       b.addEventListener("click", function () { pickTier(Number(b.getAttribute("data-tier")), true); });
     });
     var fromHash = /^#ayce-(signature|premium|supreme)$/.exec(location.hash);
-    var start = fromHash ? ["signature", "premium", "supreme"].indexOf(fromHash[1]) + 1 : 1;
+    var dflt = tierBox.querySelector("[data-default]");
+    var start = fromHash ? ["signature", "premium", "supreme"].indexOf(fromHash[1]) + 1 : (dflt ? Number(dflt.getAttribute("data-tier")) : 1);
     pickTier(start);
     if (fromHash) setTimeout(function () { block.scrollIntoView(); }, 0);
   }

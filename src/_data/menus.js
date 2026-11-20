@@ -70,6 +70,9 @@ function featured(tabId, s) {
   return pick.slice(0, howMany).map((i) => ({ photo: i.photo, name: i.name.replace(/\*+$/, ""), number: code(i) }));
 }
 
+/* the tier the AYCE menu opens on (1 Signature, 2 Premium, 3 Supreme); a #ayce-<tier> link still wins */
+const DEFAULT_TIER = 2;
+
 /* the tier picker: each tier's price and what it includes, counting every lower tier too */
 function tiersOf(sections) {
   return [1, 2, 3].map((level) => {
@@ -86,6 +89,7 @@ function tiersOf(sections) {
     return {
       level,
       adds,
+      isDefault: level === DEFAULT_TIER,
       key: ["signature", "premium", "supreme"][level - 1],
       name: ["Signature", "Premium", "Supreme"][level - 1],
       price: own ? own.price : null,
@@ -126,8 +130,8 @@ function clean(data, tabId) {
       const n = String(s.name || "").toLowerCase();
       s.tier = /supreme/.test(n) ? 3 : /premium/.test(n) ? 2 : 1;
       s.tierHead = /appetizer/.test(n)
-        ? (s.tier === 3 ? "+ Supreme appetizers & stews" : "Appetizers")
-        : (s.tier === 1 ? "Meats" : s.tier === 2 ? "+ Premium meats" : "+ Supreme meats");
+        ? (s.tier === 3 ? "Supreme appetizers & stews" : "Appetizers")
+        : (s.tier === 1 ? "Signature meats" : s.tier === 2 ? "Premium meats" : "Supreme meats");
     }
   });
   return data;
@@ -152,7 +156,13 @@ function load(loc) {
     const file = path.join(DIR, `${loc}-${t.id}.json`);
     if (!fs.existsSync(file)) return null;
     const data = clean(JSON.parse(fs.readFileSync(file, "utf8")), t.id);
-    if (AYCE.has(t.id)) data.tiers = tiersOf(data.sections);
+    if (AYCE.has(t.id)) {
+      data.tiers = tiersOf(data.sections);
+      /* the priciest tier's sections come first (meats, then appetizers), so switching tiers
+         changes the top of the menu: Supreme opens on its own cuts, Premium on its own, and so on */
+      const isApp = (x) => /appetizer/i.test(x.name || "");
+      data.sections = [...data.sections].sort((a, b) => isApp(a) - isApp(b) || b.tier - a.tier);
+    }
     if (t.id === "drinks") groupDrinks(data);
     return { ...data, id: t.id, label: t.label };
   }).filter(Boolean);
